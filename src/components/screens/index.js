@@ -71,6 +71,31 @@ export const Index = (props) => {
     },
   ];
 
+  let footer_span = {
+    xs: 24,
+    sm: 24,
+    md: 12,
+    lg: 12,
+    xl: 8,
+    xxl: 8,
+  };
+  let footer_far_span = {
+    xs: 24,
+    sm: 24,
+    md: 24,
+    lg: 24,
+    xl: 8,
+    xxl: 8,
+  };
+  let footer_article = {
+    xs: 24,
+    sm: 24,
+    md: 12,
+    lg: 12,
+    xl: 24,
+    xxl: 24,
+  };
+
   let span = {
     xs: 22,
     sm: 20,
@@ -127,7 +152,7 @@ export const Index = (props) => {
           {/* container start */}
           <Col {...span} className="app">
             <Row gutter={24}>
-              <Col span={8}>
+              <Col style={{ marginBottom: 30 }} {...footer_span}>
                 <img
                   src={logo_white}
                   className="footer_logo"
@@ -149,7 +174,7 @@ export const Index = (props) => {
                   ))}
                 </div>
               </Col>
-              <Col span={8}>
+              <Col style={{ marginBottom: 30 }} {...footer_span}>
                 <p className="footer_title">Browse by Sections</p>
                 <Row gutter={12}>
                   {menus.map((item) => (
@@ -161,20 +186,24 @@ export const Index = (props) => {
                   ))}
                 </Row>
               </Col>
-              <Col span={8}>
+              <Col {...footer_far_span}>
                 <p className="footer_title">Recent News</p>
-
-                {news.map((item) => {
-                  return (
-                    <a href={item.link}>
-                      <div className="recent_news_container">
-                        <p className="recent_news_title">{item.title}</p>
-                        <FA icon={"far fa-clock"} title={item.date} />
-                      </div>
-                    </a>
-                  );
-                })}
+                <Row>
+                  {news.map((item) => {
+                    return (
+                      <Col {...footer_article}>
+                        <a href={item.link}>
+                          <div className="recent_news_container">
+                            <p className="recent_news_title">{item.title}</p>
+                            <FA icon={"far fa-clock"} title={item.date} />
+                          </div>
+                        </a>
+                      </Col>
+                    );
+                  })}
+                </Row>
               </Col>
+              <Col>2022 &copy; PublicHealth.New - Freedom From Pain</Col>
             </Row>
           </Col>
           {/* container end */}
