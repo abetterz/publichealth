@@ -348,7 +348,7 @@ export default function Body() {
         />
         <SideBarItems
           assigned="react dev 4 9pm"
-          title="Dr. Paul Alexandar "
+          title="Dr. Paul Alexander "
           title_blue=" Substack"
           data={alexander_substack}
         />
