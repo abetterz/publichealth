@@ -354,8 +354,8 @@ export default function Body() {
         />
         <SideBarItems
           assigned="react dev 4 9pm"
-          title="Covid-19 overview"
-          title_blue=" Substack"
+          title="Covid-19 "
+          title_blue=" Overview"
           data={alexander_covid_overview}
         />
         <SideBarItems
