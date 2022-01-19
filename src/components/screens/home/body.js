@@ -322,7 +322,7 @@ export default function Body() {
         />
         <SideBarItems
           assigned="react dev 4 9pm"
-          title="Scientifics "
+          title="Scientific "
           title_blue=" Studies"
           data={science_substack}
         />
