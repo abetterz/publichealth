@@ -1,13 +1,8 @@
 import React from "react";
 import { Row, Col, Divider } from "antd";
 import Hero from "./carousel";
-import { FA } from "../../utils/images";
+import { FA } from "../../../utils/images";
 import { Card, Avatar } from "antd";
-import {
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
 
 const { Meta } = Card;
 

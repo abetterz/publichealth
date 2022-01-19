@@ -5,7 +5,8 @@ import logo from "../../assets/logo.png";
 import logo_white from "../../assets/logo_white.png";
 import MainMenu from "../menu";
 import { FA } from "../../utils/images";
-import Body from "./body";
+import AppRoute from "../../app/route";
+import { Link } from "react-router-dom";
 export const Index = (props) => {
   const social_media = [
     {
@@ -85,11 +86,13 @@ export const Index = (props) => {
           <Col className="header" span={24}>
             <Row justify="space-around" align="middle">
               <Col span={24}>
-                <img
-                  src={logo}
-                  className="public_health_logo"
-                  alt="public health logo"
-                />
+                <Link to="/">
+                  <img
+                    src={logo}
+                    className="public_health_logo"
+                    alt="public health logo"
+                  />
+                </Link>
               </Col>
               <Col span={24}>
                 <Row>
@@ -104,7 +107,7 @@ export const Index = (props) => {
             </Row>
           </Col>
           <Col span={24}>
-            <Body />
+            <AppRoute />
           </Col>
         </Row>
       </Col>
