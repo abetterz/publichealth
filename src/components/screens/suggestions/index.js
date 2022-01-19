@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 export const Suggestions = (props) => {
-  return <div> Due: 1/19/2022 - 7pm</div>;
+  return <div> Reviewing Code and Uploading by: Due: 1/20/2022 - 12:00 pm</div>;
 };
 
 const mapStateToProps = (state) => ({});

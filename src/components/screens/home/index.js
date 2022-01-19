@@ -21,6 +21,7 @@ function Title(props) {
 
   return (
     <Row>
+      <Col span={24}> Total Completion Date: 1/22/2022 - 9pm</Col>;
       <Col className="item_title" span={24}>
         <Divider orientationMargin={0} orientation="left">
           {full_title}

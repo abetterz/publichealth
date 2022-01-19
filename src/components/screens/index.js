@@ -81,6 +81,11 @@ export const Index = (props) => {
   };
   return (
     <Row justify="center" align="top">
+      <Col span={24}>
+        {" "}
+        Completion: 1/22/2022 - 9pm // routing done // next: connect to database
+      </Col>
+      ;
       <Col {...span} className="app">
         <Row>
           <Col className="header" span={24}>
