@@ -82,10 +82,16 @@ export const Index = (props) => {
   return (
     <Row justify="center" align="top">
       <Col span={24}>
-        {" "}
-        Completion: 1/22/2022 - 9pm // routing done // next: connect to database
+        <h2>Due: 1/22/2022 9pm</h2>
       </Col>
-      ;
+      <Col span={24}>
+        <h3>Status</h3>
+        <ul>
+          <li>current: get data live</li>
+          <li>next: connect to db</li>
+        </ul>
+      </Col>
+
       <Col {...span} className="app">
         <Row>
           <Col className="header" span={24}>

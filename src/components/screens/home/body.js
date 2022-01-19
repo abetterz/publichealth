@@ -322,8 +322,8 @@ export default function Body() {
         />
         <SideBarItems
           assigned="react dev 4 9pm"
-          title="Scientifics Studies"
-          title_blue=" Substack"
+          title="Scientifics "
+          title_blue=" Studies"
           data={science_substack}
         />
       </Col>
