@@ -21,7 +21,6 @@ function Title(props) {
 
   return (
     <Row>
-      <Col span={24}> Total Completion Date: 1/22/2022 - 9pm</Col>;
       <Col className="item_title" span={24}>
         <Divider orientationMargin={0} orientation="left">
           {full_title}
@@ -244,20 +243,46 @@ export default function Body() {
     },
   ];
 
+  const alexander_covid_overview = [
+    {
+      name: "CHAPTER 100",
+      subtitle: "A Call for an Independent International COVID Commission",
+      image:
+        "https://aneighborschoice.com/wp-content/uploads/2021/07/paul-alexander-follows-science-1030x541.png",
+    },
+    {
+      name: "CHAPTER 99",
+      subtitle:
+        "We will kill thousands of children and more with these COVID vaccines",
+      image:
+        "https://aneighborschoice.com/wp-content/uploads/2021/07/paul-alexander-follows-science-1030x541.png",
+    },
+    {
+      name: "CHAPTER 98",
+      subtitle: "Religious exemption vaccine information",
+      image:
+        "https://aneighborschoice.com/wp-content/uploads/2021/07/paul-alexander-follows-science-1030x541.png",
+    },
+  ];
+
   const alexander_substack = [
     {
-      name: "CHAPTER 1",
       subtitle:
-        "Key summary points and COVID-19 introduction, basic epidemiology",
+        "Supreme Court’s Gorsuch refused to wear mask despite request over Sotomayor’s Covid concerns, report says despite a request from Chief Justice John Roberts for all members of the high court to wear",
+      image:
+        "https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/2b69936a-c043-4317-b71a-b84867777535_2800x2800.png",
     },
     {
-      name: "CHAPTER 2",
       subtitle:
-        "Societal lockdowns due to COVID-19: do they work? Herd immunity?",
+        "It was NEVER COVID the 'virus', it was the 'RESPONSE' to it, the corrupted, POLITICAL response, not public health, oh I supported and loved Trump, to me outstanding, but made 2 catastrophic mistakes ",
+      image:
+        "https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/2b69936a-c043-4317-b71a-b84867777535_2800x2800.png",
     },
     {
-      name: "CHAPTER 3",
-      subtitle: "School closures: a careful review of the evidence",
+      subtitle:
+        "Israeli vaccine chief: “We have made mistakes”; finally a public health official/scientist, accepting responsibility & saying they were wrong; Covid will be “like flu”...big praise for honesty ",
+      image:
+        "https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/2b69936a-c043-4317-b71a-b84867777535_2800x2800.png",
     },
   ];
 
@@ -266,15 +291,21 @@ export default function Body() {
       subtitle:
         "The “original antigenic sin” and its relevance for SARS-CoV-2 (COVID-19) vaccination ",
       name: "ScienceDirect",
+      image:
+        "https://upload.wikimedia.org/wikipedia/en/thumb/6/6a/Elsevier_logo_2019.svg/1200px-Elsevier_logo_2019.svg.png",
     },
     {
       subtitle:
         "Reconciling estimates of global spread and infection fatality rates of COVID-19: An overview of systematic evaluations ",
       name: "Wiley Online Library",
+      image:
+        "https://library.stlawu.edu/sites/default/files/2020-04/wiley_online_clr2.png",
     },
     {
       subtitle: "Cribriform Plate Injury After Nasal Swab Testing for COVID-19",
       name: "JAMA Network",
+      image:
+        "https://publons.com/media/thumbs/publishers/logos/fbfd45e4-834b-40ca-b947-c871cdcea0d8.png.200x200_q95_detail_letterbox_upscale.png",
     },
   ];
 
@@ -320,6 +351,12 @@ export default function Body() {
           title="Dr. Paul Alexandar "
           title_blue=" Substack"
           data={alexander_substack}
+        />
+        <SideBarItems
+          assigned="react dev 4 9pm"
+          title="Covid-19 overview"
+          title_blue=" Substack"
+          data={alexander_covid_overview}
         />
         <SideBarItems
           assigned="react dev 4 9pm"
