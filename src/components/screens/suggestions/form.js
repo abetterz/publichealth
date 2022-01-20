@@ -56,7 +56,7 @@ const SuggestionForm = () => {
         <Button
           size="large"
           block
-          type="primary"
+          type="default"
           color="black"
           htmlType="submit"
         >
