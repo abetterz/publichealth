@@ -4,10 +4,8 @@ import { connect } from "react-redux";
 export const News = (props) => {
   return (
     <div>
-      <div>New: Reviewing Code and Uploading by: Due: 1/20/2022 - 6:00 am</div>
-      <div>
-        Update Justification: developers nap, recharge, and got back to it!
-      </div>
+      <div>New: Reviewing Code and Uploading by: Due: 1/21/2022 - 12:00 am</div>
+
       <div>
         Old: Reviewing Code and Uploading by: Due: 1/19/2022 - 12:00 pm{" "}
       </div>
