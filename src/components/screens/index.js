@@ -112,8 +112,9 @@ export const Index = (props) => {
       <Col span={24}>
         <h3>Status</h3>
         <ul>
-          <li>current: get data live</li>
-          <li>next: connect to db</li>
+          <li>current: create admin panel</li>
+          <li>next: publish admin panel</li>
+          <li>done: connect to db</li>
         </ul>
       </Col>
 
