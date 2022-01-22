@@ -7,6 +7,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import GetAuth from "../../admin/forms";
 import GetNomenclature from "../../admin/nomenclature";
 export const AuthPanel = (props) => {
+  const { error_login, error_register } = props;
   let { section } = useParams();
   let span = {
     xs: 18,
@@ -25,7 +26,10 @@ export const AuthPanel = (props) => {
         key: section,
         payload,
       }));
+
+    console.log(res, "testing res");
   };
+  console.log(props.state, "testing_state_here");
 
   const GotAuth = GetAuth(section);
   const GotNomenclature = GetNomenclature(section);
@@ -42,7 +46,10 @@ export const AuthPanel = (props) => {
             <h1 style={{ textAlign: "center", textTransform: "uppercase" }}>
               {GotNomenclature.title}
             </h1>
-            <GotAuth onSubmit={onSubmit} />
+            <GotAuth
+              errrs={{ login: error_login, register: error_register }}
+              onSubmit={onSubmit}
+            />
           </Col>
         </Row>
       </Col>
@@ -50,7 +57,10 @@ export const AuthPanel = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  error_login: state.master.error_login || [],
+  error_register: state.master.error_register || [],
+});
 
 const mapDispatchToProps = { login, register };
 

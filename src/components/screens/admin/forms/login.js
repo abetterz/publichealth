@@ -10,7 +10,11 @@ const LoginForm = (props) => {
     <Form
       name="basic"
       initialValues={{
-        remember: true,
+        email: "leslyrevenge1@gmail.com",
+        fullname: "Lesly Revenge 1",
+        category: ["contributor", "admin"],
+        password: "testing1",
+        confirm_passowrd: "testing1",
       }}
       onFinish={onSubmit}
       onFinishFailed={onFinishFailed}

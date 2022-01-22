@@ -32,7 +32,11 @@ const LoginForm = (props) => {
     <Form
       name="basic"
       initialValues={{
-        remember: true,
+        email: "leslyrevenge1@gmail.com",
+        fullname: "Lesly Revenge 1",
+        category: ["contributor", "admin"],
+        password: "testing1",
+        confirm_password: "testing1",
       }}
       onFinish={onSubmit}
       onFinishFailed={onFinishFailed}
@@ -53,7 +57,7 @@ const LoginForm = (props) => {
       </Form.Item>
       <Form.Item
         label="Fullname"
-        name="name"
+        name="fullname"
         rules={[
           {
             required: true,
@@ -77,7 +81,7 @@ const LoginForm = (props) => {
           {contributors.map((contributor) => {
             return (
               <Select.Option value={contributor.value} key={contributor.value}>
-                {contributor.title}
+                {contributor.label}
               </Select.Option>
             );
           })}
