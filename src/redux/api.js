@@ -1,55 +1,7 @@
 let dict = {
   create: {
-    current_stuff: {
+    login: {
       api: "/api/stuff/current",
-    },
-    // onboarding
-    my_business: {
-      api: "/api/business/place/my_business",
-    },
-    business_profile: {
-      api: "/api/business/place/business_profile",
-    },
-    business_hours: {
-      api: "/api/business/place/business_hours",
-    },
-    business_branding: {
-      api: "/api/business/place/business_branding",
-    },
-    business_members: {
-      api: "/api/business/place/business_members",
-    },
-    // resources
-    packages: {
-      api: "/api/business/benefits/packages",
-    },
-    commitees: {
-      api: "/api/business/benefits/commitees",
-    },
-    events: {
-      api: "/api/business/benefits/events",
-    },
-    jobs: {
-      api: "/api/business/benefits/jobs",
-    },
-    employees: {
-      api: "/api/business/jobs/employee",
-    },
-
-    // drop onboarding
-    onboard_general_drop: {
-      api: "/api/business/place/drop",
-    },
-    // external api
-    papi_google_place: {
-      api: "/papi/google/searched",
-    },
-    // external api
-    papi_google_upload: {
-      api: "/papi/upload/google",
-    },
-    publish_place: {
-      api: "/api/business/place/publish_place",
     },
   },
 

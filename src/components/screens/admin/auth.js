@@ -2,6 +2,7 @@ import { Col, Row } from "antd";
 import React from "react";
 import { connect } from "react-redux";
 import LoginForm from "./forms/login";
+import { login } from "../../../redux/actions/auth";
 
 export const AuthPanel = (props) => {
   let span = {
@@ -11,6 +12,13 @@ export const AuthPanel = (props) => {
     lg: 8,
     xl: 8,
     xxl: 6,
+  };
+
+  const onSubmit = async (payload) => {
+    let res = await props.login({
+      key: "login",
+      payload,
+    });
   };
   return (
     <Row>
@@ -22,7 +30,7 @@ export const AuthPanel = (props) => {
         <Row justify="space-around" align="middle">
           <Col {...span}>
             <h1 style={{ textAlign: "center" }}>SIGN IN</h1>
-            <LoginForm />
+            <LoginForm onSubmit={onSubmit} />
           </Col>
         </Row>
       </Col>
@@ -32,6 +40,6 @@ export const AuthPanel = (props) => {
 
 const mapStateToProps = (state) => ({});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = { login };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthPanel);

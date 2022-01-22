@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { read } from "../redux/actions/master";
+import { loadUser } from "../redux/actions/auth";
 import { connect } from "react-redux";
 
 import Home from "../components/screens/home";
@@ -15,10 +16,7 @@ import Auth from "../components/screens/admin/auth";
 
 function AppRoute(props) {
   const initialFetch = async () => {
-    await props.read({
-      key: "home",
-      replace: true,
-    });
+    await props.loadUser();
   };
 
   useEffect(() => {
@@ -48,6 +46,6 @@ const mapStateToProps = (state) => ({
   home_data: state.master.home,
 });
 
-const mapDispatchToProps = { read };
+const mapDispatchToProps = { read, loadUser };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppRoute);

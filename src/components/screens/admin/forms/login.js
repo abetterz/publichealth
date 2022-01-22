@@ -1,10 +1,7 @@
 import { Form, Input, Button, Checkbox } from "antd";
 
-const LoginForm = () => {
-  const onFinish = (values) => {
-    console.log("Success:", values);
-  };
-
+const LoginForm = (props) => {
+  const { onSubmit } = props;
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
@@ -15,7 +12,7 @@ const LoginForm = () => {
       initialValues={{
         remember: true,
       }}
-      onFinish={onFinish}
+      onFinish={onSubmit}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
       layout="vertical"
@@ -44,10 +41,6 @@ const LoginForm = () => {
         ]}
       >
         <Input.Password size="large" />
-      </Form.Item>
-
-      <Form.Item name="remember" valuePropName="checked">
-        <Checkbox>Remember me</Checkbox>
       </Form.Item>
 
       <Form.Item>

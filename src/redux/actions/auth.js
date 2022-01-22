@@ -171,6 +171,7 @@ export const logout = () => async (dispatch) => {
 };
 
 export const login = (payload) => async (dispatch) => {
+  console.log("reached login");
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -199,7 +200,6 @@ export const login = (payload) => async (dispatch) => {
   } catch (err) {
     let output = err.response && err.response.data;
     setAlert(payload.key, dispatch, output);
-
     return output;
   }
 };
