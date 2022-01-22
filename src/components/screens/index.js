@@ -117,16 +117,16 @@ export const Index = (props) => {
 
   const top_menus = [
     {
-      title: "Contributors",
+      title: "Login",
       key: "contributor",
       icon: "far fa-edit",
-      link: "/admin/contributors",
+      link: "/admin/login",
     },
     {
-      title: "Admin",
-      key: "admin",
+      title: "Register",
+      key: "register",
       icon: "fas fa-lock",
-      link: "/admin/admin",
+      link: "/admin/register",
     },
   ];
   return (

@@ -1,4 +1,6 @@
-thumbs must be dragable
-carousel must be on auto play
-include carousel image
-include carousel title
+- add signed in (done)
+- add register
+- add create user
+- add scientist and doctors
+- add websites
+- add links

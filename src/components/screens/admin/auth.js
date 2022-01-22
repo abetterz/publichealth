@@ -3,8 +3,11 @@ import React from "react";
 import { connect } from "react-redux";
 import LoginForm from "./forms/login";
 import { login } from "../../../redux/actions/auth";
-
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import GetAuth from "../../admin/forms";
+import GetNomenclature from "../../admin/nomenclature";
 export const AuthPanel = (props) => {
+  let { section } = useParams();
   let span = {
     xs: 18,
     sm: 18,
@@ -15,11 +18,17 @@ export const AuthPanel = (props) => {
   };
 
   const onSubmit = async (payload) => {
-    let res = await props.login({
-      key: "login",
-      payload,
-    });
+    let getFunc = props[section];
+    let res =
+      getFunc &&
+      (await getFunc({
+        key: section,
+        payload,
+      }));
   };
+
+  const GotAuth = GetAuth(section);
+  const GotNomenclature = GetNomenclature(section);
   return (
     <Row>
       <Col
@@ -28,9 +37,10 @@ export const AuthPanel = (props) => {
         span={24}
       >
         <Row justify="space-around" align="middle">
+          {section === "login"}
           <Col {...span}>
-            <h1 style={{ textAlign: "center" }}>SIGN IN</h1>
-            <LoginForm onSubmit={onSubmit} />
+            <h1 style={{ textAlign: "center" }}>{GotNomenclature.title}</h1>
+            <GotAuth onSubmit={onSubmit} />
           </Col>
         </Row>
       </Col>

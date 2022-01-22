@@ -43,6 +43,19 @@ const LoginForm = (props) => {
         <Input.Password size="large" />
       </Form.Item>
 
+      <Form.Item
+        label="Confirm Password"
+        name="confirm_password"
+        rules={[
+          {
+            required: true,
+            message: "Please confirm your password!",
+          },
+        ]}
+      >
+        <Input.Password size="large" />
+      </Form.Item>
+
       <Form.Item>
         <Button size="large" block type="primary" htmlType="submit">
           Submit
