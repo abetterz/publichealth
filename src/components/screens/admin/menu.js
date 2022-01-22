@@ -11,11 +11,11 @@ class AdminMenu extends React.Component {
 
   render() {
     const simple_menus = [
-      {
-        key: "dashboard",
-        title: "Dashboard",
-        link: "/admin/dashboard",
-      },
+      // {
+      //   key: "dashboard",
+      //   title: "Dashboard",
+      //   link: "/admin/dashboard",
+      // },
       {
         key: "posts",
         title: "Posts",

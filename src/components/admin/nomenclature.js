@@ -8,9 +8,25 @@ const dict = {
   register: {
     title: "Register",
   },
+  websites: {
+    title: "Manage Website Links",
+  },
+  users: {
+    title: "Manage Users",
+  },
+  posts: {
+    title: "Manage Posts",
+  },
+  scientists: {
+    title: "Manage Scientists",
+  },
+  dashboard: {
+    title: "Dashboard",
+  },
 };
 
 const GetNomenclature = (dict_key) => {
+  console.log(dict_key);
   let output = dict[dict_key] || dict.login;
   return output;
 };

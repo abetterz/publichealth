@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Row, Col } from "antd";
 import AdminMenu from "./menu";
+import GetNomenclature from "../../admin/nomenclature";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import GetForm from "../../admin/forms";
 
 export const AdminPanel = (props) => {
   const [collapsed, setCollapsed] = useState();
+  let { section } = useParams();
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
@@ -27,17 +31,21 @@ export const AdminPanel = (props) => {
     xxl: 16,
   };
 
+  let { title } = GetNomenclature(section);
+  const GotForm = GetForm(section);
   return (
     <Row gutter={24}>
       <Col className="admin_container" span={24}>
         <AdminMenu collapsed={collapsed} toggleCollapsed={toggleCollapsed} />
       </Col>
       <Col className="admin_title" span={24}>
-        <h1>Dashboard</h1>
+        <h1>{title}</h1>
       </Col>
       <Col className="admin_title" span={24}>
         <Row gutter={24}>
-          <Col {...span_left}>Form</Col>
+          <Col {...span_left}>
+            <GotForm />
+          </Col>
           <Col {...span_right}>List</Col>
         </Row>
       </Col>
