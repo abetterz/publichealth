@@ -11,50 +11,36 @@ export const AdminPanel = (props) => {
   };
 
   const span_left = {
-    collapsed: {
-      xs: 2,
-      sm: 2,
-      md: 2,
-      lg: 3,
-      xl: 3,
-      xxl: 3,
-    },
-    full: {
-      xs: 6,
-      sm: 6,
-      md: 6,
-      lg: 6,
-      xl: 6,
-      xxl: 6,
-    },
+    xs: 0,
+    sm: 0,
+    md: 12,
+    lg: 10,
+    xl: 8,
+    xxl: 8,
   };
   const span_right = {
-    collapsed: {
-      xs: 21,
-      sm: 21,
-      md: 21,
-      lg: 21,
-      xl: 21,
-      xxl: 21,
-    },
-    full: {
-      xs: 20,
-      sm: 20,
-      md: 20,
-      lg: 18,
-      xl: 18,
-      xxl: 18,
-    },
+    xs: 24,
+    sm: 24,
+    md: 12,
+    lg: 14,
+    xl: 16,
+    xxl: 16,
   };
 
-  let gotSpanLeft = collapsed ? span_left.collapsed : span_left.full;
-  let gotSpanRight = collapsed ? span_right.collapsed : span_right.full;
   return (
     <Row gutter={24}>
-      <Col span={24}>
+      <Col className="admin_container" span={24}>
         <AdminMenu collapsed={collapsed} toggleCollapsed={toggleCollapsed} />
       </Col>
-      <Col {...gotSpanRight}>collapsed</Col>
+      <Col className="admin_title" span={24}>
+        <h1>Dashboard</h1>
+      </Col>
+      <Col className="admin_title" span={24}>
+        <Row gutter={24}>
+          <Col {...span_left}>Form</Col>
+          <Col {...span_right}>List</Col>
+        </Row>
+      </Col>
     </Row>
   );
 };
