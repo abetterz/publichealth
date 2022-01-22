@@ -1,4 +1,4 @@
-import { Form, Input, Button, Checkbox } from "antd";
+import { Form, Input, Button, Checkbox, Select } from "antd";
 
 const LoginForm = (props) => {
   const { onSubmit } = props;
@@ -6,6 +6,28 @@ const LoginForm = (props) => {
     console.log("Failed:", errorInfo);
   };
 
+  const contributors = [
+    {
+      label: "Content Contributor",
+      value: "contributor",
+    },
+    {
+      label: "Doctors & Scientists",
+      value: "doctor",
+    },
+    {
+      label: "Other Experts",
+      value: "expert",
+    },
+    {
+      label: "Media & Site Owners",
+      value: "media",
+    },
+    {
+      label: "Request Admin Access",
+      value: "admin",
+    },
+  ];
   return (
     <Form
       name="basic"
@@ -17,6 +39,18 @@ const LoginForm = (props) => {
       autoComplete="off"
       layout="vertical"
     >
+      <Form.Item
+        label="Email"
+        name="email"
+        rules={[
+          {
+            required: true,
+            message: "Please input your email!",
+          },
+        ]}
+      >
+        <Input size="large" />
+      </Form.Item>
       <Form.Item
         label="Fullname"
         name="fullname"
@@ -30,16 +64,24 @@ const LoginForm = (props) => {
         <Input size="large" />
       </Form.Item>
       <Form.Item
-        label="Email"
-        name="email"
+        label="Contributor Category"
+        name="category"
         rules={[
           {
             required: true,
-            message: "Please input your email!",
+            message: "Please input your fullname!",
           },
         ]}
       >
-        <Input size="large" />
+        <Select size="large" mode="multiple">
+          {contributors.map((contributor) => {
+            return (
+              <Select.Option value={contributor.value} key={contributor.value}>
+                {contributor.title}
+              </Select.Option>
+            );
+          })}
+        </Select>
       </Form.Item>
 
       <Form.Item
