@@ -7,6 +7,16 @@ import MainMenu from "../menu";
 import { FA } from "../../utils/images";
 import AppRoute from "../../app/route";
 import { Link } from "react-router-dom";
+
+import { Menu } from "antd";
+import {
+  MailOutlined,
+  AppstoreOutlined,
+  SettingOutlined,
+} from "@ant-design/icons";
+
+const { SubMenu } = Menu;
+
 export const Index = (props) => {
   const social_media = [
     {
@@ -104,18 +114,46 @@ export const Index = (props) => {
     xl: 18,
     xxl: 18,
   };
+
+  const top_menus = [
+    {
+      title: "Contributors",
+      key: "contributor",
+      icon: "far fa-edit",
+      link: "/admin/contributors",
+    },
+    {
+      title: "Admin",
+      key: "admin",
+      icon: "fas fa-lock",
+      link: "/admin/admin",
+    },
+  ];
   return (
     <Row justify="center" align="top">
-      <Col span={24}>
-        <h2>Due: 1/22/2022 9pm</h2>
-      </Col>
-      <Col span={24}>
-        <h3>Status</h3>
-        <ul>
-          <li>current: create admin panel</li>
-          <li>next: publish admin panel</li>
-          <li>done: connect to db</li>
-        </ul>
+      <Col className="top_navigation" span={24}>
+        <Row justify="center" align="top">
+          <Col {...span} className="">
+            <Menu
+              inlineCollapsed={false}
+              style={{ width: "100%", float: "right" }}
+              theme="dark"
+              mode="horizontal"
+            >
+              {top_menus &&
+                top_menus.map((item) => {
+                  return (
+                    <Menu.Item key={item.key}>
+                      <Link to={item.link}>
+                        {" "}
+                        <FA icon={item.icon} title={item.title} />
+                      </Link>
+                    </Menu.Item>
+                  );
+                })}
+            </Menu>
+          </Col>
+        </Row>
       </Col>
 
       <Col {...span} className="app">

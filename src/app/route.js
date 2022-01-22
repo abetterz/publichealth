@@ -10,6 +10,8 @@ import Websites from "../components/screens/sites";
 import Doctors from "../components/screens/doctors";
 import About from "../components/screens/about";
 import Suggestions from "../components/screens/suggestions";
+import AdminPanel from "../components/screens/admin";
+import Auth from "../components/screens/admin/auth";
 
 function AppRoute(props) {
   const initialFetch = async () => {
@@ -33,6 +35,10 @@ function AppRoute(props) {
         <Route path="/about-us/:section" element={<About />} />
         <Route path="/suggestions/:section" element={<Suggestions />} />
         <Route path="/" element={<Home />} />
+        <Route
+          path="/admin/:section"
+          element={props.isAuthenticated ? <AdminPanel /> : <Auth />}
+        />
       </Routes>
     </div>
   );
