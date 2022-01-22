@@ -1,14 +1,7 @@
 import React from "react";
 import { Menu, Button } from "antd";
-import {
-  AppstoreOutlined,
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-  PieChartOutlined,
-  DesktopOutlined,
-  ContainerOutlined,
-  MailOutlined,
-} from "@ant-design/icons";
+import { Link } from "react-router-dom";
+
 import { FA } from "../../../utils/images";
 
 const { SubMenu } = Menu;
@@ -54,9 +47,37 @@ class AdminMenu extends React.Component {
       },
     ];
 
+    const simple_menus = [
+      {
+        key: "dashboard",
+        title: "Dashboard",
+        link: "/admin/dashboard",
+      },
+      {
+        key: "posts",
+        title: "Posts",
+        link: "/admin/posts",
+      },
+      {
+        key: "scientists",
+        title: "Scientist & Doctors",
+        link: "/admin/scientists",
+      },
+      {
+        key: "websites",
+        title: "Websites",
+        link: "/admin/websites",
+      },
+      {
+        key: "users",
+        title: "Users",
+        link: "/admin/users",
+      },
+    ];
+
     return (
       <Menu theme="dark" mode="horizontal">
-        {menus.map((item) => (
+        {/* {menus.map((item) => (
           <SubMenu
             key={item.key}
             icon={<AppstoreOutlined />}
@@ -66,6 +87,12 @@ class AdminMenu extends React.Component {
               <Menu.Item key={menu.key}>{menu.title}</Menu.Item>
             ))}
           </SubMenu>
+        ))} */}
+
+        {simple_menus.map((item) => (
+          <Menu.Item key={item.key}>
+            <Link to={item.link}> {item.title} </Link>{" "}
+          </Menu.Item>
         ))}
       </Menu>
     );
