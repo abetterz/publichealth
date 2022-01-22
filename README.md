@@ -1,5 +1,5 @@
 - add signed in (done)
-- add register
+- add register (done)
 - add create user
 - add scientist and doctors
 - add websites
