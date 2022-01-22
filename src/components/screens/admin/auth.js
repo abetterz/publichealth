@@ -21,7 +21,7 @@ export const AuthPanel = (props) => {
       >
         <Row justify="space-around" align="middle">
           <Col {...span}>
-            <h1>Contributor Authentication</h1>
+            <h1 style={{ textAlign: "center" }}>SIGN IN</h1>
             <LoginForm />
           </Col>
         </Row>
