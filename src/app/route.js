@@ -15,14 +15,6 @@ import AdminPanel from "../components/screens/admin";
 import Auth from "../components/screens/admin/auth";
 
 function AppRoute(props) {
-  const initialFetch = async () => {
-    await props.loadUser();
-  };
-
-  useEffect(() => {
-    initialFetch();
-  }, []);
-
   return (
     <div>
       <Routes>

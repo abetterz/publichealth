@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Row, Col, Input } from "antd";
 import logo from "../../assets/logo.png";
@@ -7,17 +7,19 @@ import MainMenu from "../menu";
 import { FA } from "../../utils/images";
 import AppRoute from "../../app/route";
 import { Link } from "react-router-dom";
-
+import { read } from "../../redux/actions/master";
+import { loadUser, logout } from "../../redux/actions/auth";
 import { Menu } from "antd";
-import {
-  MailOutlined,
-  AppstoreOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
 
-const { SubMenu } = Menu;
+const Index = (props) => {
+  const initialFetch = async () => {
+    await props.loadUser();
+  };
 
-export const Index = (props) => {
+  useEffect(() => {
+    initialFetch();
+  }, []);
+
   const social_media = [
     {
       icon: "fas fa-baseball",
@@ -129,29 +131,51 @@ export const Index = (props) => {
       link: "/admin/register",
     },
   ];
+
+  console.log(props, "testing_props_here");
+
   return (
     <Row justify="center" align="top">
       <Col className="top_navigation" span={24}>
         <Row justify="center" align="top">
           <Col {...span} className="">
-            <Menu
-              inlineCollapsed={false}
-              style={{ width: "100%", float: "right" }}
-              theme="dark"
-              mode="horizontal"
-            >
-              {top_menus &&
-                top_menus.map((item) => {
-                  return (
-                    <Menu.Item key={item.key}>
-                      <Link to={item.link}>
-                        {" "}
-                        <FA icon={item.icon} title={item.title} />
-                      </Link>
-                    </Menu.Item>
-                  );
-                })}
-            </Menu>
+            {!props.isAuthenticated && (
+              <Menu
+                inlineCollapsed={false}
+                style={{ width: "100%", float: "right" }}
+                theme="dark"
+                mode="horizontal"
+              >
+                {top_menus &&
+                  top_menus.map((item) => {
+                    return (
+                      <Menu.Item key={item.key}>
+                        <Link to={item.link}>
+                          <FA icon={item.icon} title={item.title} />
+                        </Link>
+                      </Menu.Item>
+                    );
+                  })}
+              </Menu>
+            )}
+            {props.isAuthenticated && (
+              <Menu
+                inlineCollapsed={false}
+                style={{ width: "100%", float: "right" }}
+                theme="dark"
+                mode="horizontal"
+              >
+                <Menu.Item key={"admin"}>
+                  <Link to={"/admin/dashboard"}>
+                    <FA icon={"fas fa-techometer-alt"} title={"Admin"} />
+                  </Link>
+                </Menu.Item>
+
+                <Menu.Item onClick={props.logout} key={"logout"}>
+                  <FA icon={"fas fa-sign-out-alt"} title={"Sign Out"} />
+                </Menu.Item>
+              </Menu>
+            )}
           </Col>
         </Row>
       </Col>
@@ -182,7 +206,7 @@ export const Index = (props) => {
             </Row>
           </Col>
           <Col span={24}>
-            <AppRoute />
+            <AppRoute {...props} />
           </Col>
         </Row>
       </Col>
@@ -252,8 +276,11 @@ export const Index = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  home_data: state.master.home,
+  isAuthenticated: state.auth.isAuthenticated,
+});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = { read, loadUser, logout };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Index);
