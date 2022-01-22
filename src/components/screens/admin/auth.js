@@ -2,7 +2,7 @@ import { Col, Row } from "antd";
 import React from "react";
 import { connect } from "react-redux";
 import LoginForm from "./forms/login";
-import { login } from "../../../redux/actions/auth";
+import { login, register } from "../../../redux/actions/auth";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import GetAuth from "../../admin/forms";
 import GetNomenclature from "../../admin/nomenclature";
@@ -39,7 +39,9 @@ export const AuthPanel = (props) => {
         <Row justify="space-around" align="middle">
           {section === "login"}
           <Col {...span}>
-            <h1 style={{ textAlign: "center" }}>{GotNomenclature.title}</h1>
+            <h1 style={{ textAlign: "center", textTransform: "uppercase" }}>
+              {GotNomenclature.title}
+            </h1>
             <GotAuth onSubmit={onSubmit} />
           </Col>
         </Row>
@@ -50,6 +52,6 @@ export const AuthPanel = (props) => {
 
 const mapStateToProps = (state) => ({});
 
-const mapDispatchToProps = { login };
+const mapDispatchToProps = { login, register };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthPanel);

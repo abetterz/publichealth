@@ -18,6 +18,18 @@ const LoginForm = (props) => {
       layout="vertical"
     >
       <Form.Item
+        label="Fullname"
+        name="fullname"
+        rules={[
+          {
+            required: true,
+            message: "Please input your fullname!",
+          },
+        ]}
+      >
+        <Input size="large" />
+      </Form.Item>
+      <Form.Item
         label="Email"
         name="email"
         rules={[
