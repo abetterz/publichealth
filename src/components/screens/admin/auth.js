@@ -11,10 +11,10 @@ export const AuthPanel = (props) => {
   let span = {
     xs: 18,
     sm: 18,
-    md: 12,
-    lg: 8,
-    xl: 8,
-    xxl: 6,
+    md: 14,
+    lg: 10,
+    xl: 10,
+    xxl: 8,
   };
 
   const onSubmit = async (payload) => {

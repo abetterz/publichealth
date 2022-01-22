@@ -13,11 +13,11 @@ const LoginForm = (props) => {
     },
     {
       label: "Doctors & Scientists",
-      value: "doctor",
+      value: "doctors_scientists",
     },
     {
       label: "Other Experts",
-      value: "expert",
+      value: "experts",
     },
     {
       label: "Media & Site Owners",
@@ -53,7 +53,7 @@ const LoginForm = (props) => {
       </Form.Item>
       <Form.Item
         label="Fullname"
-        name="fullname"
+        name="name"
         rules={[
           {
             required: true,
