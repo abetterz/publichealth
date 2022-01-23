@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Row, Col, Divider } from "antd";
 import Hero from "./carousel";
 import { FA } from "../../../utils/images";
 import { Card, Avatar } from "antd";
-
+import { connect } from "react-redux";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { read } from "../../../redux/actions/master";
 const { Meta } = Card;
 
 function NewsFlash() {
@@ -37,55 +39,7 @@ function Title(props) {
 }
 
 function StoryBody(props) {
-  const { assigned } = props;
-
-  const data = [
-    {
-      src: "https://media.nature.com/lw1024/magazine-assets/d41586-022-00004-x/d41586-022-00004-x_20006772.jpg",
-      title:
-        "Immunity against Omicron from breakthrough infection could be a matter of timing",
-      link: "https://www.nature.com/articles/d41586-022-00004-x",
-      domain: "nature.com",
-      date: "January 10, 2022",
-    },
-    {
-      src: "https://media.nature.com/lw1024/magazine-assets/d41586-022-00004-x/d41586-022-00004-x_20006772.jpg",
-      title:
-        "Immunity against Omicron from breakthrough infection could be a matter of timing",
-      domain: "nature.com",
-      date: "January 10, 2022",
-    },
-    {
-      src: "https://media.nature.com/lw1024/magazine-assets/d41586-022-00004-x/d41586-022-00004-x_20006772.jpg",
-      title:
-        "Immunity against Omicron from breakthrough infection could be a matter of timing",
-      link: "https://www.nature.com/articles/d41586-022-00004-x",
-      domain: "nature.com",
-      date: "January 10, 2022",
-    },
-    {
-      src: "https://media.nature.com/lw1024/magazine-assets/d41586-022-00004-x/d41586-022-00004-x_20006772.jpg",
-      title:
-        "Immunity against Omicron from breakthrough infection could be a matter of timing",
-      domain: "nature.com",
-      date: "January 10, 2022",
-    },
-    {
-      src: "https://media.nature.com/lw1024/magazine-assets/d41586-022-00004-x/d41586-022-00004-x_20006772.jpg",
-      title:
-        "Immunity against Omicron from breakthrough infection could be a matter of timing",
-      link: "https://www.nature.com/articles/d41586-022-00004-x",
-      domain: "nature.com",
-      date: "January 10, 2022",
-    },
-    {
-      src: "https://media.nature.com/lw1024/magazine-assets/d41586-022-00004-x/d41586-022-00004-x_20006772.jpg",
-      title:
-        "Immunity against Omicron from breakthrough infection could be a matter of timing",
-      domain: "nature.com",
-      date: "January 10, 2022",
-    },
-  ];
+  const { assigned, data } = props;
 
   return (
     <Title {...props}>
@@ -172,7 +126,36 @@ function Brands(props) {
     </Title>
   );
 }
-export default function Body() {
+const HomePage = (props) => {
+  useEffect(() => {
+    props.read({
+      key: "news",
+      query: "?category=exclusive",
+      dispatch_key: "exclusive",
+
+      replace: true,
+    });
+    props.read({
+      key: "news",
+      query: "?category=must_read",
+      dispatch_key: "must_read",
+      replace: true,
+    });
+    props.read({
+      key: "news",
+      query: "?category=updated_daily",
+      dispatch_key: "updated_daily",
+      replace: true,
+    });
+    props.read({
+      key: "news",
+      query: "?category=main_page",
+      dispatch_key: "main_page",
+      replace: true,
+    });
+  }, []);
+
+  console.log(props, "testing_props_here");
   let span = {
     left: {
       xs: 24,
@@ -313,19 +296,22 @@ export default function Body() {
     <Row gutter={24}>
       <Col {...span.left}>
         {/* <NewsFlash /> */}
-        <Hero />
+        <Hero data={props.main_page} />
         <StoryBody
+          data={props.exclusive}
           assigned="react dev 2 9pm"
           title="PublicHealth.News "
           title_blue="Exclusive"
         />
         <StoryBody
+          data={props.must_read}
           assigned="react dev 1 9pm"
           title="Must "
           title_blue=" Read"
         />
 
         <StoryBody
+          data={props.updated_daily}
           assigned="react dev 3 9pm"
           title="News - "
           title_blue="Updated Daily"
@@ -367,4 +353,15 @@ export default function Body() {
       </Col>
     </Row>
   );
-}
+};
+
+const mapStateToProps = (state) => ({
+  exclusive: state.master.exclusive || [],
+  must_read: state.master.must_read || [],
+  updated_daily: state.master.updated_daily || [],
+  main_page: state.master.main_page || [],
+});
+
+const mapDispatchToProps = { read };
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
