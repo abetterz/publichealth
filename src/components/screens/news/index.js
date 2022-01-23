@@ -47,7 +47,7 @@ export const NewCard = (item) => {
       author = domain[0] + ".";
       author = author.split("//");
       author = author[1];
-      let prefix = domain[1] && domain[1].split("/");
+      let prefix = (domain[1] && domain[1].split("/")) || [];
       author += prefix[0];
     }
   }
