@@ -51,6 +51,7 @@ export const NewCard = (item) => {
       author += prefix[0];
     }
   }
+
   return (
     <Col {...span.container} className="article_container">
       <a target={"_blank"} href={item.link} without rel="noreferrer">
@@ -165,6 +166,7 @@ const News = (props) => {
       replace: true,
     });
   }, []);
+  let { section } = useParams();
 
   let span = {
     left: {
@@ -185,6 +187,26 @@ const News = (props) => {
     },
   };
 
+  const title = {
+    default: {
+      title: "Most",
+      sub: "Recent News",
+    },
+    exclusive: {
+      title: "PublicHealth.News",
+      sub: "Exclusive",
+    },
+    must_read: {
+      title: "Must",
+      sub: "Read",
+    },
+    updated_daily: {
+      title: "News",
+      sub: "Updated Daily",
+    },
+  };
+
+  const getTitle = title[section] || title.default;
   const doctors = [
     {
       name: "Paul Elias Alexander, PhD",
@@ -308,8 +330,8 @@ const News = (props) => {
         {/* <NewsFlash /> */}
         <StoryBody
           data={props.recent_news}
-          title="Most  "
-          title_blue="Recent News"
+          title={getTitle.title}
+          title_blue={getTitle.sub}
         />
       </Col>
       <Col {...span.right}>

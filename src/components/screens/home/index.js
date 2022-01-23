@@ -41,10 +41,10 @@ function Title(props) {
 }
 
 function StoryBody(props) {
-  const { assigned, data } = props;
+  const { link_to, data } = props;
 
   return (
-    <Title {...props}>
+    <Title link_to={link_to} {...props}>
       <Row gutter={36}>
         {data.map((item, index) => {
           let default_span = {
@@ -319,12 +319,14 @@ const HomePage = (props) => {
           assigned="react dev 2 9pm"
           title="PublicHealth.News "
           title_blue="Exclusive"
+          link_to={"/news/exclusive"}
         />
         <StoryBody
           data={props.must_read}
           assigned="react dev 1 9pm"
           title="Must "
           title_blue=" Read"
+          link_to={"/news/must_read"}
         />
 
         <StoryBody
@@ -332,6 +334,7 @@ const HomePage = (props) => {
           assigned="react dev 3 9pm"
           title="News - "
           title_blue="Updated Daily"
+          link_to={"/news/updated_daily"}
         />
       </Col>
       <Col {...span.right}>
