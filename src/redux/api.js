@@ -3,9 +3,30 @@ let dict = {
     login: {
       api: "/api/stuff/current",
     },
+    scientists: {
+      api: "/api/admin/scientists/create",
+    },
+    posts: {
+      api: "/api/admin/posts/create",
+    },
+    websites: {
+      api: "/api/admin/websites/create",
+    },
+    users: {
+      api: "/api/admin/users/create",
+    },
   },
 
   read: {
+    scientists: {
+      api: "/api/admin/scientists/read",
+    },
+    news: {
+      api: "/api/admin/posts/read",
+    },
+    websites: {
+      api: "/api/admin/websites/read",
+    },
     admin_users: {
       api: "/api/admin/read/users",
     },

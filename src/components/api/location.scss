@@ -1,0 +1,24 @@
+.powered_by_google_on_white_hdpi_container {
+  text-align: right;
+}
+.powered_by_google_on_white_hdpi {
+  width: 100px;
+}
+.suggestion-item {
+  border: 1px solid #999;
+  margin-bottom: 4px;
+  padding: 5px 5px;
+  font-size: 12px;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+.suggestion-item--active {
+  border: 1px solid #999;
+  margin-bottom: 4px;
+  padding: 5px 5px;
+  font-size: 12px;
+  border-radius: 5px;
+  background-color: rgb(210, 252, 249);
+  cursor: pointer;
+}

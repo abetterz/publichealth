@@ -1,13 +1,13 @@
-- add signed in (done) 7
-- add register (done) 8
-- add authentication
-- add create user:
-- add scientist and doctors:
-- add websites:
-- add links:
+- view payload fields proper field to db
+  -- scientist, websites, posts, users
+  - saved payload fields proper field to db
+    -- scientist, websites, posts, users
+- lists
+  -- scientist, websites, posts, users
+- users frontend
+  -- scientist, websites, posts,
 
-\*\* big jobs
+\*\* Frontend Launch
 
-- authentication
-- get image, videos, and titles from links
-- Archieves
+- create read database.
+- show read database

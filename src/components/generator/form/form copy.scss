@@ -1,0 +1,89 @@
+.auth_form {
+  margin-top: 20px;
+}
+
+// buttons
+.site_btn,
+.site_btn:before {
+  color: white;
+  background-color: #03bd5b;
+  border: 1px solid #01a74e;
+}
+
+.site_btn:hover,
+.site_btn:after {
+  color: white;
+  background-color: #01a74e;
+  border: 1px solid #01a74e;
+}
+
+.dark_theme > .ant-form-item-label > label,
+.ant-form-item-label > label {
+  color: white;
+}
+
+.dark_theme > .ant-form-item-label > label .ant-form-item-tooltip {
+  color: white;
+}
+
+.dark_theme > .ant-form-item-label > label .ant-form-item-optional {
+  color: white;
+}
+
+.dark_input {
+  background: transparent !important;
+  color: white;
+}
+
+.ant-input-password-icon {
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.ant-input-affix-wrapper > input.ant-input {
+  background: transparent !important;
+  color: white;
+}
+
+.ant-input {
+  background: transparent !important;
+  color: white;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  color: white;
+}
+
+// form error
+.form_error_container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+div.dark_theme > .ant-form-item-explain.ant-form-item-explain-error {
+  color: rgb(255, 201, 190) !important;
+}
+div.dark_theme
+  > .ant-form-item-has-error
+  :not(.ant-input-disabled):not(.ant-input-borderless).ant-input,
+.ant-form-item-has-error
+  :not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper,
+.ant-form-item-has-error
+  :not(.ant-input-disabled):not(.ant-input-borderless).ant-input:hover,
+.ant-form-item-has-error
+  :not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper:hover {
+  border-color: rgb(255, 201, 190);
+}
+
+.text_center {
+  text-align: center;
+}
+
+.ant-input-affix-wrapper {
+  background: transparent !important;
+  color: white;
+}

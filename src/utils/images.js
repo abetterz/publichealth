@@ -1,6 +1,7 @@
 import React from "react";
 import { Popover } from "antd";
 import { Link } from "react-router-dom";
+import ImageUpload from "./imageUpload";
 
 export const FA = (props) => {
   let {
@@ -75,4 +76,32 @@ export const FA = (props) => {
   let output = popover ? with_popover : without_popover;
   output = link ? <Link to={link}>{output}</Link> : output;
   return output;
+};
+
+export const UploadImage = (props) => {
+  let {
+    config,
+    deco = {},
+    field_props,
+    onClick = (f) => f,
+    onChangeField,
+    pass_on_props,
+    SetFieldsValue,
+    setFieldsValue,
+    setFormValues = (f) => f,
+    place_configs,
+  } = props;
+  let { name } = config || {};
+  setFieldsValue = pass_on_props
+    ? pass_on_props.setFieldsValue
+    : setFieldsValue;
+
+  // onChangeField = pass_on_props ? pass_on_props.onChangeField : onChangeField;
+
+  const handleOnClick = async (value) => {
+    onClick({ ...field_props, field_key: config.name });
+  };
+
+  console.log(props, "testing_item_here");
+  return <ImageUpload {...props} deco={deco} handleOnClick={handleOnClick} />;
 };

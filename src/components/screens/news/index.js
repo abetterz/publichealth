@@ -1,17 +1,85 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Row, Col, Divider } from "antd";
 import Hero from "./carousel";
 import { FA } from "../../../utils/images";
 import { Card, Avatar, Button } from "antd";
-
+import { connect } from "react-redux";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { read } from "../../../redux/actions/master";
+import { MakeList } from "../../../utils/list";
 const { Meta } = Card;
+
+export const NewCard = (item) => {
+  let default_span = {
+    container: {
+      xs: 24,
+      sm: 24,
+      md: 24,
+      lg: 24,
+      xl: 24,
+      xxl: 24,
+    },
+    image: {
+      xs: 24,
+      sm: 24,
+      md: 24,
+      lg: 12,
+      xl: 12,
+      xxl: 12,
+    },
+    content: {
+      xs: 24,
+      sm: 24,
+      md: 24,
+      lg: 12,
+      xl: 12,
+      xxl: 12,
+    },
+  };
+
+  let span = item.span || default_span;
+
+  let author = item.author;
+  if (!author) {
+    let domain = item.link;
+    if (domain) {
+      domain = domain.split(".");
+      author = domain[0] + ".";
+      author = author.split("//");
+      author = author[1];
+      let prefix = domain[1] && domain[1].split("/");
+      author += prefix[0];
+    }
+  }
+  return (
+    <Col {...span.container} className="article_container">
+      <a target={"_blank"} href={item.link} without rel="noreferrer">
+        <Row gutter={24}>
+          <Col {...span.image} className="article_image_container">
+            <img className="full_width" alt={item.title} src={item.image} />
+          </Col>
+          <Col {...span.content} className="article_info_container">
+            <p className="article_title"> {item.title}</p>
+            <div className="article_full_credit_container">
+              <span> by {author} </span>
+              <FA icon="far fa-clock" title={item.date} />
+            </div>
+            <div className="article_button">
+              <Button>Read More</Button>
+            </div>
+          </Col>
+        </Row>
+      </a>
+    </Col>
+  );
+};
 
 function NewsFlash() {
   return <div>news flash </div>;
 }
 
 function Title(props) {
-  const { title, title_blue, link_to } = props;
+  const { hide_loadmore, title, title_blue, link_to } = props;
 
   let full_title = (
     <div>
@@ -27,124 +95,22 @@ function Title(props) {
         </Divider>
       </Col>
       <Col span={24}>{props.children}</Col>
-      <Col span={24}>
-        <a href={link_to}>
-          <div className="load_more">Load More</div>
-        </a>
-      </Col>
+      {!hide_loadmore && (
+        <Col span={24}>
+          <a href={link_to}>
+            <div className="load_more">Load More</div>
+          </a>
+        </Col>
+      )}
     </Row>
   );
 }
 
 function StoryBody(props) {
-  const { assigned } = props;
-
-  const data = [
-    {
-      src: "https://media.nature.com/lw1024/magazine-assets/d41586-022-00004-x/d41586-022-00004-x_20006772.jpg",
-      title:
-        "Immunity against Omicron from breakthrough infection could be a matter of timing",
-      link: "https://www.nature.com/articles/d41586-022-00004-x",
-      domain: "nature.com",
-      date: "January 10, 2022",
-    },
-    {
-      src: "https://media.nature.com/lw1024/magazine-assets/d41586-022-00004-x/d41586-022-00004-x_20006772.jpg",
-      title:
-        "Immunity against Omicron from breakthrough infection could be a matter of timing",
-      domain: "nature.com",
-      date: "January 10, 2022",
-    },
-    {
-      src: "https://media.nature.com/lw1024/magazine-assets/d41586-022-00004-x/d41586-022-00004-x_20006772.jpg",
-      title:
-        "Immunity against Omicron from breakthrough infection could be a matter of timing",
-      link: "https://www.nature.com/articles/d41586-022-00004-x",
-      domain: "nature.com",
-      date: "January 10, 2022",
-    },
-    {
-      src: "https://media.nature.com/lw1024/magazine-assets/d41586-022-00004-x/d41586-022-00004-x_20006772.jpg",
-      title:
-        "Immunity against Omicron from breakthrough infection could be a matter of timing",
-      domain: "nature.com",
-      date: "January 10, 2022",
-    },
-    {
-      src: "https://media.nature.com/lw1024/magazine-assets/d41586-022-00004-x/d41586-022-00004-x_20006772.jpg",
-      title:
-        "Immunity against Omicron from breakthrough infection could be a matter of timing",
-      link: "https://www.nature.com/articles/d41586-022-00004-x",
-      domain: "nature.com",
-      date: "January 10, 2022",
-    },
-    {
-      src: "https://media.nature.com/lw1024/magazine-assets/d41586-022-00004-x/d41586-022-00004-x_20006772.jpg",
-      title:
-        "Immunity against Omicron from breakthrough infection could be a matter of timing",
-      domain: "nature.com",
-      date: "January 10, 2022",
-    },
-  ];
-
   return (
-    <Title {...props}>
+    <Title hide_loadmore={true} {...props}>
       <Row gutter={36}>
-        {data.map((item, index) => {
-          let default_span = {
-            container: {
-              xs: 24,
-              sm: 24,
-              md: 24,
-              lg: 24,
-              xl: 24,
-              xxl: 24,
-            },
-            image: {
-              xs: 24,
-              sm: 24,
-              md: 24,
-              lg: 12,
-              xl: 12,
-              xxl: 12,
-            },
-            content: {
-              xs: 24,
-              sm: 24,
-              md: 24,
-              lg: 12,
-              xl: 12,
-              xxl: 12,
-            },
-          };
-
-          let span = item.span || default_span;
-          return (
-            <Col {...span.container} className="article_container">
-              <a target={"_blank"} href={item.link} without rel="noreferrer">
-                <Row gutter={24}>
-                  <Col {...span.image} className="article_image_container">
-                    <img
-                      className="full_width"
-                      alt={item.title}
-                      src={item.src}
-                    />
-                  </Col>
-                  <Col {...span.content} className="article_info_container">
-                    <p className="article_title"> {item.title}</p>
-                    <div className="article_full_credit_container">
-                      <span> by {item.domain} </span>
-                      <FA icon="far fa-clock" title={item.date} />
-                    </div>
-                    <div className="article_button">
-                      <Button>Read More</Button>
-                    </div>
-                  </Col>
-                </Row>
-              </a>
-            </Col>
-          );
-        })}
+        <MakeList {...props} />
       </Row>
     </Title>
   );
@@ -190,7 +156,14 @@ function Brands(props) {
     </Title>
   );
 }
-export default function Body() {
+const News = (props) => {
+  useEffect(() => {
+    props.read({
+      key: "news",
+      replace: true,
+    });
+  }, []);
+
   let span = {
     left: {
       xs: 24,
@@ -331,22 +304,10 @@ export default function Body() {
     <Row gutter={24}>
       <Col {...span.left}>
         {/* <NewsFlash /> */}
-        <Hero />
         <StoryBody
-          assigned="react dev 2 9pm"
-          title="PublicHealth.News "
-          title_blue="Exclusive"
-        />
-        <StoryBody
-          assigned="react dev 1 9pm"
-          title="Must "
-          title_blue=" Read"
-        />
-
-        <StoryBody
-          assigned="react dev 3 9pm"
-          title="News - "
-          title_blue="Updated Daily"
+          data={props.recent_news}
+          title="Most  "
+          title_blue="Recent News"
         />
       </Col>
       <Col {...span.right}>
@@ -385,4 +346,12 @@ export default function Body() {
       </Col>
     </Row>
   );
-}
+};
+
+const mapStateToProps = (state) => ({
+  recent_news: state.master.news || [],
+});
+
+const mapDispatchToProps = { read };
+
+export default connect(mapStateToProps, mapDispatchToProps)(News);

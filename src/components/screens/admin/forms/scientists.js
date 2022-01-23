@@ -1,4 +1,4 @@
-import { Form, Input, Button, Checkbox } from "antd";
+import { Form, Input, Button, Checkbox, Select } from "antd";
 import ImageUpload from "../../../../utils/imageUpload";
 
 const LoginForm = (props) => {
@@ -11,7 +11,7 @@ const LoginForm = (props) => {
 
   const upload = {
     config: {
-      name: "logo",
+      name: "image",
       label: "Add Private Files",
     },
     deco: {
@@ -38,10 +38,7 @@ const LoginForm = (props) => {
   return (
     <Form
       name="basic"
-      initialValues={{
-        title: "title 1",
-        link: "https://americasfrontlinedoctors.org",
-      }}
+      initialValues={{}}
       onFinish={onSubmit}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
@@ -61,6 +58,18 @@ const LoginForm = (props) => {
         <Input size="large" />
       </Form.Item>
       <Form.Item
+        label="Addressing"
+        name="addressing"
+        rules={[
+          {
+            required: true,
+            message: "How do we address this expert",
+          },
+        ]}
+      >
+        <Input placeholder="i.e. Dr, Mr." size="large" />
+      </Form.Item>
+      <Form.Item
         label="Link"
         name="link"
         rules={[
@@ -73,7 +82,7 @@ const LoginForm = (props) => {
         <Input size="large" />
       </Form.Item>
 
-      <Form.Item label="Upload Logo" name="logo">
+      <Form.Item label="Upload Image" name="image">
         <ImageUpload SetFieldsValue={SetFieldsValue} {...upload} />
       </Form.Item>
 

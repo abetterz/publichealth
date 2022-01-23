@@ -1,4 +1,4 @@
-import { Form, Input, Button, Checkbox } from "antd";
+import { Form, Input, Button, Checkbox, Select } from "antd";
 
 const LoginForm = (props) => {
   const { onSubmit } = props;
@@ -6,12 +6,37 @@ const LoginForm = (props) => {
     console.log("Failed:", errorInfo);
   };
 
+  const contributors = [
+    {
+      label: "Content Contributor",
+      value: "contributor",
+    },
+    {
+      label: "Doctors & Scientists",
+      value: "doctors_scientists",
+    },
+    {
+      label: "Other Experts",
+      value: "experts",
+    },
+    {
+      label: "Media & Site Owners",
+      value: "media",
+    },
+    {
+      label: "Request Admin Access",
+      value: "admin",
+    },
+  ];
   return (
     <Form
       name="basic"
       initialValues={{
-        title: "title 1",
-        link: "https://americasfrontlinedoctors.org",
+        email: "leslyrevenge1@gmail.com",
+        fullname: "Lesly Revenge 1",
+        category: ["contributor", "admin"],
+        password: "testing1",
+        confirm_password: "testing1",
       }}
       onFinish={onSubmit}
       onFinishFailed={onFinishFailed}
@@ -19,28 +44,74 @@ const LoginForm = (props) => {
       layout="vertical"
     >
       <Form.Item
-        label="Title"
-        name="title"
+        label="Email"
+        name="email"
         rules={[
           {
             required: true,
-            message: "Please input a title",
+            message: "Please input your email!",
           },
         ]}
       >
         <Input size="large" />
       </Form.Item>
       <Form.Item
-        label="Link"
-        name="link"
+        label="Fullname"
+        name="fullname"
         rules={[
           {
             required: true,
-            message: "Please input a link",
+            message: "Please input your fullname!",
           },
         ]}
       >
         <Input size="large" />
+      </Form.Item>
+      <Form.Item
+        label="Contributor Category"
+        name="category"
+        rules={[
+          {
+            required: true,
+            message: "Please input your fullname!",
+          },
+        ]}
+      >
+        <Select size="large" mode="multiple">
+          {contributors.map((contributor) => {
+            return (
+              <Select.Option value={contributor.value} key={contributor.value}>
+                {contributor.label}
+              </Select.Option>
+            );
+          })}
+        </Select>
+      </Form.Item>
+
+      <Form.Item
+        label="Password"
+        name="password"
+        rules={[
+          {
+            required: true,
+            message: "Please input your password!",
+          },
+        ]}
+      >
+        <Input.Password size="large" />
+      </Form.Item>
+
+      <Form.Item
+        label="Confirm Password"
+        name="confirm_password"
+        rules={[
+          {
+            required: true,
+            message: "Please confirm your password!",
+          },
+        ]}
+      >
+        <Input.Password size="large" />
       </Form.Item>
 
       <Form.Item>
