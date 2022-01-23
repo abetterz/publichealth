@@ -84,11 +84,15 @@ function StoryBody(props) {
               <a target={"_blank"} href={item.link} without rel="noreferrer">
                 <Row>
                   <Col span={span.image} className="article_image_container">
-                    <img
-                      className="full_width"
-                      alt={item.title}
-                      src={item.image}
-                    />
+                    {item.image ? (
+                      <img
+                        className="full_width"
+                        alt={item.title}
+                        src={item.image || item.screenshot}
+                      />
+                    ) : (
+                      <div className="default_image">{item.title}</div>
+                    )}
                   </Col>
                   <Col span={span.title} className="article_info_container">
                     <p className="article_title"> {item.title}</p>
