@@ -15,13 +15,17 @@ function NewsFlash() {
 }
 
 function Title(props) {
-  const { title, title_blue, link_to } = props;
+  const { title, title_blue, link_to, handleClick, section } = props;
 
   let full_title = (
     <div>
       {title} <span className="header_blue">{title_blue}</span>
     </div>
   );
+
+  const onClick = () => {
+    handleClick && handleClick(section);
+  };
 
   return (
     <Row>
@@ -31,7 +35,7 @@ function Title(props) {
         </Divider>
       </Col>
       <Col span={24}>{props.children}</Col>
-      <Col span={24}>
+      <Col onClick={onClick} span={24}>
         <a href={link_to}>
           <div className="load_more">Load More</div>
         </a>
@@ -41,10 +45,10 @@ function Title(props) {
 }
 
 function StoryBody(props) {
-  const { link_to, data } = props;
+  const { link_to, data, handleClick } = props;
 
   return (
-    <Title link_to={link_to} {...props}>
+    <Title handleClick={handleClick} link_to={link_to} {...props}>
       <Row gutter={36}>
         {data.map((item, index) => {
           let default_span = {
@@ -171,6 +175,15 @@ const HomePage = (props) => {
       replace: true,
     });
   }, []);
+
+  const handleClick = async (section) => {
+    await props.read({
+      key: "news",
+      dispatch_key: section,
+      query: `?category=${section}&&type=1`,
+      replace: true,
+    });
+  };
 
   console.log(props, "testing_props_here");
   let span = {
@@ -320,6 +333,8 @@ const HomePage = (props) => {
           title="PublicHealth.News "
           title_blue="Exclusive"
           link_to={"/news/exclusive"}
+          handleClick={handleClick}
+          section="exclusive"
         />
         <StoryBody
           data={props.must_read}
@@ -327,6 +342,8 @@ const HomePage = (props) => {
           title="Must "
           title_blue=" Read"
           link_to={"/news/must_read"}
+          handleClick={handleClick}
+          section="must_read"
         />
 
         <StoryBody
@@ -335,6 +352,8 @@ const HomePage = (props) => {
           title="News - "
           title_blue="Updated Daily"
           link_to={"/news/updated_daily"}
+          handleClick={handleClick}
+          section="updated_daily"
         />
       </Col>
       <Col {...span.right}>

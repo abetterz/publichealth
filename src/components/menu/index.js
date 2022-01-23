@@ -14,13 +14,9 @@ class MainMenu extends React.Component {
     current: "mail",
   };
 
-  handleClick = (e) => {
-    console.log("click ", e);
-    this.setState({ current: e.key });
-  };
-
   render() {
     const { current } = this.state;
+    const { handleClick } = this.props;
 
     const menus = [
       {
@@ -60,11 +56,7 @@ class MainMenu extends React.Component {
       },
     ];
     return (
-      <Menu
-        onClick={this.handleClick}
-        selectedKeys={[current]}
-        mode="horizontal"
-      >
+      <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
         {menus.map((item) => {
           return (
             <Menu.Item className="main_menu_item" key={item.key}>

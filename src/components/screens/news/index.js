@@ -161,8 +161,7 @@ const News = (props) => {
   useEffect(() => {
     props.read({
       key: "news",
-      query: "?category=all",
-
+      query: `?category=${section}&&type=1`,
       replace: true,
     });
   }, []);
