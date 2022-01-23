@@ -31,13 +31,7 @@ const LoginForm = (props) => {
   return (
     <Form
       name="basic"
-      initialValues={{
-        email: "leslyrevenge1@gmail.com",
-        fullname: "Lesly Revenge 1",
-        category: ["contributor", "admin"],
-        password: "testing1",
-        confirm_password: "testing1",
-      }}
+      initialValues={{}}
       onFinish={onSubmit}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
