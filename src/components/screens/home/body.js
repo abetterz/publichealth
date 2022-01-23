@@ -29,7 +29,7 @@ function Title(props) {
       <Col span={24}>{props.children}</Col>
       <Col span={24}>
         <a href={link_to}>
-          <div className="load_more">Load More</div>
+          <div className="load_more">See More</div>
         </a>
       </Col>
     </Row>
@@ -119,7 +119,7 @@ function StoryBody(props) {
                     <p className="article_title"> {item.title}</p>
                     <div className="article_credit_container">
                       <span> by {item.domain} </span>
-                      <FA icon="far fa-clock" title={item.date} />
+                      <FA icon="far fa-dash" title={item.date} />
                     </div>
                   </Col>
                 </Row>

@@ -100,7 +100,7 @@ function Title(props) {
       {!hide_loadmore && (
         <Col span={24}>
           <a href={link_to}>
-            <div className="load_more">Load More</div>
+            <div className="load_more">See More</div>
           </a>
         </Col>
       )}

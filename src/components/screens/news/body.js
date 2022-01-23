@@ -29,7 +29,7 @@ function Title(props) {
       <Col span={24}>{props.children}</Col>
       <Col span={24}>
         <a href={link_to}>
-          <div className="load_more">Load More</div>
+          <div className="load_more">See More</div>
         </a>
       </Col>
     </Row>
