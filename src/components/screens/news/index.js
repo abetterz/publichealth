@@ -52,12 +52,13 @@ export const NewCard = (item) => {
     }
   }
 
+  const image = item.image || item.screenshot;
   return (
     <Col {...span.container} className="article_container">
       <a target={"_blank"} href={item.link} without rel="noreferrer">
         <Row gutter={24}>
           <Col {...span.image} className="article_image_container">
-            <img className="full_width" alt={item.title} src={item.image} />
+            <img className="full_width" alt={item.title} src={image} />
           </Col>
           <Col {...span.content} className="article_info_container">
             <p className="article_title"> {item.title}</p>
