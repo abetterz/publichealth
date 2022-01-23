@@ -17,7 +17,7 @@ const PostForm = (props) => {
       label: "Add Private Files",
     },
     deco: {
-      aspect: 1 / 1,
+      aspect: 2 / 1,
       icon: "fas fa-camera-retro",
       hide: ["type", "folder"],
     },
@@ -35,6 +35,11 @@ const PostForm = (props) => {
     console.log(payload, "handlePhotoUpload");
 
     form.setFieldsValue(payload);
+  };
+  const handleOnSubmit = (values) => {
+    let res = onSubmit(values);
+
+    form.resetFields();
   };
 
   const categories = [
@@ -78,11 +83,8 @@ const PostForm = (props) => {
   return (
     <Form
       name="basic"
-      initialValues={{
-        title: "title 1",
-        link: "https://americasfrontlinedoctors.org",
-      }}
-      onFinish={onSubmit}
+      initialValues={{}}
+      onFinish={handleOnSubmit}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
       layout="vertical"
@@ -98,7 +100,7 @@ const PostForm = (props) => {
           },
         ]}
       >
-        <Input size="large" />
+        <Input allowClear size="large" />
       </Form.Item>
       <Form.Item
         label="Link"
@@ -110,7 +112,7 @@ const PostForm = (props) => {
           },
         ]}
       >
-        <Input size="large" />
+        <Input allowClear size="large" />
       </Form.Item>
 
       <Form.Item
@@ -123,7 +125,7 @@ const PostForm = (props) => {
           },
         ]}
       >
-        <Select size="large" mode="multiple">
+        <Select allowClear size="large" mode="multiple">
           {categories.map((contributor) => {
             return (
               <Select.Option value={contributor.value} key={contributor.value}>
@@ -144,14 +146,14 @@ const PostForm = (props) => {
       {collapsed && (
         <div>
           <Form.Item label="Date Published" name="date_published">
-            <Input size="large" />
+            <Input allowClear size="large" />
           </Form.Item>
           <Form.Item label="Author" name="author">
-            <Input size="large" />
+            <Input allowClear size="large" />
           </Form.Item>
 
           <Form.Item label="Hide Image?" name="hide_image">
-            <Select size="large">
+            <Select allowClear size="large">
               {bool.map((contributor) => {
                 return (
                   <Select.Option

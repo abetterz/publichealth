@@ -266,7 +266,7 @@ const Index = (props) => {
                   })}
                 </Row>
               </Col>
-              <Col>2022 &copy; PublicHealth.New - Freedom From Pain</Col>
+              <Col>2022 &copy; PublicHealth.News - Freedom From Pain</Col>
             </Row>
           </Col>
           {/* container end */}

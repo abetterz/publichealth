@@ -4,10 +4,12 @@ import Hero from "./carousel";
 import { FA } from "../../../utils/images";
 import { Card, Avatar } from "antd";
 import { connect } from "react-redux";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { read } from "../../../redux/actions/master";
 import { MakeList } from "../../../utils/list";
 import moment from "moment";
+import "react-image-gallery/styles/scss/image-gallery.scss";
+import ImageGallery from "react-image-gallery";
 const { Meta } = Card;
 
 function NewsFlash() {
@@ -151,34 +153,48 @@ function Brands(props) {
     </Title>
   );
 }
+
 const HomePage = (props) => {
-  useEffect(() => {
-    props.read({
+  let fetchInitial = async () => {
+    await props.read({
       key: "news",
       query: "?category=exclusive",
       dispatch_key: "exclusive",
 
       replace: true,
     });
-    props.read({
+    await props.read({
       key: "news",
       query: "?category=must_read",
       dispatch_key: "must_read",
       replace: true,
     });
-    props.read({
+    await props.read({
       key: "news",
       query: "?category=updated_daily",
       dispatch_key: "updated_daily",
       replace: true,
     });
-    props.read({
+    await props.read({
       key: "news",
       query: "?category=main_page",
       dispatch_key: "main_page",
       replace: true,
     });
+    let front_page = await props.read({
+      key: "news",
+      query: "?category=front_page",
+      dispatch_key: "front_page",
+      replace: true,
+    });
+
+    console.log("testing_front_page", front_page);
+  };
+  useEffect(() => {
+    fetchInitial();
   }, []);
+
+  console.log(props, "tesitng_front_page");
 
   const handleClick = async (section) => {
     await props.read({
@@ -326,11 +342,63 @@ const HomePage = (props) => {
     },
   ];
 
+  const items = props.front_page.map((item) => {
+    <div className="item" data-value="1">
+      {item.title}
+    </div>;
+  });
+
+  let current = props.front_page[5];
+
+  const FormatCarouselItems = (input) => {
+    let output = [];
+    input.forEach((item) => {
+      let found = output.find((g) => g.title == item.title) || [];
+      if (!found[0]) {
+        let author = item.author;
+        if (!author) {
+          let domain = item.link;
+          if (domain) {
+            domain = domain.split(".");
+            author = domain[0] + ".";
+            author = author.split("//");
+            author = author[1];
+            let prefix = (domain[1] && domain[1].split("/")) || [];
+            author += prefix[0];
+          }
+        }
+        let gotDate = moment(item.created_at).format("MMMM Do YYYY");
+
+        let date = item.date_published || gotDate;
+        output.push({
+          original: item.image || item.screenshot,
+          thumbnail: item.image || item.screenshot,
+          description: (
+            <a href={item.link} target="_blank" rel="noreferrer">
+              <div className="carousel_content_container">
+                <div className="carousel_content_title">{item.title}</div>
+
+                <div className="carousel_content_info">
+                  <FA icon="far fa-user" title={author} />{" "}
+                </div>
+                <div className="carousel_content_info">
+                  <FA icon="far fa-clock" title={date} />{" "}
+                </div>
+              </div>
+            </a>
+          ),
+        });
+      }
+    });
+    return output;
+  };
+
+  const images = FormatCarouselItems(props.front_page);
   return (
     <Row gutter={24}>
       <Col {...span.left}>
         {/* <NewsFlash /> */}
-        <Hero data={props.main_page} />
+        <ImageGallery items={images} />
         <StoryBody
           data={props.exclusive}
           assigned="react dev 2 9pm"
@@ -403,6 +471,7 @@ const mapStateToProps = (state) => ({
   must_read: state.master.must_read || [],
   updated_daily: state.master.updated_daily || [],
   main_page: state.master.main_page || [],
+  front_page: state.master.front_page || [],
 });
 
 const mapDispatchToProps = { read };

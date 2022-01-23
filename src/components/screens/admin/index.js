@@ -46,7 +46,7 @@ export const AdminPanel = (props) => {
 
     setLoading(false);
 
-    console.log(payload, "testing_after_submit");
+    return res;
   };
 
   return (

@@ -5,13 +5,7 @@ import { Row, Col, Card } from "antd";
 const { Meta } = Card;
 
 export const Websites = (props) => {
-  const data = [
-    {
-      title: "America’s Frontline Doctors",
-      description: "https://americasfrontlinedoctors.org",
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLjz5qshMCUaHeexi_tF_amRCquhTPU0UwVzn7daLKE-oJ5N4WhLZFMtgxHs9-_fXuwpc&usqp=CAU",
-    },
-  ];
+  const data = [{}];
   let span = {
     xs: 24,
     sm: 8,

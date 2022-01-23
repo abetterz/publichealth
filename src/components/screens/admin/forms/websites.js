@@ -38,10 +38,7 @@ const LoginForm = (props) => {
   return (
     <Form
       name="basic"
-      initialValues={{
-        title: "title 1",
-        link: "https://americasfrontlinedoctors.org",
-      }}
+      initialValues={{}}
       onFinish={onSubmit}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
