@@ -166,7 +166,7 @@ const Index = (props) => {
                 mode="horizontal"
               >
                 <Menu.Item key={"admin"}>
-                  <Link to={"/admin/dashboard"}>
+                  <Link to={"/admin/posts"}>
                     <FA icon={"fas fa-techometer-alt"} title={"Admin"} />
                   </Link>
                 </Menu.Item>

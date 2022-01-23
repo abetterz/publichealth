@@ -18,6 +18,14 @@ export const AuthPanel = (props) => {
     xxl: 8,
   };
 
+  let noauth = ["login", "register"];
+  if (!props.isAuthenticated) {
+    console.log(section, "testing_section");
+    let yes = noauth.includes(section);
+    if (!yes) {
+      section = "login";
+    }
+  }
   const onSubmit = async (payload) => {
     let getFunc = props[section];
     let res =

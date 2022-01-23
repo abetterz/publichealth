@@ -33,8 +33,17 @@ export const AdminPanel = (props) => {
     xxl: 16,
   };
 
-  let { title } = GetNomenclature(section);
-  const GotForm = GetForm(section);
+  let noauth = ["login", "register"];
+  console.log(section, "testing_section");
+  if (props.isAuthenticated) {
+    let yes = noauth.includes(section);
+    if (yes) {
+      section = "posts";
+    }
+  }
+
+  let { title } = GetNomenclature(section, props.isAuthenticated);
+  const GotForm = GetForm(section, props.isAuthenticated);
 
   const onSubmit = async (payload) => {
     setLoading(true);
@@ -69,7 +78,9 @@ export const AdminPanel = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
 
 const mapDispatchToProps = { create };
 
