@@ -6,6 +6,8 @@ import { Card, Avatar } from "antd";
 import { connect } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { read } from "../../../redux/actions/master";
+import { MakeList } from "../../../utils/list";
+import moment from "moment";
 const { Meta } = Card;
 
 function NewsFlash() {
@@ -58,6 +60,21 @@ function StoryBody(props) {
           };
 
           let span = item.span || default_span;
+          let author = item.author;
+          if (!author) {
+            let domain = item.link;
+            if (domain) {
+              domain = domain.split(".");
+              author = domain[0] + ".";
+              author = author.split("//");
+              author = author[1];
+              let prefix = domain[1] && domain[1].split("/");
+              author += prefix[0];
+            }
+          }
+          let gotDate = moment(item.created_at).format("MMMM Do YYYY");
+
+          let date = item.date_published || gotDate;
           return (
             <Col {...span.container} className="article_container">
               <a target={"_blank"} href={item.link} without rel="noreferrer">
@@ -66,14 +83,14 @@ function StoryBody(props) {
                     <img
                       className="full_width"
                       alt={item.title}
-                      src={item.src}
+                      src={item.image}
                     />
                   </Col>
                   <Col span={span.title} className="article_info_container">
                     <p className="article_title"> {item.title}</p>
                     <div className="article_credit_container">
-                      <span> by {item.domain} </span>
-                      <FA icon="far fa-clock" title={item.date} />
+                      <span> by {author} </span>
+                      <FA icon="far fa-clock" title={date} />
                     </div>
                   </Col>
                 </Row>
