@@ -33,6 +33,33 @@ class MainMenu extends React.Component {
         link: "archives/index",
         key: "archives",
         title: "Archives",
+        submenu: [
+          {
+            link: "archives/reports",
+            title: "Reports",
+            key: "reports",
+          },
+          {
+            link: "archives/video_arhives",
+            title: "Video Archives",
+            key: "video_arhives",
+          },
+          {
+            link: "archives/covid_boot_camp",
+            title: "COVID Boot Camp",
+            key: "covid_boot_camp",
+          },
+          {
+            link: "archives/bootcamp_for_parents",
+            title: "Boot Camp for Parents",
+            key: "bootcamp_for_parents",
+          },
+          {
+            link: "archives/scientific_studies",
+            title: "Scientific Studies",
+            key: "scientific_studies",
+          },
+        ],
       },
       {
         link: "websites/index",
@@ -58,11 +85,31 @@ class MainMenu extends React.Component {
     return (
       <Menu onClick={handleClick} mode="horizontal">
         {menus.map((item) => {
-          return (
-            <Menu.Item className="main_menu_item" key={item.key}>
-              <Link to={item.link}>{item.title}</Link>
-            </Menu.Item>
-          );
+          if (item.submenu) {
+            // <Menu.Item className="main_menu_item" key={item.key}>
+            //   <Link to={item.link}>{item.title}</Link>
+            // </Menu.Item>
+
+            return (
+              <SubMenu
+                className="main_menu_item"
+                key={item.key}
+                title={item.title}
+              >
+                {item.submenu.map((sub) => (
+                  <Menu.Item className="main_menu_item" key={sub.key}>
+                    <Link to={sub.link}>{sub.title}</Link>
+                  </Menu.Item>
+                ))}
+              </SubMenu>
+            );
+          } else {
+            return (
+              <Menu.Item className="main_menu_item" key={item.key}>
+                <Link to={item.link}>{item.title}</Link>
+              </Menu.Item>
+            );
+          }
         })}
       </Menu>
     );

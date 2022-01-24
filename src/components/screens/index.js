@@ -45,6 +45,33 @@ const Index = (props) => {
       key: "archives",
       title: "Archives",
       link: "/archives",
+      submenu: [
+        {
+          link: "archives/reports",
+          title: "Reports",
+          key: "reports",
+        },
+        {
+          link: "archives/index",
+          title: "Video Archives",
+          key: "video-archieves",
+        },
+        {
+          link: "news/covid-boot-camp",
+          title: "COVID Boot Camp",
+          key: "covid-boot-camp",
+        },
+        {
+          link: "news/index",
+          title: "Boot Camp for Parents",
+          key: "bootcamp-for-parents",
+        },
+        {
+          link: "archives/scientific-studies",
+          title: "Scientific Studies",
+          key: "scientific-studies",
+        },
+      ],
     },
     {
       key: "webites",
