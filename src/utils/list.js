@@ -1,7 +1,8 @@
 import { List, Avatar, Space } from "antd";
 import { NewCard } from "../components/screens/news";
 
-export const MakeList = ({ data }) => {
+export const MakeList = ({ data, Card }) => {
+  let GotCard = Card || NewCard;
   return (
     <List
       itemLayout="vertical"
@@ -14,7 +15,7 @@ export const MakeList = ({ data }) => {
       }}
       dataSource={data}
       footer={<div>{/* <b>ant design</b> footer part */}</div>}
-      renderItem={(item) => <NewCard {...item} />}
+      renderItem={(item) => <GotCard {...item} />}
     />
   );
 };

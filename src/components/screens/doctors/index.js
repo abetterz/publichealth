@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Row, Col, Card } from "antd";
+import { read } from "../../../redux/actions/master";
+import { MakeList } from "../../../utils/list";
 
 const { Meta } = Card;
 
 export const SicentistDoctors = (props) => {
+  const fetchInitialData = async () => {
+    await props.read({
+      key: "scientists",
+      replace: true,
+    });
+  };
+  useEffect(() => {
+    fetchInitialData();
+  }, []);
+
   const data = [
     {
       description: "NYC/NJ Physician MSKCCDr Been",
@@ -21,14 +33,14 @@ export const SicentistDoctors = (props) => {
   };
 
   const StaffCard = (props) => {
-    let { title, src, description } = props;
+    let { name, title, image, description } = props;
     return (
       <Card
         hoverable
         style={{ width: "100%" }}
-        cover={<img alt="example" src={src} className="staff_images" />}
+        cover={<img alt="example" src={image} className="staff_images" />}
       >
-        <Meta title={title} description={description} />
+        <Meta title={name} description={title} />
       </Card>
     );
   };
@@ -45,7 +57,7 @@ export const SicentistDoctors = (props) => {
           </Col>
         </Row>
         <Row gutter={24}>
-          {data.map((staff) => {
+          {props.scientists.map((staff) => {
             return (
               <Col className="staff_list_container" {...span}>
                 <StaffCard {...staff} />
@@ -58,8 +70,10 @@ export const SicentistDoctors = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  scientists: state.master.scientists || [],
+});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = { read };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SicentistDoctors);

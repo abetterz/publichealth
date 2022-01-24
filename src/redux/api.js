@@ -18,6 +18,13 @@ let dict = {
   },
 
   read: {
+    scientists: {
+      api: "/api/admin/scientists/read",
+    },
+    websites: {
+      api: "/api/admin/websites/read",
+    },
+
     crud_posts: {
       api: "/api/admin/posts",
     },
@@ -33,9 +40,7 @@ let dict = {
     news: {
       api: "/api/admin/posts/read",
     },
-    websites: {
-      api: "/api/admin/websites/read",
-    },
+
     admin_posts: {
       api: "/api/admin/read/posts",
     },
