@@ -365,13 +365,13 @@ const News = (props) => {
           data={alexander_substack}
           link_to="https://substack.com/profile/58916651-dr-paul-alexander"
         />
-        <SideBarItems
+        {/* <SideBarItems
           assigned="react dev 4 9pm"
           title="Covid-19 "
           title_blue=" Overview"
           data={alexander_covid_overview}
           link_to="/archives/covid_19_overview/"
-        />
+        /> */}
         <SideBarItems
           assigned="react dev 4 9pm"
           title="Scientifics "
