@@ -131,11 +131,17 @@ function SideBarItems(props) {
               description: item.subtitle,
             };
             return (
-              <Col className="doctors_container" span={24}>
-                <Card>
-                  <Meta {...meta} />
-                </Card>
-              </Col>
+              <a
+                rel="noreferrer"
+                target={"_blank"}
+                href={item.link || props.link_to}
+              >
+                <Col className="doctors_container" span={24}>
+                  <Card>
+                    <Meta {...meta} />
+                  </Card>
+                </Col>
+              </a>
             );
           })}
         </Col>
