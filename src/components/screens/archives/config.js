@@ -1,16 +1,18 @@
-import bootcamp from "./bootcamp";
-import report from "./report";
-import scientfic_studies from "./scientfic_studies";
-import video from "./video";
+import bootcamp_for_parents from "./bootcamp_for_parents";
+import reports from "./report";
+import video_archives from "./video_archives";
+import covid_boot_camp from "./covid_boot_camp";
+import scientific_studies from "./scientific_studies";
 const dict = {
-  bootcamp,
-  report,
-  scientfic_studies,
-  video,
+  bootcamp_for_parents,
+  reports,
+  video_archives,
+  covid_boot_camp,
+  scientific_studies,
 };
 
 const GetPage = (dict_key) => {
-  return dict[dict_key] || video;
+  return dict[dict_key] || covid_boot_camp;
 };
 
 export default GetPage;

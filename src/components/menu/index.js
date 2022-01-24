@@ -40,9 +40,9 @@ class MainMenu extends React.Component {
             key: "reports",
           },
           {
-            link: "archives/video_arhives",
+            link: "archives/video_archives",
             title: "Video Archives",
-            key: "video_arhives",
+            key: "video_archives",
           },
           {
             link: "archives/covid_boot_camp",
