@@ -23,7 +23,7 @@ class AdminMenu extends React.Component {
       },
       {
         key: "scientists",
-        title: "Scientist & Doctors",
+        title: "scientists & doctors",
         link: "/admin/scientists",
       },
       {

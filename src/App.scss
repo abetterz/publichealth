@@ -313,3 +313,48 @@ li.alice-carousel__dots-item.__custom {
   margin-bottom: 5px;
   font-size: 14px;
 }
+
+.record_title {
+  color: rgb(24, 22, 22);
+}
+
+.dark_color {
+  color: rgb(24, 22, 22);
+}
+.dark_color:hover {
+  color: rgb(4, 33, 202);
+}
+.pointer {
+  cursor: pointer;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.clear_field_button {
+  margin-top: 20px;
+  cursor: pointer;
+}
+.clear_field_button:hover {
+  color: rgb(226, 0, 0);
+}
+
+.full_width {
+  width: 100%;
+}
+
+.action_btn {
+  margin-bottom: 10px;
+}
+
+.danger {
+  background-color: red !important;
+  color: white !important;
+}
+
+.table_searched {
+  margin-top: 10px;
+  text-align: right;
+  cursor: pointer;
+}

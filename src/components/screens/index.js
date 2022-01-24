@@ -53,7 +53,7 @@ const Index = (props) => {
     },
     {
       key: "scientist",
-      title: "Scientist & Doctors",
+      title: "scientists & doctors",
       link: "/scientist",
     },
     {

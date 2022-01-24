@@ -1,16 +1,24 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import { Row, Col } from "antd";
+import React, { useState, useRef } from "react";
+import { Row, Col, Input } from "antd";
 import AdminMenu from "./menu";
 import GetNomenclature from "../../admin/nomenclature";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import GetForm from "../../admin/forms";
-import { create } from "../../../redux/actions/master";
+import { connect } from "react-redux";
+import { create, drop, read } from "../../../redux/actions/master";
+import GenerateTable from "../../generator/lists/posts";
+import GetLists from "../../generator/lists";
+import { AudioOutlined } from "@ant-design/icons";
+import { FA } from "../../../utils/product";
 
 export const AdminPanel = (props) => {
   const [collapsed, setCollapsed] = useState();
   const [loading, setLoading] = useState();
+  const [searchEntry, setSearchEntry] = useState("");
+
+  const [initialValues, setInitialValues] = useState({});
   let { section } = useParams();
+  const targetRef = useRef();
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
@@ -34,7 +42,6 @@ export const AdminPanel = (props) => {
   };
 
   let noauth = ["login", "register"];
-  console.log(section, "testing_section");
   if (props.isAuthenticated) {
     let yes = noauth.includes(section);
     if (yes) {
@@ -45,17 +52,106 @@ export const AdminPanel = (props) => {
   let { title } = GetNomenclature(section, props.isAuthenticated);
   const GotForm = GetForm(section, props.isAuthenticated);
 
-  const onSubmit = async (payload) => {
+  const onSubmit = async (payload, isEdit) => {
     setLoading(true);
-    let res = await props.create({
-      payload,
-      key: section,
-      replace: true,
-    });
+    let res;
+    if (isEdit) {
+      res = await props.create({
+        payload,
+        key: section,
+        params: ["update"],
+        update_state: true,
+        update: true,
+      });
+    } else {
+      res = await props.create({
+        payload,
+        key: section,
+        params: ["create"],
+        update_state: true,
+        update: true,
+      });
+    }
 
     setLoading(false);
+    setInitialValues({});
 
     return res;
+  };
+
+  const GotList = GetLists(section);
+  let data = props[section];
+
+  const handleEditForm = (data) => {
+    setInitialValues(data);
+  };
+
+  const onArchieved = async (payload) => {
+    await props.create({
+      payload,
+      key: section,
+      params: ["archieved"],
+      update_state: true,
+      update: true,
+    });
+  };
+
+  const onDrop = async (payload) => {
+    await props.drop({
+      payload,
+      key: section,
+      query: `?_id=${payload._id}`,
+      params: ["drop"],
+      update_state: true,
+      update: true,
+    });
+  };
+  const suffix = (
+    <AudioOutlined
+      style={{
+        fontSize: 16,
+        color: "#1890ff",
+      }}
+    />
+  );
+
+  const onSearch = async (values) => {
+    setSearchEntry(values);
+    await props.read({
+      dispatch_key: section,
+      key: "crud_" + section,
+      params: ["read"],
+      query: `?searched_title=${values}`,
+      replace: true,
+    });
+  };
+  const SearchSystem = (props) => {
+    return (
+      <Row>
+        <Col span={24}>
+          <Input.Search
+            placeholder="Enter search title"
+            enterButton="Search"
+            size="large"
+            suffix={suffix}
+            onSearch={onSearch}
+          />
+        </Col>
+        <Col
+          onClick={() => onSearch("")}
+          style={{ textAlign: "right" }}
+          className="table_searched"
+        >
+          {searchEntry && (
+            <FA
+              title_position="left"
+              icon={"fas fa-times-circle"}
+              title={searchEntry}
+            />
+          )}
+        </Col>
+      </Row>
+    );
   };
 
   return (
@@ -64,15 +160,24 @@ export const AdminPanel = (props) => {
         <AdminMenu collapsed={collapsed} toggleCollapsed={toggleCollapsed} />
       </Col>
       <Col className="admin_title" span={24}>
-        <h1>{title}</h1>
+        <Row>
+          <Col {...span_left}>
+            <h1>{title}</h1>
+          </Col>
+          <Col {...span_right}>
+            <SearchSystem value={searchEntry} />
+          </Col>
+        </Row>
       </Col>
       <Col className="admin_title" span={24}>
-        <Row gutter={24}>
-          <Col {...span_left}>
-            <GotForm loading={loading} onSubmit={onSubmit} />
-          </Col>
-          <Col {...span_right}>List</Col>
-        </Row>
+        <GotForm
+          handleEditForm={handleEditForm}
+          onArchieved={onArchieved}
+          loading={loading}
+          onSubmit={onSubmit}
+          section={section}
+          onDrop={onDrop}
+        />
       </Col>
     </Row>
   );
@@ -80,8 +185,12 @@ export const AdminPanel = (props) => {
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
+  posts: state.master.posts,
+  scientists: state.master.scientists,
+  websites: state.master.websites,
+  users: state.master.users,
 });
 
-const mapDispatchToProps = { create };
+const mapDispatchToProps = { create, drop, read };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdminPanel);

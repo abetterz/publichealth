@@ -1,13 +1,39 @@
-- view payload fields proper field to db
-  -- scientist, websites, posts, users
-  - saved payload fields proper field to db
-    -- scientist, websites, posts, users
-- lists
-  -- scientist, websites, posts, users
-- users frontend
-  -- scientist, websites, posts,
-
-\*\* Frontend Launch
-
-- create read database.
-- show read database
+- edit fields (done)
+- new fields to database (done)
+- create update posts api (done)
+- add post to database done
+- download and upload image
+- download screenshots
+- save get_image by
+- archieve posts api
+- archieve posts
+- search by typing
+- filter by image
+- filter by title
+- filter by categories
+- filter by metada
+- filter by actions
+- add manage scientists backend
+- edit scientists backend
+- drop scientists backend
+- add manage websites backend
+- edit websites backend
+- drop websites backend
+- add manage users backend
+- edit users backend
+- drop users backend
+- give users admin access backend
+- give users contributor access backend
+- add manage scientists frontend
+- edit scientists frontend
+- drop scientists frontend
+- add manage websites frontend
+- edit websites frontend
+- drop websites frontend
+- add manage users frontend
+- edit users frontend
+- drop users frontend
+- give users admin access frontend
+- give users contributor access frontend
+- show errors on forms
+- settings - upload logo

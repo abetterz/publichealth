@@ -78,9 +78,9 @@ function StoryBody(props) {
               author += prefix[0];
             }
           }
-          let gotDate = moment(item.created_at).format("MMMM Do YYYY");
 
-          let date = item.date_published || gotDate;
+          let gotDate = item.published_on || item.created_at;
+          let date = moment(gotDate).format("MMMM Do YYYY");
           return (
             <Col {...span.container} className="article_container">
               <a target={"_blank"} href={item.link} without rel="noreferrer">
@@ -367,9 +367,8 @@ const HomePage = (props) => {
             author += prefix[0];
           }
         }
-        let gotDate = moment(item.created_at).format("MMMM Do YYYY");
-
-        let date = item.date_published || gotDate;
+        let gotDate = item.published_on || item.created_at;
+        let date = moment(gotDate).format("MMMM Do YYYY");
         output.push({
           original: item.image || item.screenshot,
           thumbnail: item.image || item.screenshot,

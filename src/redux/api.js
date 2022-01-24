@@ -7,7 +7,7 @@ let dict = {
       api: "/api/admin/scientists/create",
     },
     posts: {
-      api: "/api/admin/posts/create",
+      api: "/api/admin/posts",
     },
     websites: {
       api: "/api/admin/websites/create",
@@ -18,14 +18,17 @@ let dict = {
   },
 
   read: {
-    scientists: {
-      api: "/api/admin/scientists/read",
+    crud_posts: {
+      api: "/api/admin/posts",
     },
     news: {
       api: "/api/admin/posts/read",
     },
     websites: {
       api: "/api/admin/websites/read",
+    },
+    admin_posts: {
+      api: "/api/admin/read/users",
     },
     admin_users: {
       api: "/api/admin/read/users",
@@ -42,13 +45,20 @@ let dict = {
     isonboard: {
       api: "/api/business/place/isonboard",
     },
+    admin_list: {
+      api: "/api/admin/admin_list",
+    },
   },
   quick: {
     admin_users: {
       api: "/api/admin/quick",
     },
   },
-  drop: {},
+  drop: {
+    posts: {
+      api: "/api/admin/posts",
+    },
+  },
   indie: {
     upload_image_link: process.env.REACT_APP_SERVER + "/papi/upload/file",
     papi_branding_logo:

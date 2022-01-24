@@ -316,7 +316,7 @@ export const quick = (props, callback) => async (dispatch) => {
 
 // create or update
 export const drop = (props, callback) => async (dispatch) => {
-  const { key, params, dispatch_key } = props;
+  const { key, params, dispatch_key, payload } = props;
   const default_config = {
     headers: {
       "Content-Type": "application/json",
@@ -331,7 +331,7 @@ export const drop = (props, callback) => async (dispatch) => {
   let the_key = dispatch_key || key;
 
   try {
-    const res = await axios.post(api, default_config);
+    const res = await axios.post(api, payload, default_config);
     dispatch({
       type: dispatch_key || key,
       payload: res.data,

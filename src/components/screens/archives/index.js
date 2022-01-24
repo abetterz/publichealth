@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 export const Archieves = (props) => {
-  return <div> Due: 1/22/2022 - 6pm</div>;
+  return <div> </div>;
 };
 
 const mapStateToProps = (state) => ({});

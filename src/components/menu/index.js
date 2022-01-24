@@ -42,7 +42,7 @@ class MainMenu extends React.Component {
       {
         link: "scientists-doctors/index",
         key: "scientist",
-        title: "Scientist & Doctors",
+        title: "scientists & doctors",
       },
       {
         link: "about-us/index",
