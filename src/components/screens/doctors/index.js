@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { Row, Col, Card } from "antd";
+import { Row, Col, Card, Avatar } from "antd";
 import { read } from "../../../redux/actions/master";
 import { MakeList } from "../../../utils/list";
 
@@ -40,11 +40,10 @@ export const SicentistDoctors = (props) => {
           hoverable
           style={{ width: "100%" }}
           cover={
-            <img
-              alt="example"
-              target={"_blank"}
-              src={image}
-              className="staff_images"
+            <Avatar
+              style={{ width: "100%", height: 200 }}
+              shape="square"
+              src={props.image}
             />
           }
         >
