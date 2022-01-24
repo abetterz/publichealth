@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Row, Col, Card } from "antd";
+import { read } from "../../../redux/actions/master";
+import { MakeList } from "../../../utils/list";
 
 const { Meta } = Card;
 
-export const Websites = (props) => {
-  const data = [{}];
+export const SicentistDoctors = (props) => {
+  const fetchInitialData = async () => {
+    await props.read({
+      key: "websites",
+      replace: true,
+    });
+  };
+  useEffect(() => {
+    fetchInitialData();
+  }, []);
+
+  const data = [
+    {
+      description: "NYC/NJ Physician MSKCCDr Been",
+      src: "https://www.drbeen.com/wp-content/uploads/2019/11/founder-img.png",
+    },
+  ];
   let span = {
     xs: 24,
     sm: 8,
@@ -16,15 +33,17 @@ export const Websites = (props) => {
   };
 
   const StaffCard = (props) => {
-    let { title, src, description } = props;
+    let { name, title, image, link } = props;
     return (
-      <Card
-        hoverable
-        style={{ width: "100%" }}
-        cover={<img alt="example" src={src} className="staff_images" />}
-      >
-        <Meta title={title} description={description} />
-      </Card>
+      <a href={link}>
+        <Card
+          hoverable
+          style={{ width: "100%" }}
+          cover={<img alt="example" src={image} className="staff_images" />}
+        >
+          <Meta title={name} description={title} />
+        </Card>
+      </a>
     );
   };
   return (
@@ -36,11 +55,11 @@ export const Websites = (props) => {
           align="middle"
         >
           <Col>
-            <p className="page_header">Websites & Links</p>
+            <p className="page_header">Scientists and Doctors</p>
           </Col>
         </Row>
         <Row gutter={24}>
-          {data.map((staff) => {
+          {props.websites.map((staff) => {
             return (
               <Col className="staff_list_container" {...span}>
                 <StaffCard {...staff} />
@@ -53,8 +72,10 @@ export const Websites = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  websites: state.master.websites || [],
+});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = { read };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Websites);
+export default connect(mapStateToProps, mapDispatchToProps)(SicentistDoctors);
