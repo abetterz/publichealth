@@ -34,11 +34,11 @@ class MainMenu extends React.Component {
         key: "archives",
         title: "Archives",
         submenu: [
-          {
-            link: "archives/reports",
-            title: "Reports",
-            key: "reports",
-          },
+          // {
+          //   link: "archives/reports",
+          //   title: "Reports",
+          //   key: "reports",
+          // },
           {
             link: "archives/video_archives",
             title: "Video Archives",
