@@ -33,7 +33,7 @@ export const SicentistDoctors = (props) => {
   };
 
   const StaffCard = (props) => {
-    let { name, title, image, link } = props;
+    let { fullname, title, image, link } = props;
     return (
       <a target={"_blank"} rel="noreferrer" href={link}>
         <Card
@@ -41,13 +41,13 @@ export const SicentistDoctors = (props) => {
           style={{ width: "100%" }}
           cover={
             <Avatar
-              style={{ width: "100%", height: 200 }}
+              style={{ width: "100%", height: 250 }}
               shape="square"
               src={props.image}
             />
           }
         >
-          <Meta title={name} description={title} />
+          <Meta title={fullname} description={title} />
         </Card>
       </a>
     );

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { Row, Col, Card } from "antd";
+import { Row, Col, Card, Avatar } from "antd";
 import { read } from "../../../redux/actions/master";
 import { MakeList } from "../../../utils/list";
 
@@ -33,15 +33,21 @@ export const SicentistDoctors = (props) => {
   };
 
   const StaffCard = (props) => {
-    let { name, title, image, link } = props;
+    let { fullname, title, image, link } = props;
     return (
       <a target={"_blank"} rel="noreferrer" href={link}>
         <Card
           hoverable
           style={{ width: "100%" }}
-          cover={<img alt="example" src={image} className="staff_images" />}
+          cover={
+            <Avatar
+              style={{ width: "100%", height: 180 }}
+              shape="square"
+              src={props.image}
+            />
+          }
         >
-          <Meta title={name} description={title} />
+          <Meta title={title} />
         </Card>
       </a>
     );

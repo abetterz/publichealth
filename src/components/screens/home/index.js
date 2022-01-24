@@ -236,7 +236,7 @@ const HomePage = (props) => {
   const doctors = [
     {
       name: "Paul Elias Alexander, PhD",
-      link: "#",
+      link: "https://substack.com/profile/58916651-dr-paul-alexander",
       image:
         "https://childrenshealthdefense.org/wp-content/uploads/PaulAlexander.jpg",
       subtitle:
@@ -244,15 +244,16 @@ const HomePage = (props) => {
     },
     {
       name: "Ryan N. Cole MD",
-      link: "#",
+      link: "https://independentdocsid.com/RyanColeMD",
       image:
         "https://bloximages.chicago2.vip.townnews.com/idahopress.com/content/tncms/assets/v3/editorial/c/2e/c2ee54ab-3c0d-522d-9d4c-2bfd94d5d87e/6111c36242d7c.image.jpg?crop=889%2C889%2C0%2C195&resize=1200%2C1200&order=crop%2Cresize",
       subtitle:
         "Dr. Cole is a board-certified dermatopathologist (AP & CP) and the CEO/Medical Director of Cole Diagnostics. ",
     },
     {
+      link: "https://www.rwmalonemd.com/",
       name: "Robert W Malone MD",
-      link: "#",
+
       image:
         "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/aqiwr1hm17sm1glcsvhz",
       subtitle: "American virologist and immunologist",
@@ -262,7 +263,7 @@ const HomePage = (props) => {
   const domains = [
     {
       name: "Front Line COVID-19 Critical Care Alliance",
-      link: "#",
+      link: "https://covid19criticalcare.com/",
       image:
         "https://covid19criticalcare.com/wp-content/uploads/2020/06/FLCCC_Alliance_footer.svg",
       subtitle:
@@ -270,14 +271,14 @@ const HomePage = (props) => {
     },
     {
       name: "America’s Frontline Doctors",
-      link: "#",
+      link: "https://americasfrontlinedoctors.org/news/",
       image:
         "https://upload.wikimedia.org/wikipedia/en/c/c1/America%27s_Frontline_Doctors_official_logo.png",
       subtitle: "Fighting for Your Medical Freedom.",
     },
     {
       name: "C19 Early",
-      link: "#",
+      link: "https://c19early.com/",
 
       subtitle:
         "Treatments do not replace vaccines and other measures. All practical, effective, and safe means should be used. Elimination is a race against viral evolution.",
