@@ -4,22 +4,31 @@ let dict = {
       api: "/api/stuff/current",
     },
     scientists: {
-      api: "/api/admin/scientists/create",
+      api: "/api/admin/scientists",
     },
     posts: {
       api: "/api/admin/posts",
     },
     websites: {
-      api: "/api/admin/websites/create",
+      api: "/api/admin/websites",
     },
     users: {
-      api: "/api/admin/users/create",
+      api: "/api/admin/users",
     },
   },
 
   read: {
     crud_posts: {
       api: "/api/admin/posts",
+    },
+    crud_users: {
+      api: "/api/admin/users",
+    },
+    crud_websites: {
+      api: "/api/admin/websites",
+    },
+    crud_scientists: {
+      api: "/api/admin/scientists",
     },
     news: {
       api: "/api/admin/posts/read",
@@ -28,7 +37,7 @@ let dict = {
       api: "/api/admin/websites/read",
     },
     admin_posts: {
-      api: "/api/admin/read/users",
+      api: "/api/admin/read/posts",
     },
     admin_users: {
       api: "/api/admin/read/users",
@@ -55,8 +64,17 @@ let dict = {
     },
   },
   drop: {
+    scientists: {
+      api: "/api/admin/scientists",
+    },
     posts: {
       api: "/api/admin/posts",
+    },
+    websites: {
+      api: "/api/admin/websites",
+    },
+    users: {
+      api: "/api/admin/users",
     },
   },
   indie: {

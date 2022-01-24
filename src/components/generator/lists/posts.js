@@ -35,6 +35,40 @@ const columns = {
       dataIndex: "metadata",
     },
   ],
+  scientists: [
+    {
+      title: "Image",
+      dataIndex: "image",
+    },
+    {
+      title: "Title",
+      dataIndex: "title",
+
+      sorter: true,
+      // sorter: (a, b) => a.title - b.title,
+      filterSearch: true,
+    },
+  ],
+  websites: [
+    {
+      title: "Title",
+      dataIndex: "title",
+
+      sorter: true,
+      // sorter: (a, b) => a.title - b.title,
+      filterSearch: true,
+    },
+  ],
+  users: [
+    {
+      title: "Title",
+      dataIndex: "title",
+
+      sorter: true,
+      // sorter: (a, b) => a.title - b.title,
+      filterSearch: true,
+    },
+  ],
 };
 
 const GenerateTable = (props) => {

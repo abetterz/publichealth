@@ -197,8 +197,10 @@ const HomePage = (props) => {
   console.log(props, "tesitng_front_page");
 
   const handleClick = async (section) => {
+    console.log(section, "getting_clicks_here");
+
     await props.read({
-      key: "news",
+      key: section,
       dispatch_key: section,
       query: `?category=${section}&&type=1`,
       replace: true,

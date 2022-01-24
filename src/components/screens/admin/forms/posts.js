@@ -52,11 +52,6 @@ const PostForm = (props) => {
     },
   };
 
-  const SetFieldsValue = (payload) => {
-    console.log(payload, "handlePhotoUpload");
-
-    form.setFieldsValue(payload);
-  };
   const handleOnSubmit = async (values) => {
     await onSubmit(values, isEdit);
 
@@ -146,188 +141,174 @@ const PostForm = (props) => {
 
   const GotList = GetLists(props.section);
 
-  let buttonTitle = isEdit ? "Update" : "Add New";
+  let buttonTitle = props.isEdit ? "Update" : "Add New";
 
   return (
     <Row>
-      <Col {...span_left}>
-        <Form
-          name="basic"
-          initialValues={initialValues || {}}
-          onFinish={handleOnSubmit}
-          onFinishFailed={onFinishFailed}
-          autoComplete="off"
-          layout="vertical"
-          form={form}
+      <Col span={24}>
+        <Form.Item
+          label="Title"
+          name="title"
+          rules={[
+            {
+              required: true,
+              message: "Please input a title",
+            },
+          ]}
         >
-          <Form.Item
-            label="Title"
-            name="title"
-            rules={[
-              {
-                required: true,
-                message: "Please input a title",
-              },
-            ]}
-          >
-            <Input allowClear size="large" />
-          </Form.Item>
-          <Form.Item
-            label="Link"
-            name="link"
-            rules={[
-              {
-                required: true,
-                message: "Please input a link",
-              },
-            ]}
-          >
-            <Input allowClear size="large" />
-          </Form.Item>
+          <Input allowClear size="large" />
+        </Form.Item>
+        <Form.Item
+          label="Link"
+          name="link"
+          rules={[
+            {
+              required: true,
+              message: "Please input a link",
+            },
+          ]}
+        >
+          <Input allowClear size="large" />
+        </Form.Item>
 
-          <Form.Item
-            label="Content Categories"
-            name="categories"
-            rules={[
-              {
-                required: true,
-                message: "Please input a categories",
-              },
-            ]}
-          >
-            <Select allowClear size="large" mode="multiple">
-              {categories.map((contributor) => {
-                return (
-                  <Select.Option
-                    value={contributor.value}
-                    key={contributor.value}
-                  >
-                    {contributor.label}
-                  </Select.Option>
-                );
-              })}
-            </Select>
-          </Form.Item>
-          <Button
-            style={{ marginBottom: 30 }}
-            type="link"
-            block
-            onClick={() => toggleCollapsed(!collapsed)}
-          >
-            Overide Content
-          </Button>
-          {collapsed && (
-            <div>
-              <Form.Item label="Date Published" name="published_on">
-                <DatePicker
-                  allowClear
-                  size="large"
-                  placeholder="Published On"
-                  className="full_width"
+        <Form.Item
+          label="Content Categories"
+          name="categories"
+          rules={[
+            {
+              required: true,
+              message: "Please input a categories",
+            },
+          ]}
+        >
+          <Select allowClear size="large" mode="multiple">
+            {categories.map((contributor) => {
+              return (
+                <Select.Option
+                  value={contributor.value}
+                  key={contributor.value}
+                >
+                  {contributor.label}
+                </Select.Option>
+              );
+            })}
+          </Select>
+        </Form.Item>
+        <Button
+          style={{ marginBottom: 30 }}
+          type="link"
+          block
+          onClick={() => toggleCollapsed(!collapsed)}
+        >
+          Overide Content
+        </Button>
+        {collapsed && (
+          <div>
+            <Form.Item label="Date Published" name="published_on">
+              <DatePicker
+                allowClear
+                size="large"
+                placeholder="Published On"
+                className="full_width"
+              />
+            </Form.Item>
+            <Form.Item label="Author" name="author">
+              <Input allowClear size="large" />
+            </Form.Item>
+
+            <Form.Item label="Get Image By" name="get_image">
+              <Radio.Group
+                onChange={handleSetImageType}
+                style={{ marginBottom: 20 }}
+                defaultValue="upload_image"
+                size="large"
+              >
+                <Radio.Button value="external_link">External</Radio.Button>
+
+                <Radio.Button value="upload_image">Upload</Radio.Button>
+                <Radio.Button value="screenshot">Screenshot</Radio.Button>
+                <Radio.Button value="none">None</Radio.Button>
+              </Radio.Group>
+            </Form.Item>
+
+            {imageType === "screenshot" && (
+              <div>We will screenshot the link (default)</div>
+            )}
+            {imageType === "none" && <div>We will not include an image</div>}
+            {imageType === "external_link" && (
+              <Form.Item
+                label={
+                  <FA
+                    popover_title="External Link"
+                    icon={"fas fa-info-circle"}
+                    title="Reference External Link"
+                    popover={
+                      "Will not download the image and uploaded to the site. If this image change on the location it is referencing, the image on the site will also change. "
+                    }
+                  />
+                }
+                name="external_link"
+              >
+                <Input allowClear placeholder="Enter External Link" />
+              </Form.Item>
+            )}
+            {imageType === "downloadable_link" && (
+              <Form.Item
+                label={
+                  <FA
+                    popover_title="Downloadable Link"
+                    icon={"fas fa-info-circle"}
+                    title="Downloadable Link"
+                    popover={
+                      "We will download the image and upload it to our platform. If you simply want to reference the link, use External Link "
+                    }
+                  />
+                }
+                name="downloadable_link"
+              >
+                <Input placeholder="Enter Downloadable Link" />
+              </Form.Item>
+            )}
+            {imageType === "upload_image" && (
+              <Form.Item
+                label={
+                  <FA
+                    popover_title="Upload Image"
+                    icon={"fas fa-info-circle"}
+                    title="Upload Image"
+                    popover={
+                      "If you have an image downloaded already, you can simply upload it yourself. "
+                    }
+                  />
+                }
+                name="image"
+              >
+                <ImageUpload
+                  SetFieldsValue={props.SetFieldsValue}
+                  {...upload}
                 />
               </Form.Item>
-              <Form.Item label="Author" name="author">
-                <Input allowClear size="large" />
-              </Form.Item>
-
-              <Form.Item label="Get Image By" name="get_image">
-                <Radio.Group
-                  onChange={handleSetImageType}
-                  style={{ marginBottom: 20 }}
-                  defaultValue="upload_image"
-                  size="large"
-                >
-                  <Radio.Button value="external_link">External</Radio.Button>
-                  <Radio.Button value="downloadable_link">
-                    Download
-                  </Radio.Button>
-                  <Radio.Button value="upload_image">Upload</Radio.Button>
-                  <Radio.Button value="screenshot">Screenshot</Radio.Button>
-                  <Radio.Button value="none">None</Radio.Button>
-                </Radio.Group>
-              </Form.Item>
-
-              {imageType === "screenshot" && (
-                <div>We will screenshot the link (default)</div>
-              )}
-              {imageType === "none" && <div>We will not include an image</div>}
-              {imageType === "external_link" && (
-                <Form.Item
-                  label={
-                    <FA
-                      popover_title="External Link"
-                      icon={"fas fa-info-circle"}
-                      title="Reference External Link"
-                      popover={
-                        "Will not download the image and uploaded to the site. If this image change on the location it is referencing, the image on the site will also change. "
-                      }
-                    />
-                  }
-                  name="external_link"
-                >
-                  <Input placeholder="Enter External Link" />
-                </Form.Item>
-              )}
-              {imageType === "downloadable_link" && (
-                <Form.Item
-                  label={
-                    <FA
-                      popover_title="Downloadable Link"
-                      icon={"fas fa-info-circle"}
-                      title="Downloadable Link"
-                      popover={
-                        "We will download the image and upload it to our platform. If you simply want to reference the link, use External Link "
-                      }
-                    />
-                  }
-                  name="downloadable_link"
-                >
-                  <Input placeholder="Enter Downloadable Link" />
-                </Form.Item>
-              )}
-              {imageType === "upload_image" && (
-                <Form.Item
-                  label={
-                    <FA
-                      popover_title="Upload Image"
-                      icon={"fas fa-info-circle"}
-                      title="Upload Image"
-                      popover={
-                        "If you have an image downloaded already, you can simply upload it yourself. "
-                      }
-                    />
-                  }
-                  name="image"
-                >
-                  <ImageUpload SetFieldsValue={SetFieldsValue} {...upload} />
-                </Form.Item>
-              )}
-            </div>
-          )}
-          <Form.Item className="hidden" name="_id"></Form.Item>
-          <Form.Item>
-            <Button
-              loading={loading}
-              size="large"
-              block
-              type="primary"
-              htmlType="submit"
-            >
-              {buttonTitle}
-            </Button>
-            <div onClick={onClickClearFields} className="clear_field_button">
-              Clear Fields
-            </div>
-          </Form.Item>
-        </Form>
-      </Col>
-      <Col {...span_right}>
-        <GotList
-          onArchieved={onArchieved}
-          handleOnEdit={handleOnEdit}
-          onDrop={props.onDrop}
-          section={props.section}
-        />
+            )}
+          </div>
+        )}
+        <Form.Item className="hidden" name="_id"></Form.Item>
+        <Form.Item>
+          <Button
+            loading={loading}
+            size="large"
+            block
+            type="primary"
+            htmlType="submit"
+          >
+            {buttonTitle}
+          </Button>
+          <div
+            onClick={props.onClickClearFields}
+            className="clear_field_button"
+          >
+            Clear Fields
+          </div>
+        </Form.Item>
       </Col>
     </Row>
   );

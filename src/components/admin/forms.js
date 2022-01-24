@@ -7,9 +7,9 @@ import users from "../screens/admin/forms/users";
 
 const dict = { login, register, users, websites, posts, scientists };
 
-const GetAuth = (dict_key) => {
+const GetForm = (dict_key) => {
   let output = dict[dict_key] || dict.login;
   return output;
 };
 
-export default GetAuth;
+export default GetForm;

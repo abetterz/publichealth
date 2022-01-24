@@ -56,7 +56,7 @@ class MainMenu extends React.Component {
       },
     ];
     return (
-      <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
+      <Menu onClick={handleClick} mode="horizontal">
         {menus.map((item) => {
           return (
             <Menu.Item className="main_menu_item" key={item.key}>

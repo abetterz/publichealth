@@ -10,6 +10,7 @@ import GenerateTable from "../../generator/lists/posts";
 import GetLists from "../../generator/lists";
 import { AudioOutlined } from "@ant-design/icons";
 import { FA } from "../../../utils/product";
+import GenerateForm from "../admin/forms";
 
 export const AdminPanel = (props) => {
   const [collapsed, setCollapsed] = useState();
@@ -50,11 +51,13 @@ export const AdminPanel = (props) => {
   }
 
   let { title } = GetNomenclature(section, props.isAuthenticated);
-  const GotForm = GetForm(section, props.isAuthenticated);
 
   const onSubmit = async (payload, isEdit) => {
     setLoading(true);
     let res;
+
+    console.log(payload, "GetNomenclature");
+
     if (isEdit) {
       res = await props.create({
         payload,
@@ -125,6 +128,18 @@ export const AdminPanel = (props) => {
       replace: true,
     });
   };
+
+  const handleClickMenu = async (obj) => {
+    const { key } = obj;
+
+    // await props.read({
+    //   dispatch_key: key,
+    //   key: "crud_" + key,
+    //   query: `?category=${key}&&type=1`,
+    //   replace: true,
+    // });
+  };
+
   const SearchSystem = (props) => {
     return (
       <Row>
@@ -157,7 +172,11 @@ export const AdminPanel = (props) => {
   return (
     <Row gutter={24}>
       <Col className="admin_container" span={24}>
-        <AdminMenu collapsed={collapsed} toggleCollapsed={toggleCollapsed} />
+        <AdminMenu
+          handleClickMenu={handleClickMenu}
+          collapsed={collapsed}
+          toggleCollapsed={toggleCollapsed}
+        />
       </Col>
       <Col className="admin_title" span={24}>
         <Row>
@@ -170,7 +189,7 @@ export const AdminPanel = (props) => {
         </Row>
       </Col>
       <Col className="admin_title" span={24}>
-        <GotForm
+        <GenerateForm
           handleEditForm={handleEditForm}
           onArchieved={onArchieved}
           loading={loading}

@@ -39,7 +39,7 @@ class AdminMenu extends React.Component {
     ];
 
     return (
-      <Menu theme="dark" mode="horizontal">
+      <Menu onClick={this.props.handleClickMenu} theme="dark" mode="horizontal">
         {simple_menus.map((item) => (
           <Menu.Item key={item.key}>
             <Link to={item.link}> {item.title} </Link>{" "}
