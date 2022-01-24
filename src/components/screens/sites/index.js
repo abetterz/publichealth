@@ -55,7 +55,7 @@ export const SicentistDoctors = (props) => {
           align="middle"
         >
           <Col>
-            <p className="page_header">Scientists and Doctors</p>
+            <p className="page_header">Websites</p>
           </Col>
         </Row>
         <Row gutter={24}>
