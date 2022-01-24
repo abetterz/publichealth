@@ -35,7 +35,7 @@ export const SicentistDoctors = (props) => {
   const StaffCard = (props) => {
     let { name, title, image, link } = props;
     return (
-      <a href={link}>
+      <a target={"_blank"} rel="noreferrer" href={link}>
         <Card
           hoverable
           style={{ width: "100%" }}

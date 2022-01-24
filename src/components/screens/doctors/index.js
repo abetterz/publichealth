@@ -33,15 +33,24 @@ export const SicentistDoctors = (props) => {
   };
 
   const StaffCard = (props) => {
-    let { name, title, image, description } = props;
+    let { name, title, image, link } = props;
     return (
-      <Card
-        hoverable
-        style={{ width: "100%" }}
-        cover={<img alt="example" src={image} className="staff_images" />}
-      >
-        <Meta title={name} description={title} />
-      </Card>
+      <a target={"_blank"} rel="noreferrer" href={link}>
+        <Card
+          hoverable
+          style={{ width: "100%" }}
+          cover={
+            <img
+              alt="example"
+              target={"_blank"}
+              src={image}
+              className="staff_images"
+            />
+          }
+        >
+          <Meta title={name} description={title} />
+        </Card>
+      </a>
     );
   };
   return (
