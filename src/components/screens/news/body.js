@@ -191,11 +191,10 @@ export default function Body() {
       xxl: 8,
     },
   };
-
   const doctors = [
     {
       name: "Paul Elias Alexander, PhD",
-      link: "#",
+      link: "https://substack.com/profile/58916651-dr-paul-alexander",
       image:
         "https://childrenshealthdefense.org/wp-content/uploads/PaulAlexander.jpg",
       subtitle:
@@ -203,15 +202,16 @@ export default function Body() {
     },
     {
       name: "Ryan N. Cole MD",
-      link: "#",
+      link: "https://independentdocsid.com/RyanColeMD",
       image:
         "https://bloximages.chicago2.vip.townnews.com/idahopress.com/content/tncms/assets/v3/editorial/c/2e/c2ee54ab-3c0d-522d-9d4c-2bfd94d5d87e/6111c36242d7c.image.jpg?crop=889%2C889%2C0%2C195&resize=1200%2C1200&order=crop%2Cresize",
       subtitle:
         "Dr. Cole is a board-certified dermatopathologist (AP & CP) and the CEO/Medical Director of Cole Diagnostics. ",
     },
     {
+      link: "https://www.rwmalonemd.com/",
       name: "Robert W Malone MD",
-      link: "#",
+
       image:
         "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/aqiwr1hm17sm1glcsvhz",
       subtitle: "American virologist and immunologist",
@@ -221,7 +221,7 @@ export default function Body() {
   const domains = [
     {
       name: "Front Line COVID-19 Critical Care Alliance",
-      link: "#",
+      link: "https://covid19criticalcare.com/",
       image:
         "https://covid19criticalcare.com/wp-content/uploads/2020/06/FLCCC_Alliance_footer.svg",
       subtitle:
@@ -229,34 +229,60 @@ export default function Body() {
     },
     {
       name: "America’s Frontline Doctors",
-      link: "#",
+      link: "https://americasfrontlinedoctors.org/news/",
       image:
         "https://upload.wikimedia.org/wikipedia/en/c/c1/America%27s_Frontline_Doctors_official_logo.png",
       subtitle: "Fighting for Your Medical Freedom.",
     },
     {
       name: "C19 Early",
-      link: "#",
+      link: "https://c19early.com/",
 
       subtitle:
         "Treatments do not replace vaccines and other measures. All practical, effective, and safe means should be used. Elimination is a race against viral evolution.",
     },
   ];
 
+  const alexander_covid_overview = [
+    {
+      name: "CHAPTER 100",
+      subtitle: "A Call for an Independent International COVID Commission",
+      image:
+        "https://aneighborschoice.com/wp-content/uploads/2021/07/paul-alexander-follows-science-1030x541.png",
+    },
+    {
+      name: "CHAPTER 99",
+      subtitle:
+        "We will kill thousands of children and more with these COVID vaccines",
+      image:
+        "https://aneighborschoice.com/wp-content/uploads/2021/07/paul-alexander-follows-science-1030x541.png",
+    },
+    {
+      name: "CHAPTER 98",
+      subtitle: "Religious exemption vaccine information",
+      image:
+        "https://aneighborschoice.com/wp-content/uploads/2021/07/paul-alexander-follows-science-1030x541.png",
+    },
+  ];
+
   const alexander_substack = [
     {
-      name: "CHAPTER 1",
       subtitle:
-        "Key summary points and COVID-19 introduction, basic epidemiology",
+        "Supreme Court’s Gorsuch refused to wear mask despite request over Sotomayor’s Covid concerns, report says despite a request from Chief Justice John Roberts for all members of the high court to wear",
+      image:
+        "https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/2b69936a-c043-4317-b71a-b84867777535_2800x2800.png",
     },
     {
-      name: "CHAPTER 2",
       subtitle:
-        "Societal lockdowns due to COVID-19: do they work? Herd immunity?",
+        "It was NEVER COVID the 'virus', it was the 'RESPONSE' to it, the corrupted, POLITICAL response, not public health, oh I supported and loved Trump, to me outstanding, but made 2 catastrophic mistakes ",
+      image:
+        "https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/2b69936a-c043-4317-b71a-b84867777535_2800x2800.png",
     },
     {
-      name: "CHAPTER 3",
-      subtitle: "School closures: a careful review of the evidence",
+      subtitle:
+        "Israeli vaccine chief: “We have made mistakes”; finally a public health official/scientist, accepting responsibility & saying they were wrong; Covid will be “like flu”...big praise for honesty ",
+      image:
+        "https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/2b69936a-c043-4317-b71a-b84867777535_2800x2800.png",
     },
   ];
 
@@ -265,15 +291,21 @@ export default function Body() {
       subtitle:
         "The “original antigenic sin” and its relevance for SARS-CoV-2 (COVID-19) vaccination ",
       name: "ScienceDirect",
+      image:
+        "https://upload.wikimedia.org/wikipedia/en/thumb/6/6a/Elsevier_logo_2019.svg/1200px-Elsevier_logo_2019.svg.png",
     },
     {
       subtitle:
         "Reconciling estimates of global spread and infection fatality rates of COVID-19: An overview of systematic evaluations ",
       name: "Wiley Online Library",
+      image:
+        "https://library.stlawu.edu/sites/default/files/2020-04/wiley_online_clr2.png",
     },
     {
       subtitle: "Cribriform Plate Injury After Nasal Swab Testing for COVID-19",
       name: "JAMA Network",
+      image:
+        "https://publons.com/media/thumbs/publishers/logos/fbfd45e4-834b-40ca-b947-c871cdcea0d8.png.200x200_q95_detail_letterbox_upscale.png",
     },
   ];
 

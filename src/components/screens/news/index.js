@@ -100,7 +100,7 @@ function Title(props) {
       {!hide_loadmore && (
         <Col span={24}>
           <a href={link_to}>
-            <div className="load_more">See More</div>
+            <div className="load_more">Load More</div>
           </a>
         </Col>
       )}
@@ -136,11 +136,17 @@ function SideBarItems(props) {
               description: item.subtitle,
             };
             return (
-              <Col className="doctors_container" span={24}>
-                <Card>
-                  <Meta {...meta} />
-                </Card>
-              </Col>
+              <a
+                rel="noreferrer"
+                target={"_blank"}
+                href={item.link || props.link_to}
+              >
+                <Col className="doctors_container" span={24}>
+                  <Card>
+                    <Meta {...meta} />
+                  </Card>
+                </Col>
+              </a>
             );
           })}
         </Col>
@@ -207,10 +213,11 @@ const News = (props) => {
   };
 
   const getTitle = title[section] || title.default;
+
   const doctors = [
     {
       name: "Paul Elias Alexander, PhD",
-      link: "#",
+      link: "https://substack.com/profile/58916651-dr-paul-alexander",
       image:
         "https://childrenshealthdefense.org/wp-content/uploads/PaulAlexander.jpg",
       subtitle:
@@ -218,15 +225,16 @@ const News = (props) => {
     },
     {
       name: "Ryan N. Cole MD",
-      link: "#",
+      link: "https://independentdocsid.com/RyanColeMD",
       image:
         "https://bloximages.chicago2.vip.townnews.com/idahopress.com/content/tncms/assets/v3/editorial/c/2e/c2ee54ab-3c0d-522d-9d4c-2bfd94d5d87e/6111c36242d7c.image.jpg?crop=889%2C889%2C0%2C195&resize=1200%2C1200&order=crop%2Cresize",
       subtitle:
         "Dr. Cole is a board-certified dermatopathologist (AP & CP) and the CEO/Medical Director of Cole Diagnostics. ",
     },
     {
+      link: "https://www.rwmalonemd.com/",
       name: "Robert W Malone MD",
-      link: "#",
+
       image:
         "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/aqiwr1hm17sm1glcsvhz",
       subtitle: "American virologist and immunologist",
@@ -236,7 +244,7 @@ const News = (props) => {
   const domains = [
     {
       name: "Front Line COVID-19 Critical Care Alliance",
-      link: "#",
+      link: "https://covid19criticalcare.com/",
       image:
         "https://covid19criticalcare.com/wp-content/uploads/2020/06/FLCCC_Alliance_footer.svg",
       subtitle:
@@ -244,14 +252,13 @@ const News = (props) => {
     },
     {
       name: "America’s Frontline Doctors",
-      link: "#",
+      link: "https://americasfrontlinedoctors.org/news/",
       image:
         "https://upload.wikimedia.org/wikipedia/en/c/c1/America%27s_Frontline_Doctors_official_logo.png",
       subtitle: "Fighting for Your Medical Freedom.",
     },
     {
       name: "C19 Early",
-      link: "#",
 
       subtitle:
         "Treatments do not replace vaccines and other measures. All practical, effective, and safe means should be used. Elimination is a race against viral evolution.",
@@ -340,6 +347,7 @@ const News = (props) => {
           title="Scientists "
           title_blue=" and Doctors"
           data={doctors}
+          link_to={"/scientists-doctors/index"}
         />
 
         <SideBarItems
@@ -348,24 +356,28 @@ const News = (props) => {
           title_blue="Links"
           data={domains}
           cardProps={{ avatar: { shape: "square" } }}
+          link_to={"/websites/index"}
         />
         <SideBarItems
           assigned="react dev 4 9pm"
           title="Dr. Paul Alexander "
           title_blue=" Substack"
           data={alexander_substack}
+          link_to="https://substack.com/profile/58916651-dr-paul-alexander"
         />
         <SideBarItems
           assigned="react dev 4 9pm"
           title="Covid-19 "
           title_blue=" Overview"
           data={alexander_covid_overview}
+          link_to="/archives/covid_19_overview/"
         />
         <SideBarItems
           assigned="react dev 4 9pm"
           title="Scientifics "
           title_blue=" Studies"
           data={science_substack}
+          link_to="/archives/scientific_studies"
         />
       </Col>
     </Row>
