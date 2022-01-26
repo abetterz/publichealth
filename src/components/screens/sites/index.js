@@ -25,11 +25,11 @@ export const SicentistDoctors = (props) => {
   ];
   let span = {
     xs: 24,
-    sm: 8,
-    md: 6,
-    lg: 4,
-    xl: 4,
-    xxl: 4,
+    sm: 12,
+    md: 8,
+    lg: 8,
+    xl: 6,
+    xxl: 6,
   };
 
   const StaffCard = (props) => {
