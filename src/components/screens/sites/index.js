@@ -36,17 +36,16 @@ export const SicentistDoctors = (props) => {
     let { fullname, title, image, link } = props;
     return (
       <a target={"_blank"} rel="noreferrer" href={link}>
-        <Card
-          hoverable
-          style={{ width: "100%" }}
-          cover={
-            <Avatar
-              style={{ width: "100%", height: 180 }}
-              shape="square"
-              src={props.image}
-            />
-          }
-        >
+        <Card hoverable style={{ width: "100%" }}>
+          <div
+            className="avatar_card_img"
+            style={{
+              backgroundImage: `url('${props.image}')`,
+              width: "100%",
+              height: 200,
+            }}
+          ></div>
+
           <Meta title={title} />
         </Card>
       </a>
