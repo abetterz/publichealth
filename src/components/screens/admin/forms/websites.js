@@ -38,7 +38,7 @@ const PostForm = (props) => {
       label: "Add Private Files",
     },
     deco: {
-      aspect: 2 / 1,
+      aspect: 1 / 1,
       icon: "fas fa-camera-retro",
       hide: ["type", "folder"],
     },

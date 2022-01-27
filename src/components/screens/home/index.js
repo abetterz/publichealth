@@ -46,7 +46,7 @@ function Title(props) {
   );
 }
 
-function StoryBody(props) {
+export const StoryBody = (props) => {
   const { link_to, data, handleClick } = props;
   const ref = useRef({});
   return (
@@ -130,7 +130,7 @@ function StoryBody(props) {
       </Row>
     </Title>
   );
-}
+};
 function SideBarItems(props) {
   const { data = [], cardProps = {} } = props;
   const { avatar = {} } = cardProps;

@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Row, Col, Divider } from "antd";
+import React, { createRef, useEffect, useRef } from "react";
+import { Row, Col, Divider, Tag } from "antd";
 import Hero from "./carousel";
 import { FA } from "../../../utils/images";
 import { Card, Avatar, Button } from "antd";
@@ -9,7 +9,7 @@ import { read } from "../../../redux/actions/master";
 import { MakeList } from "../../../utils/list";
 const { Meta } = Card;
 
-export const NewCard = (item) => {
+export const NewCard = (item, index) => {
   let default_span = {
     container: {
       xs: 24,
@@ -51,15 +51,40 @@ export const NewCard = (item) => {
       author += prefix[0];
     }
   }
+  const ref = useRef({});
+
+  let categories = [];
+  item.categories &&
+    item.categories.forEach((category, key) => {
+      let output = category.split("_").join(" ");
+      categories.push(
+        <Tag color={"blue"} key={key}>
+          {output}
+        </Tag>
+      );
+    });
 
   const image = item.image || item.screenshot;
+  let width = ref.current[index] && ref.current[index].clientWidth;
+  let height = width * 0.5;
   return (
     <Col {...span.container} className="article_container">
       <a target={"_blank"} href={item.link} without rel="noreferrer">
         <Row gutter={24}>
-          <Col {...span.image} className="article_image_container">
-            <img className="full_width" alt={item.title} src={image} />
+          <Col
+            ref={(element) => (ref.current[index] = element)}
+            style={{
+              backgroundImage: `url("${item.image || item.screenshot}")`,
+              height,
+            }}
+            {...span.image}
+            className="article_image_container"
+          >
+            <Row>
+              <Col className="story_tags_container">{categories}</Col>
+            </Row>
           </Col>
+
           <Col {...span.content} className="article_info_container">
             <p className="article_title"> {item.title}</p>
             <div className="article_full_credit_container">
