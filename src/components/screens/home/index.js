@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Row, Col, Divider } from "antd";
+import React, { createRef, useEffect, useRef } from "react";
+import { Row, Col, Divider, Tag } from "antd";
 import Hero from "./carousel";
 import { FA } from "../../../utils/images";
 import { Card, Avatar } from "antd";
@@ -48,7 +48,7 @@ function Title(props) {
 
 function StoryBody(props) {
   const { link_to, data, handleClick } = props;
-
+  const ref = useRef({});
   return (
     <Title handleClick={handleClick} link_to={link_to} {...props}>
       <Row gutter={36}>
@@ -81,20 +81,39 @@ function StoryBody(props) {
 
           let gotDate = item.published_on || item.created_at;
           let date = moment(gotDate).format("MMMM Do YYYY");
+          let width = ref.current[index] && ref.current[index].clientWidth;
+          let height = width * 0.5;
+
+          let categories = [];
+          item.categories &&
+            item.categories.forEach((category, key) => {
+              let output = category.split("_").join(" ");
+              categories.push(
+                <Tag color={"blue"} key={key}>
+                  {output}
+                </Tag>
+              );
+            });
+
+          console.log(item, "testing_item_categories");
           return (
-            <Col {...span.container} className="article_container">
+            <Col key={index} {...span.container} className="article_container">
               <a target={"_blank"} href={item.link} without rel="noreferrer">
                 <Row>
-                  <Col span={span.image} className="article_image_container">
-                    {item.image || item.screenshot ? (
-                      <img
-                        className="full_width"
-                        alt={item.title}
-                        src={item.image || item.screenshot}
-                      />
-                    ) : (
-                      <div className="default_image">{item.title}</div>
-                    )}
+                  <Col
+                    ref={(element) => (ref.current[index] = element)}
+                    style={{
+                      backgroundImage: `url("${
+                        item.image || item.screenshot
+                      }")`,
+                      height,
+                    }}
+                    span={span.image}
+                    className="article_image_container"
+                  >
+                    <Row>
+                      <Col className="story_tags_container">{categories}</Col>
+                    </Row>
                   </Col>
                   <Col span={span.title} className="article_info_container">
                     <p className="article_title"> {item.title}</p>
