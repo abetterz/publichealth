@@ -32,6 +32,14 @@ export const SicentistDoctors = (props) => {
     xxl: 4,
   };
 
+  const paul = {
+    fullname: "Dr. Paul Alexander",
+    title: "Clinical Epidemiology",
+    image: "https://substack.com/profile/58916651-dr-paul-alexander",
+    image:
+      "https://trialsitenews.com/wp-content/uploads/avatars/6335/60a53897bd9e3-bpfull.jpg",
+  };
+
   const StaffCard = (props) => {
     let { fullname, title, image, link } = props;
     return (
@@ -65,6 +73,9 @@ export const SicentistDoctors = (props) => {
           </Col>
         </Row>
         <Row gutter={24}>
+          <Col className="staff_list_container" {...span}>
+            <StaffCard {...paul} />
+          </Col>
           {props.scientists.map((staff) => {
             return (
               <Col className="staff_list_container" {...span}>
