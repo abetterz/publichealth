@@ -296,6 +296,8 @@ const HomePage = (props) => {
       subtitle: "Fighting for Your Medical Freedom.",
     },
     {
+      image:
+        "https://storage.googleapis.com/publichealthnews/covid_19_early.png",
       name: "C19 Early",
 
       subtitle:

@@ -146,7 +146,7 @@ const PostForm = (props) => {
 
   const GotList = GetLists(props.section);
 
-  let buttonTitle = props.isEdit ? "Update" : "Add New";
+  let buttonTitle = props.isEdit ? "Submit Update" : "Add New";
 
   return (
     <Row>

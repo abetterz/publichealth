@@ -22,16 +22,8 @@ const Index = (props) => {
 
   const social_media = [
     {
-      icon: "fas fa-facebook",
+      icon: "fab fa-facebook-f",
       id: "facebook",
-    },
-    {
-      icon: "fab instagram",
-      id: "instagram",
-    },
-    {
-      icon: "fab twitter",
-      id: "twitter",
     },
   ];
 
@@ -258,9 +250,15 @@ const Index = (props) => {
                 <div>
                   <p className="footer_title">Follow Us</p>
                   {social_media.map((item) => (
-                    <div className="footer_social_media_icon">
-                      <FA icon={item.icon} />
-                    </div>
+                    <a
+                      href={"https://www.facebook.com/"}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <div className="footer_social_media_icon">
+                        <FA icon={item.icon} />
+                      </div>
+                    </a>
                   ))}
                 </div>
               </Col>
