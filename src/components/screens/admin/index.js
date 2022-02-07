@@ -77,7 +77,6 @@ export const AdminPanel = (props) => {
     }
 
     setLoading(false);
-    setInitialValues({});
 
     return res;
   };

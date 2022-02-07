@@ -205,11 +205,11 @@ let dict = {
       field: {
         config: {
           name: "contact_message",
-          label: "Message to Contact",
+          label: "Message to Business",
         },
         field_props: {
           className: "dark_theme full_width",
-          placeholder: "Write a message to this contact",
+          placeholder: "Write a message to this merchant",
         },
       },
     },

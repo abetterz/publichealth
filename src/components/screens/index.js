@@ -22,7 +22,7 @@ const Index = (props) => {
 
   const social_media = [
     {
-      icon: "fas fa-baseball",
+      icon: "fas fa-facebook",
       id: "facebook",
     },
     {
@@ -80,7 +80,7 @@ const Index = (props) => {
     },
     {
       key: "scientist",
-      title: "scientists & doctors",
+      title: "Scientists & Doctors",
       link: "/scientist",
     },
     {

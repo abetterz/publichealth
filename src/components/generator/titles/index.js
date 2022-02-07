@@ -16,52 +16,52 @@ const dict = {
   },
   business_hours: {
     title: "Business Hours",
-    singular: "Business Hour",
+    emphasis: "Business Hour",
     subtitle: "This system helps you achieve your business association goals",
     title_icon: "business_hours",
   },
 
   packages: {
     title: "Packages",
-    singular: "Package",
+    emphasis: "Package",
 
     subtitle: "This system helps you achieve your business association goals",
     title_icon: "packages",
   },
   commitees: {
-    singular: "Commitee",
+    emphasis: "Commitee",
     title: "Commitees",
     subtitle: "This system helps you achieve your business association goals",
     title_icon: "commitees",
   },
   events: {
-    singular: "Event",
+    emphasis: "Event",
     title: "Events",
     subtitle: "This system helps you achieve your business association goals",
     title_icon: "events",
   },
   jobs: {
-    singular: "Job",
+    emphasis: "Job",
     title: "Jobs",
     subtitle: "This system helps you achieve your business association goals",
     title_icon: "jobs",
   },
 
   employees: {
-    singular: "Employee",
+    emphasis: "Employee",
     title: "Employees",
     subtitle: "This system helps you achieve your business association goals",
     title_icon: "employees",
   },
 
   business_members: {
-    singular: "Business Member",
+    emphasis: "Business Member",
     title: "Business Members",
     subtitle: "This system helps you achieve your business association goals",
     title_icon: "business_members",
   },
   api_connections: {
-    singular: "External API Connectio",
+    emphasis: "External API Connectio",
     title: "External API Connections",
     subtitle: "This system helps you achieve your business association goals",
     title_icon: "api_connections",

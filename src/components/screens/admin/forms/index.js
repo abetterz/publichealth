@@ -58,16 +58,17 @@ const PostForm = (props) => {
 
     form.setFieldsValue(payload);
   };
-  const handleOnSubmit = async (values) => {
-    await onSubmit(values, isEdit);
-
-    // form.resetFields();
-    // submitIsEdit();
-  };
-
   const onClickClearFields = () => {
     form.resetFields();
     submitIsEdit();
+  };
+  const handleOnSubmit = async (values) => {
+    let res = await onSubmit(values, isEdit);
+
+    if (res && res.status === 201) {
+      form.resetFields();
+      // submitIsEdit();
+    }
   };
 
   const handleOnEdit = (payload) => {
@@ -162,7 +163,11 @@ const PostForm = (props) => {
           layout="vertical"
           form={form}
         >
-          <GotForm onClickClearFields={onClickClearFields} isEdit={isEdit} />
+          <GotForm
+            loading={props.loading}
+            onClickClearFields={onClickClearFields}
+            isEdit={isEdit}
+          />
         </Form>
       </Col>
       <Col {...span_right}>

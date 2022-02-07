@@ -328,19 +328,7 @@ const HomePage = (props) => {
   const alexander_substack = [
     {
       subtitle:
-        "Supreme Court’s Gorsuch refused to wear mask despite request over Sotomayor’s Covid concerns, report says despite a request from Chief Justice John Roberts for all members of the high court to wear",
-      image:
-        "https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/2b69936a-c043-4317-b71a-b84867777535_2800x2800.png",
-    },
-    {
-      subtitle:
-        "It was NEVER COVID the 'virus', it was the 'RESPONSE' to it, the corrupted, POLITICAL response, not public health, oh I supported and loved Trump, to me outstanding, but made 2 catastrophic mistakes ",
-      image:
-        "https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/2b69936a-c043-4317-b71a-b84867777535_2800x2800.png",
-    },
-    {
-      subtitle:
-        "Israeli vaccine chief: “We have made mistakes”; finally a public health official/scientist, accepting responsibility & saying they were wrong; Covid will be “like flu”...big praise for honesty ",
+        " I am a COVID-19 Consultant Researcher in EBM, Research Methodology, and Clinical Epidemiology and I informally provide support to some members of the US Congress.",
       image:
         "https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/2b69936a-c043-4317-b71a-b84867777535_2800x2800.png",
     },
@@ -424,7 +412,11 @@ const HomePage = (props) => {
     <Row gutter={24}>
       <Col {...span.left}>
         {/* <NewsFlash /> */}
-        <ImageGallery items={images} />
+        <ImageGallery
+          showPlayButton={false}
+          showFullscreenButton={false}
+          items={images}
+        />
         <StoryBody
           data={props.exclusive}
           assigned="react dev 2 9pm"
