@@ -167,6 +167,7 @@ const PostForm = (props) => {
             loading={props.loading}
             onClickClearFields={onClickClearFields}
             isEdit={isEdit}
+            SetFieldsValue={SetFieldsValue}
           />
         </Form>
       </Col>
