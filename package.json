@@ -10,7 +10,6 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
-    "antd": "^4.18.4",
     "antd-img-crop": "^4.1.0",
     "axios": "^0.25.0",
     "capture-website": "^2.2.0",
