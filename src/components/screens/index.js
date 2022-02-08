@@ -41,38 +41,38 @@ const Index = (props) => {
       title: "News",
       link: "/news/index",
     },
-    {
-      key: "archives",
-      title: "Archives",
-      link: "/archives/index",
-      submenu: [
-        {
-          link: "archives/reports",
-          title: "Reports",
-          key: "reports",
-        },
-        {
-          link: "archives/index",
-          title: "Video Archives",
-          key: "video-archieves",
-        },
-        {
-          link: "news/covid-boot-camp",
-          title: "COVID Boot Camp",
-          key: "covid-boot-camp",
-        },
-        {
-          link: "news/index",
-          title: "Boot Camp for Parents",
-          key: "bootcamp-for-parents",
-        },
-        {
-          link: "archives/scientific-studies",
-          title: "Scientific Studies",
-          key: "scientific-studies",
-        },
-      ],
-    },
+    // {
+    //   key: "archives",
+    //   title: "Archives",
+    //   link: "/archives/index",
+    //   submenu: [
+    //     {
+    //       link: "archives/reports",
+    //       title: "Reports",
+    //       key: "reports",
+    //     },
+    //     {
+    //       link: "archives/index",
+    //       title: "Video Archives",
+    //       key: "video-archieves",
+    //     },
+    //     {
+    //       link: "news/covid-boot-camp",
+    //       title: "COVID Boot Camp",
+    //       key: "covid-boot-camp",
+    //     },
+    //     {
+    //       link: "news/index",
+    //       title: "Boot Camp for Parents",
+    //       key: "bootcamp-for-parents",
+    //     },
+    //     {
+    //       link: "archives/scientific-studies",
+    //       title: "Scientific Studies",
+    //       key: "scientific-studies",
+    //     },
+    //   ],
+    // },
     {
       key: "websites",
       title: "Websites",
@@ -166,7 +166,7 @@ const Index = (props) => {
       <Col className="top_navigation" span={24}>
         <Row justify="center" align="top">
           <Col {...span} className="">
-            {!props.isAuthenticated && (
+            {/* {!props.isAuthenticated && (
               <Menu
                 inlineCollapsed={false}
                 style={{ width: "100%", float: "right" }}
@@ -184,7 +184,7 @@ const Index = (props) => {
                     );
                   })}
               </Menu>
-            )}
+            )} */}
             {props.isAuthenticated && (
               <Menu
                 inlineCollapsed={false}

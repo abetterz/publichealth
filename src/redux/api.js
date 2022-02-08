@@ -15,6 +15,9 @@ let dict = {
     users: {
       api: "/api/admin/users",
     },
+    subscribe: {
+      api: "/api/members/subscribe",
+    },
   },
 
   read: {

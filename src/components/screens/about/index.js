@@ -48,12 +48,11 @@ export const About = (props) => {
         cover={
           <img
             alt="example"
-            src="https://publichealthne.wpengine.com/wp-content/uploads/2021/10/Dr-Paul-Alexander-224x300.jpg"
+            src="https://trialsitenews.com/wp-content/uploads/avatars/6335/60a53897bd9e3-bpfull.jpg"
           />
         }
       >
         <Meta
-          title="Dr. Paul Elias Alexander"
           description="Paul Elias Alexander is a Canadian health researcher and a former Trump administration official at the U.S. Department of Health and Human Services during the COVID-19 pandemic. 
                 "
         />
@@ -110,7 +109,6 @@ export const About = (props) => {
               COVID-19 injection adverse effects/deaths; strong advocate against
               the COVID-19 vaccination of children
             </p>
-            <p>More of Dr. Alexander’s work can be found here.</p>
           </Col>
 
           <Col className="about_us_em" {...right_span}>

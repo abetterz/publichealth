@@ -8,6 +8,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { read } from "../../../redux/actions/master";
 import { MakeList } from "../../../utils/list";
 import moment from "moment";
+import RightSide from "../home/rightSide";
 
 const { Meta } = Card;
 
@@ -69,7 +70,9 @@ export const NewCard = (item, index) => {
   const image = item.image || item.screenshot;
   let width = ref.current[index] && ref.current[index].clientWidth;
   let height = width * 0.5;
-  let gotDate = item.published_on || item.created_at;
+  let gotDate = item.created_at;
+
+  console.log(item.created_at);
   let date = moment(gotDate).format("MMMM Do YYYY");
 
   return (
@@ -79,7 +82,7 @@ export const NewCard = (item, index) => {
           <Col
             ref={(element) => (ref.current[index] = element)}
             style={{
-              backgroundImage: `url("${item.image || item.screenshot}")`,
+              backgroundImage: `url("${image}")`,
               height,
             }}
             {...span.image}
@@ -242,6 +245,10 @@ const News = (props) => {
       title: "News",
       sub: "Updated Daily",
     },
+    top_stories: {
+      title: "Top",
+      sub: "Stories",
+    },
   };
 
   const getTitle = title[section] || title.default;
@@ -294,28 +301,6 @@ const News = (props) => {
 
       subtitle:
         "Treatments do not replace vaccines and other measures. All practical, effective, and safe means should be used. Elimination is a race against viral evolution.",
-    },
-  ];
-
-  const alexander_covid_overview = [
-    {
-      name: "CHAPTER 100",
-      subtitle: "A Call for an Independent International COVID Commission",
-      image:
-        "https://aneighborschoice.com/wp-content/uploads/2021/07/paul-alexander-follows-science-1030x541.png",
-    },
-    {
-      name: "CHAPTER 99",
-      subtitle:
-        "We will kill thousands of children and more with these COVID vaccines",
-      image:
-        "https://aneighborschoice.com/wp-content/uploads/2021/07/paul-alexander-follows-science-1030x541.png",
-    },
-    {
-      name: "CHAPTER 98",
-      subtitle: "Religious exemption vaccine information",
-      image:
-        "https://aneighborschoice.com/wp-content/uploads/2021/07/paul-alexander-follows-science-1030x541.png",
     },
   ];
 
@@ -375,6 +360,7 @@ const News = (props) => {
         />
       </Col>
       <Col {...span.right}>
+        <RightSide {...props} />
         <SideBarItems
           assigned="react dev 4 9pm"
           title="Scientists "
