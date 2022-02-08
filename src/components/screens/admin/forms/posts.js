@@ -87,8 +87,8 @@ const PostForm = (props) => {
 
   const categories = [
     {
-      label: "Exclusive",
-      value: "exclusive_stories",
+      label: "Top Stories",
+      value: "top_stories",
     },
     {
       label: "Must Read",
@@ -105,6 +105,10 @@ const PostForm = (props) => {
     {
       label: "Featured Story",
       value: "featured_story",
+    },
+    {
+      label: "Exclusive",
+      value: "exclusive_stories",
     },
     {
       label: "Regular News",
