@@ -31,6 +31,7 @@ const Index = (props) => {
     {
       icon: "fab fa-facebook-f",
       id: "facebook",
+      link: "https://www.facebook.com/Public-Health-News-110107288249511",
     },
   ];
 
@@ -257,11 +258,7 @@ const Index = (props) => {
                 <div>
                   <p className="footer_title">Follow Us</p>
                   {social_media.map((item) => (
-                    <a
-                      href={"https://www.facebook.com/"}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
+                    <a href={item.link} target="_blank" rel="noreferrer">
                       <div className="footer_social_media_icon">
                         <FA icon={item.icon} />
                       </div>
