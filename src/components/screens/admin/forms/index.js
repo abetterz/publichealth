@@ -26,9 +26,6 @@ const PostForm = (props) => {
   const [imageType, setImageType] = useState("upload_image");
   const [initialValues, setInitialValues] = useState({});
 
-  useEffect(() => {
-    setInitialValues(props.initialValues);
-  }, []);
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };

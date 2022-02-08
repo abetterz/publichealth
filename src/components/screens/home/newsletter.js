@@ -56,7 +56,7 @@ const SubscribeForm = (props) => {
           >
             <Form.Item
               placeholder="Full Name"
-              name="fullname"
+              name="Full Name"
               rules={[
                 {
                   required: true,

@@ -361,43 +361,6 @@ const News = (props) => {
       </Col>
       <Col {...span.right}>
         <RightSide {...props} />
-        <SideBarItems
-          assigned="react dev 4 9pm"
-          title="Scientists "
-          title_blue=" and Doctors"
-          data={doctors}
-          link_to={"/scientists-doctors/index"}
-        />
-
-        <SideBarItems
-          assigned="react dev 5 9pm"
-          title="Websites "
-          title_blue="Links"
-          data={domains}
-          cardProps={{ avatar: { shape: "square" } }}
-          link_to={"/websites/index"}
-        />
-        <SideBarItems
-          assigned="react dev 4 9pm"
-          title="Dr. Paul Alexander "
-          title_blue=" Substack"
-          data={alexander_substack}
-          link_to="https://substack.com/profile/58916651-dr-paul-alexander"
-        />
-        {/* <SideBarItems
-          assigned="react dev 4 9pm"
-          title="Covid-19 "
-          title_blue=" Overview"
-          data={alexander_covid_overview}
-          link_to="/archives/covid_19_overview/"
-        /> */}
-        <SideBarItems
-          assigned="react dev 4 9pm"
-          title="Scientifics "
-          title_blue=" Studies"
-          data={science_substack}
-          link_to="/archives/scientific_studies"
-        />
       </Col>
     </Row>
   );

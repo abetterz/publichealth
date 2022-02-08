@@ -22,12 +22,13 @@ const PostForm = (props) => {
   const [form] = Form.useForm();
   const [collapsed, toggleCollapsed] = useState();
   const [isEdit, submitIsEdit] = useState();
-  const [imageType, setImageType] = useState("upload_image");
+  const [imageType, setImageType] = useState("screenshot");
   const [initialValues, setInitialValues] = useState({});
 
   useEffect(() => {
-    setInitialValues(props.initialValues);
+    // props.SetInitialValues({ imageType: "upload_image" });
   }, []);
+
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
@@ -207,7 +208,7 @@ const PostForm = (props) => {
           <Radio.Group
             onChange={handleSetImageType}
             style={{ marginBottom: 20 }}
-            defaultValue="upload_image"
+            defaultValue="screenshot"
             size="large"
           >
             <Radio.Button value="external_link">External</Radio.Button>
