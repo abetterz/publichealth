@@ -16,6 +16,7 @@
     "capture-website": "^2.2.0",
     "dotenv": "^14.2.0",
     "moment": "^2.29.1",
+    "node-sass": "^7.0.1",
     "number-currency-format": "^1.0.10",
     "querystring": "^0.2.1",
     "react": "^17.0.2",
@@ -29,7 +30,6 @@
     "react-scripts": "5.0.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
-    "sass": "^1.49.7",
     "web-vitals": "^2.1.3"
   },
   "scripts": {
