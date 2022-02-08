@@ -34,11 +34,10 @@ function SubscribeForm(props) {
     });
 
     if (res.status === 201) {
-      // setLoading(false)
+      setLoading(false);
     }
   };
 
-  console.log(successMessage, "testingessage");
   return (
     <Row>
       {!successMessage ? (
@@ -60,7 +59,7 @@ function SubscribeForm(props) {
                 },
               ]}
             >
-              <Input placeholder="Full" allowClear size="large" />
+              <Input placeholder="Full Name" allowClear size="large" />
             </Form.Item>
             <Form.Item
               placeholder="Email"
