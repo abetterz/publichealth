@@ -44,16 +44,16 @@ class MainMenu extends React.Component {
             title: "Video Archives",
             key: "video_archives",
           },
-          {
-            link: "archives/covid_boot_camp",
-            title: "COVID Boot Camp",
-            key: "covid_boot_camp",
-          },
-          {
-            link: "archives/bootcamp_for_parents",
-            title: "Boot Camp for Parents",
-            key: "bootcamp_for_parents",
-          },
+          // {
+          //   link: "archives/covid_boot_camp",
+          //   title: "COVID Boot Camp",
+          //   key: "covid_boot_camp",
+          // },
+          // {
+          //   link: "archives/bootcamp_for_parents",
+          //   title: "Boot Camp for Parents",
+          //   key: "bootcamp_for_parents",
+          // },
           {
             link: "archives/scientific_studies",
             title: "Scientific Studies",

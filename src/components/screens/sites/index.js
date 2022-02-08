@@ -10,6 +10,7 @@ export const SicentistDoctors = (props) => {
   const fetchInitialData = async () => {
     await props.read({
       key: "websites",
+      query: "?limit=1000",
       replace: true,
     });
   };
