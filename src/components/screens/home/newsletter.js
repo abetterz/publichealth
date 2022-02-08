@@ -19,7 +19,7 @@ import { create, drop, read } from "../../../redux/actions/master";
 
 const { Panel } = Collapse;
 
-const SubscribeForm = (props) => {
+function SubscribeForm(props) {
   const { onSubmit, onArchieved } = props;
   const [form] = Form.useForm();
   const [loading, setLoading] = useState();
@@ -32,14 +32,10 @@ const SubscribeForm = (props) => {
       payload,
       replace: true,
     });
-    setSuccess("should item", () => {
-      form.resetFields();
 
-      setTimeout(() => {
-        setSuccess(false);
-      }, 5000);
-      setLoading(false);
-    });
+    if (res.status === 201) {
+      // setLoading(false)
+    }
   };
 
   console.log(successMessage, "testingessage");
@@ -64,7 +60,7 @@ const SubscribeForm = (props) => {
                 },
               ]}
             >
-              <Input placeholder="Fullname" allowClear size="large" />
+              <Input placeholder="Full" allowClear size="large" />
             </Form.Item>
             <Form.Item
               placeholder="Email"
@@ -111,7 +107,7 @@ const SubscribeForm = (props) => {
       )}
     </Row>
   );
-};
+}
 
 const mapStateToProps = (state) => ({});
 
