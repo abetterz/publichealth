@@ -10,9 +10,16 @@ import { Link } from "react-router-dom";
 import { read } from "../../redux/actions/master";
 import { loadUser, logout } from "../../redux/actions/auth";
 import { Menu } from "antd";
+import moment from "moment";
 
 const Index = (props) => {
   const initialFetch = async () => {
+    await props.read({
+      key: "news",
+      query: "?limit=2",
+      dispatch_key: "most_recent",
+      replace: true,
+    });
     await props.loadUser();
   };
 
@@ -277,13 +284,16 @@ const Index = (props) => {
               <Col {...footer_far_span}>
                 <p className="footer_title">Recent News</p>
                 <Row>
-                  {news.map((item) => {
+                  {props.most_recent.map((item) => {
+                    let date = moment(item.created_at).format(
+                      "YYYY MMM DD HH:mm"
+                    );
                     return (
                       <Col {...footer_article}>
-                        <a href={item.link}>
+                        <a target="_blank" rel="noreferrer" href={item.link}>
                           <div className="recent_news_container">
                             <p className="recent_news_title">{item.title}</p>
-                            <FA icon={"far fa-clock"} title={item.date} />
+                            <FA icon={"far fa-clock"} title={date} />
                           </div>
                         </a>
                       </Col>
@@ -303,6 +313,7 @@ const Index = (props) => {
 
 const mapStateToProps = (state) => ({
   home_data: state.master.home,
+  most_recent: state.master.most_recent || [],
   isAuthenticated: state.auth.isAuthenticated,
 });
 

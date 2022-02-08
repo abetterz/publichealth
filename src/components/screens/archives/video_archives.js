@@ -1055,15 +1055,15 @@ export const VideoArchives = (props) => {
                     target="_blank"
                     rel="noopener"
                   >
-                    Exclusive: Former CDC director believes COVID-19 came from
-                    Wuhan lab
+                    exclusive_stories: Former CDC director believes COVID-19
+                    came from Wuhan lab
                   </a>
                 </strong>
               </p>
               <p>
                 <iframe
                   loading="lazy"
-                  title="Exclusive: Former CDC director believes COVID-19 came from Wuhan lab"
+                  title="exclusive_stories: Former CDC director believes COVID-19 came from Wuhan lab"
                   width="1080"
                   height="608"
                   src="https://www.youtube.com/embed/Z89OtQT9RpI?feature=oembed"
@@ -3195,8 +3195,9 @@ export const VideoArchives = (props) => {
                     target="_blank"
                     rel="noopener"
                   >
-                    EXCLUSIVE: Doctor who pioneered hydroxychloroquine/zinc
-                    treatment for COVID-19 speaks to LifeSite
+                    exclusive_stories: Doctor who pioneered
+                    hydroxychloroquine/zinc treatment for COVID-19 speaks to
+                    LifeSite
                   </a>
                 </strong>
               </p>

@@ -47,7 +47,7 @@ function Title(props) {
 }
 
 export const StoryBody = (props) => {
-  const { link_to, data, handleClick } = props;
+  const { link_to, data = [], handleClick } = props;
   const ref = useRef({});
   return (
     <Title handleClick={handleClick} link_to={link_to} {...props}>
@@ -183,8 +183,15 @@ const HomePage = (props) => {
   let fetchInitial = async () => {
     await props.read({
       key: "news",
+      query: "?category=featured_story",
+      dispatch_key: "featured_story",
+
+      replace: true,
+    });
+    await props.read({
+      key: "news",
       query: "?category=exclusive",
-      dispatch_key: "exclusive",
+      dispatch_key: "exclusive_stories",
 
       replace: true,
     });
@@ -200,26 +207,10 @@ const HomePage = (props) => {
       dispatch_key: "updated_daily",
       replace: true,
     });
-    await props.read({
-      key: "news",
-      query: "?category=main_page",
-      dispatch_key: "main_page",
-      replace: true,
-    });
-    let front_page = await props.read({
-      key: "news",
-      query: "?category=front_page",
-      dispatch_key: "front_page",
-      replace: true,
-    });
-
-    console.log("testing_front_page", front_page);
   };
   useEffect(() => {
     fetchInitial();
   }, []);
-
-  console.log(props, "tesitng_front_page");
 
   const handleClick = async (section) => {
     console.log(section, "getting_clicks_here");
@@ -359,13 +350,15 @@ const HomePage = (props) => {
     },
   ];
 
-  const items = props.front_page.map((item) => {
-    <div className="item" data-value="1">
-      {item.title}
-    </div>;
-  });
+  // const items =
+  //   props.featured_story &&
+  //   props.featured_story.map((item) => {
+  //     <div className="item" data-value="1">
+  //       {item.title}
+  //     </div>;
+  //   });
 
-  let current = props.front_page[5];
+  // let current = props.featured_story && props.featured_story[5];
 
   const FormatCarouselItems = (input) => {
     let output = [];
@@ -409,7 +402,7 @@ const HomePage = (props) => {
     return output;
   };
 
-  const images = FormatCarouselItems(props.front_page);
+  const images = FormatCarouselItems(props.featured_story);
   return (
     <Row gutter={24}>
       <Col {...span.left}>
@@ -420,7 +413,7 @@ const HomePage = (props) => {
           items={images}
         />
         <StoryBody
-          data={props.exclusive}
+          data={props.exclusive_stories}
           assigned="react dev 2 9pm"
           title="PublicHealth.News "
           title_blue="Exclusive"
@@ -492,11 +485,11 @@ const HomePage = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  exclusive: state.master.exclusive || [],
+  exclusive_stories: state.master.exclusive_stories || [],
   must_read: state.master.must_read || [],
   updated_daily: state.master.updated_daily || [],
   main_page: state.master.main_page || [],
-  front_page: state.master.front_page || [],
+  featured_story: state.master.featured_story || [],
 });
 
 const mapDispatchToProps = { read };

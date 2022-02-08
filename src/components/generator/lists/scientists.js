@@ -6,7 +6,7 @@ import moment from "moment";
 const { Column } = Table;
 
 const title = {
-  exclusive: "Exclusive",
+  exclusive_stories: "Exclusive",
   must_read: "Must Read",
   updated_daily: "Updated Daily",
   featured_story: "Featured Story",

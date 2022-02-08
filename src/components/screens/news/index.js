@@ -7,6 +7,8 @@ import { connect } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { read } from "../../../redux/actions/master";
 import { MakeList } from "../../../utils/list";
+import moment from "moment";
+
 const { Meta } = Card;
 
 export const NewCard = (item, index) => {
@@ -67,6 +69,9 @@ export const NewCard = (item, index) => {
   const image = item.image || item.screenshot;
   let width = ref.current[index] && ref.current[index].clientWidth;
   let height = width * 0.5;
+  let gotDate = item.published_on || item.created_at;
+  let date = moment(gotDate).format("MMMM Do YYYY");
+
   return (
     <Col {...span.container} className="article_container">
       <a target={"_blank"} href={item.link} without rel="noreferrer">
@@ -89,7 +94,7 @@ export const NewCard = (item, index) => {
             <p className="article_title"> {item.title}</p>
             <div className="article_full_credit_container">
               <span> by {author} </span>
-              <FA icon="far fa-clock" title={item.date} />
+              <FA icon="far fa-clock" title={date} />
             </div>
             <div className="article_button">
               <Button>Read More</Button>
@@ -199,6 +204,8 @@ const News = (props) => {
   }, []);
   let { section } = useParams();
 
+  console.log(props.recent_news[0], "checking_for_exclusive");
+
   let span = {
     left: {
       xs: 24,
@@ -223,7 +230,7 @@ const News = (props) => {
       title: "Most",
       sub: "Recent News",
     },
-    exclusive: {
+    exclusive_stories: {
       title: "PublicHealth.News",
       sub: "Exclusive",
     },
@@ -356,6 +363,7 @@ const News = (props) => {
     },
   ];
 
+  console.log(props.recent_news[0]);
   return (
     <Row gutter={24}>
       <Col {...span.left}>

@@ -58,17 +58,7 @@ export const Suggestion = (props) => {
           <Col {...span_left}>
             <SuggestionForm />
           </Col>
-          <Col className="about_us_em" {...span_right}>
-            <p>
-              todo: add suggestion message, placeholder: PublicHealth.news
-              aggregates as much publicly available information as we can find
-              to help people make a judgment about their health needs during
-              this pandemic. Dr. Paul E. Alexander holds a PhD (graduate
-              education from University of Toronto in epidemiology, Oxford in
-              evidence based medicine, and McMaster in evidence based medicine
-              and research methods, expertise in bioterrorism/biowarfare).
-            </p>
-          </Col>
+          <Col className="about_us_em" {...span_right}></Col>
         </Row>
       </Col>
     </Row>
