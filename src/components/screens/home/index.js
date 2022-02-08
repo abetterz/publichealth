@@ -17,7 +17,8 @@ function NewsFlash() {
 }
 
 function Title(props) {
-  const { title, title_blue, link_to, handleClick, section } = props;
+  const { title, title_blue, link_to, handleClick, section, hide_see_more } =
+    props;
 
   let full_title = (
     <div>
@@ -37,11 +38,13 @@ function Title(props) {
         </Divider>
       </Col>
       <Col span={24}>{props.children}</Col>
-      <Col onClick={onClick} span={24}>
-        <a href={link_to}>
-          <div className="load_more">See More</div>
-        </a>
-      </Col>
+      {!hide_see_more && (
+        <Col onClick={onClick} span={24}>
+          <a href={link_to}>
+            <div className="load_more">See More</div>
+          </a>
+        </Col>
+      )}
     </Row>
   );
 }
@@ -297,6 +300,7 @@ const HomePage = (props) => {
       image:
         "https://storage.googleapis.com/publichealthnews/covid_19_early.png",
       name: "C19 Early",
+      link: "https://c19early.com/",
 
       subtitle:
         "Treatments do not replace vaccines and other measures. All practical, effective, and safe means should be used. Elimination is a race against viral evolution.",
@@ -336,6 +340,7 @@ const HomePage = (props) => {
 
   const science_substack = [
     {
+      link: "https://www.sciencedirect.com/science/article/pii/S2772613421000068",
       subtitle:
         "The “original antigenic sin” and its relevance for SARS-CoV-2 (COVID-19) vaccination ",
       name: "ScienceDirect",
@@ -343,6 +348,7 @@ const HomePage = (props) => {
         "https://upload.wikimedia.org/wikipedia/en/thumb/6/6a/Elsevier_logo_2019.svg/1200px-Elsevier_logo_2019.svg.png",
     },
     {
+      link: "https://onlinelibrary.wiley.com/doi/10.1111/eci.13554",
       subtitle:
         "Reconciling estimates of global spread and infection fatality rates of COVID-19: An overview of systematic evaluations ",
       name: "Wiley Online Library",
@@ -350,6 +356,7 @@ const HomePage = (props) => {
         "https://library.stlawu.edu/sites/default/files/2020-04/wiley_online_clr2.png",
     },
     {
+      link: "https://jamanetwork.com/journals/jamaotolaryngology/fullarticle/2784128",
       subtitle: "Cribriform Plate Injury After Nasal Swab Testing for COVID-19",
       name: "JAMA Network",
       image:
@@ -469,6 +476,7 @@ const HomePage = (props) => {
           assigned="react dev 4 9pm"
           title="Dr. Paul Alexander "
           title_blue=" Substack"
+          hide_see_more={true}
           data={alexander_substack}
           link_to="https://substack.com/profile/58916651-dr-paul-alexander"
         />
