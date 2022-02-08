@@ -39,12 +39,12 @@ const Index = (props) => {
     {
       key: "news",
       title: "News",
-      link: "/news",
+      link: "/news/index",
     },
     {
       key: "archives",
       title: "Archives",
-      link: "/archives",
+      link: "/archives/index",
       submenu: [
         {
           link: "archives/reports",
@@ -74,24 +74,24 @@ const Index = (props) => {
       ],
     },
     {
-      key: "webites",
+      key: "websites",
       title: "Websites",
-      link: "/webites",
+      link: "/websites/index",
     },
     {
       key: "scientist",
       title: "Scientists & Doctors",
-      link: "/scientist",
+      link: "/scientists-doctors/index",
     },
     {
       key: "about",
       title: "About Us",
-      link: "/about",
+      link: "/about-us/index",
     },
     {
       key: "suggestions",
       title: "Suggestions",
-      link: "/suggestions",
+      link: "/suggestions/index",
     },
   ];
 
@@ -271,7 +271,7 @@ const Index = (props) => {
                 <Row gutter={12}>
                   {menus.map((item) => (
                     <Col span={12} className="footer_menu">
-                      <a href={item.link}>
+                      <a target="_blank" href={item.link} rel="noreferrer">
                         <p className="footer_menu_title"> {item.title}</p>{" "}
                       </a>
                     </Col>

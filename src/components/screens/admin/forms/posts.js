@@ -202,6 +202,78 @@ const PostForm = (props) => {
         >
           Overide Content
         </Button>
+
+        <Form.Item label="Get Image By" name="get_image">
+          <Radio.Group
+            onChange={handleSetImageType}
+            style={{ marginBottom: 20 }}
+            defaultValue="upload_image"
+            size="large"
+          >
+            <Radio.Button value="external_link">External</Radio.Button>
+
+            <Radio.Button value="upload_image">Upload</Radio.Button>
+            <Radio.Button value="screenshot">Screenshot</Radio.Button>
+            <Radio.Button value="none">None</Radio.Button>
+          </Radio.Group>
+        </Form.Item>
+
+        {imageType === "screenshot" && (
+          <div>We will screenshot the link (default)</div>
+        )}
+        {imageType === "none" && <div>We will not include an image</div>}
+        {imageType === "external_link" && (
+          <Form.Item
+            label={
+              <FA
+                popover_title="External Link"
+                icon={"fas fa-info-circle"}
+                title="Reference External Link"
+                popover={
+                  "Will not download the image and uploaded to the site. If this image change on the location it is referencing, the image on the site will also change. "
+                }
+              />
+            }
+            name="external_link"
+          >
+            <Input allowClear placeholder="Enter External Link" />
+          </Form.Item>
+        )}
+        {imageType === "downloadable_link" && (
+          <Form.Item
+            label={
+              <FA
+                popover_title="Downloadable Link"
+                icon={"fas fa-info-circle"}
+                title="Downloadable Link"
+                popover={
+                  "We will download the image and upload it to our platform. If you simply want to reference the link, use External Link "
+                }
+              />
+            }
+            name="downloadable_link"
+          >
+            <Input placeholder="Enter Downloadable Link" />
+          </Form.Item>
+        )}
+        {imageType === "upload_image" && (
+          <Form.Item
+            label={
+              <FA
+                popover_title="Upload Image"
+                icon={"fas fa-info-circle"}
+                title="Upload Image"
+                popover={
+                  "If you have an image downloaded already, you can simply upload it yourself. "
+                }
+              />
+            }
+            name="image"
+          >
+            <ImageUpload SetFieldsValue={props.SetFieldsValue} {...upload} />
+          </Form.Item>
+        )}
+
         {collapsed && (
           <div>
             <Form.Item label="Date Published" name="published_on">
@@ -215,80 +287,6 @@ const PostForm = (props) => {
             <Form.Item label="Author" name="author">
               <Input allowClear size="large" />
             </Form.Item>
-
-            <Form.Item label="Get Image By" name="get_image">
-              <Radio.Group
-                onChange={handleSetImageType}
-                style={{ marginBottom: 20 }}
-                defaultValue="upload_image"
-                size="large"
-              >
-                <Radio.Button value="external_link">External</Radio.Button>
-
-                <Radio.Button value="upload_image">Upload</Radio.Button>
-                <Radio.Button value="screenshot">Screenshot</Radio.Button>
-                <Radio.Button value="none">None</Radio.Button>
-              </Radio.Group>
-            </Form.Item>
-
-            {imageType === "screenshot" && (
-              <div>We will screenshot the link (default)</div>
-            )}
-            {imageType === "none" && <div>We will not include an image</div>}
-            {imageType === "external_link" && (
-              <Form.Item
-                label={
-                  <FA
-                    popover_title="External Link"
-                    icon={"fas fa-info-circle"}
-                    title="Reference External Link"
-                    popover={
-                      "Will not download the image and uploaded to the site. If this image change on the location it is referencing, the image on the site will also change. "
-                    }
-                  />
-                }
-                name="external_link"
-              >
-                <Input allowClear placeholder="Enter External Link" />
-              </Form.Item>
-            )}
-            {imageType === "downloadable_link" && (
-              <Form.Item
-                label={
-                  <FA
-                    popover_title="Downloadable Link"
-                    icon={"fas fa-info-circle"}
-                    title="Downloadable Link"
-                    popover={
-                      "We will download the image and upload it to our platform. If you simply want to reference the link, use External Link "
-                    }
-                  />
-                }
-                name="downloadable_link"
-              >
-                <Input placeholder="Enter Downloadable Link" />
-              </Form.Item>
-            )}
-            {imageType === "upload_image" && (
-              <Form.Item
-                label={
-                  <FA
-                    popover_title="Upload Image"
-                    icon={"fas fa-info-circle"}
-                    title="Upload Image"
-                    popover={
-                      "If you have an image downloaded already, you can simply upload it yourself. "
-                    }
-                  />
-                }
-                name="image"
-              >
-                <ImageUpload
-                  SetFieldsValue={props.SetFieldsValue}
-                  {...upload}
-                />
-              </Form.Item>
-            )}
           </div>
         )}
         <Form.Item className="hidden" name="_id"></Form.Item>

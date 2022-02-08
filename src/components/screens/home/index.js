@@ -183,6 +183,13 @@ const HomePage = (props) => {
   let fetchInitial = async () => {
     await props.read({
       key: "news",
+      query: "?category=top_stories",
+      dispatch_key: "top_stories",
+
+      replace: true,
+    });
+    await props.read({
+      key: "news",
       query: "?category=featured_story",
       dispatch_key: "featured_story",
 
@@ -413,7 +420,7 @@ const HomePage = (props) => {
           items={images}
         /> */}
         <StoryBody
-          data={props.exclusive_stories}
+          data={props.top_stories}
           assigned="react dev 2 9pm"
           title="Top "
           title_blue="Stories"
@@ -490,6 +497,7 @@ const mapStateToProps = (state) => ({
   updated_daily: state.master.updated_daily || [],
   main_page: state.master.main_page || [],
   featured_story: state.master.featured_story || [],
+  top_stories: state.master.top_stories || [],
 });
 
 const mapDispatchToProps = { read };
