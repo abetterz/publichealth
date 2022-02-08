@@ -407,19 +407,19 @@ const HomePage = (props) => {
     <Row gutter={24}>
       <Col {...span.left}>
         {/* <NewsFlash /> */}
-        <ImageGallery
+        {/* <ImageGallery
           showPlayButton={false}
           showFullscreenButton={false}
           items={images}
-        />
+        /> */}
         <StoryBody
           data={props.exclusive_stories}
           assigned="react dev 2 9pm"
-          title="PublicHealth.News "
-          title_blue="Exclusive"
-          link_to={"/news/exclusive"}
+          title="Top "
+          title_blue="Stories"
+          link_to={"/news/top_stories"}
           handleClick={handleClick}
-          section="exclusive"
+          section="top_stories"
         />
         <StoryBody
           data={props.must_read}

@@ -313,7 +313,7 @@ export default function Body() {
     <Row gutter={24}>
       <Col {...span.left}>
         {/* <NewsFlash /> */}
-        <Hero />
+        {/* <Hero /> */}
         <StoryBody
           assigned="react dev 2 9pm"
           title="PublicHealth.News "
