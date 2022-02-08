@@ -165,7 +165,7 @@ export default function RightSide(props) {
 
   function NewsLetter(props) {
     return (
-      <Title {...props}>
+      <Title {...props} hide_see_more={true}>
         <Row>
           <Col span={24}>
             <NewsletterForm />
