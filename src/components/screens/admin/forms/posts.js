@@ -292,6 +292,11 @@ const PostForm = (props) => {
         )}
         <Form.Item className="hidden" name="_id"></Form.Item>
         <Form.Item>
+          <div style={{ textAlign: "center", padding: 10 }}>
+            {loading &&
+              imageType === "screenshot" &&
+              "Screenshot may take up to 20 seconds"}
+          </div>
           <Button
             loading={loading}
             size="large"
