@@ -26,6 +26,8 @@ const PostForm = (props) => {
   const [imageType, setImageType] = useState("upload_image");
   const [initialValues, setInitialValues] = useState({});
 
+  const SetInitialValues = (props) => {};
+
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
@@ -62,9 +64,11 @@ const PostForm = (props) => {
   const handleOnSubmit = async (values) => {
     let res = await onSubmit(values, isEdit);
 
+    console.log(values, "handleOnSubmit");
+
     if (res && res.status === 201) {
       form.resetFields();
-      // submitIsEdit();
+      submitIsEdit();
     }
   };
 

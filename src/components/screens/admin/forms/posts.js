@@ -148,6 +148,8 @@ const PostForm = (props) => {
 
   let buttonTitle = props.isEdit ? "Submit Update" : "Add New";
 
+  console.log(imageType, "image_type_here");
+
   return (
     <Row>
       <Col span={24}>
