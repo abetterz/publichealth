@@ -207,6 +207,7 @@ const mapStateToProps = (state) => ({
   scientists: state.master.scientists,
   websites: state.master.websites,
   users: state.master.users,
+  subscribers: state.master.subscribers,
 });
 
 const mapDispatchToProps = { create, drop, read };

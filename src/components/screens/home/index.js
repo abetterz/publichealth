@@ -243,8 +243,16 @@ const HomePage = (props) => {
           handleClick={handleClick}
           section="must_read"
         />
-
         <StoryBody
+          data={props.updated_daily}
+          assigned="react dev 1 9pm"
+          title="News "
+          title_blue=" Updated Daily"
+          link_to={"/news/updated_daily"}
+          handleClick={handleClick}
+          section="updated_daily"
+        />
+        {/* <StoryBody
           data={props.updated_daily}
           assigned="react dev 3 9pm"
           title="News - "
@@ -252,7 +260,7 @@ const HomePage = (props) => {
           link_to={"/news/updated_daily"}
           handleClick={handleClick}
           section="updated_daily"
-        />
+        /> */}
       </Col>
       <Col {...span.right}>
         <RightSide {...props} />
