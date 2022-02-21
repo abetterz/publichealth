@@ -245,15 +245,15 @@ const News = (props) => {
       title: "News",
       sub: "Updated Daily",
     },
-    top_stories: {
-      title: "Top",
-      sub: "Stories",
+    featured: {
+      title: "Featured",
+      sub: "",
     },
   };
 
   const getTitle = title[section] || title.default;
 
-  const doctors = [
+  const featured = [
     {
       name: "Paul Elias Alexander, PhD",
       link: "https://substack.com/profile/58916651-dr-paul-alexander",

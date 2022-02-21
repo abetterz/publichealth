@@ -36,7 +36,7 @@ function Title(props) {
           {full_title}
         </Divider>
       </Col>
-      <Col span={24}>{props.children}</Col>
+      <Col span={24}>{props.featured}</Col>
       {!hide_see_more && (
         <Col onClick={onClick} span={24}>
           <a href={link_to}>
@@ -121,9 +121,8 @@ export const StoryBody = (props) => {
                   <Col
                     ref={(element) => (ref.current[index] = element)}
                     style={{
-                      backgroundImage: `url("${
-                        item.image || item.screenshot
-                      }")`,
+                      backgroundImage: `url("${item.image || item.screenshot
+                        }")`,
                       height,
                     }}
                     span={span.image}
@@ -164,10 +163,9 @@ function Brands(props) {
 const HomePage = (props) => {
   let fetchInitial = async () => {
     await props.read({
-      key: "news",
-      query: "?category=top_stories",
-      dispatch_key: "top_stories",
-
+      key: "featured",
+      query: "?category=featured",
+      dispatch_key: "featured",
       replace: true,
     });
     await props.read({
@@ -181,7 +179,6 @@ const HomePage = (props) => {
       key: "news",
       query: "?category=exclusive",
       dispatch_key: "exclusive_stories",
-
       replace: true,
     });
     await props.read({
@@ -241,14 +238,15 @@ const HomePage = (props) => {
           showFullscreenButton={false}
           items={images}
         /> */}
+
         <StoryBody
-          data={props.top_stories}
+          data={props.featured}
           assigned="react dev 2 9pm"
-          title="Top "
-          title_blue="Stories"
-          link_to={"/news/top_stories"}
+          title="FEATURED"
+          title_blue=""
+          link_to={"/news/featured"}
           handleClick={handleClick}
-          section="top_stories"
+          section="featured"
         />
         <StoryBody
           data={props.must_read}
@@ -291,7 +289,7 @@ const mapStateToProps = (state) => ({
   updated_daily: state.master.updated_daily || [],
   main_page: state.master.main_page || [],
   featured_story: state.master.featured_story || [],
-  top_stories: state.master.top_stories || [],
+  featured: state.master.featured || [],
 });
 
 const mapDispatchToProps = { read };
