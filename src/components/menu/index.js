@@ -25,61 +25,107 @@ class MainMenu extends React.Component {
         key: "home",
       },
       {
-        link: "news/index",
-        title: "News",
-        key: "news",
-      },
-      {
-        link: "archives/index",
-        key: "archives",
-        title: "Archives",
+        link: "/about",
+        key: "about",
+        title: "About Us",
         submenu: [
-          // {
-          //   link: "archives/reports",
-          //   title: "Reports",
-          //   key: "reports",
-          // },
           {
-            link: "archives/video_archives",
-            title: "Video Archives",
-            key: "video_archives",
+            link: "/about",
+            key: "about",
+            title: "About Us",
           },
-          // {
-          //   link: "archives/covid_boot_camp",
-          //   title: "COVID Boot Camp",
-          //   key: "covid_boot_camp",
-          // },
-          // {
-          //   link: "archives/bootcamp_for_parents",
-          //   title: "Boot Camp for Parents",
-          //   key: "bootcamp_for_parents",
-          // },
           {
-            link: "archives/scientific_studies",
-            title: "Scientific Studies",
-            key: "scientific_studies",
+            link: "/kris-kobach",
+            title: "Kris W. Kobach, General Counsel",
+            key: "kris-kobach",
+          },
+          {
+            link: "/contact",
+            title: "Contact Us",
+            key: "contact",
           },
         ],
       },
       {
-        link: "websites/index",
-        key: "websites",
-        title: "Websites",
+        link: "/news",
+        title: "In The News",
+        key: "news",
       },
       {
-        link: "scientists-doctors/index",
-        key: "scientist",
-        title: "Scientists & Doctors",
+        link: "/local-participation",
+        key: "local-participation",
+        title: "Local Participation",
+        submenu: [
+          {
+            link: "/three-steps-everyone-can-take-to-restore-freedom-to-america",
+            title: "Three Steps Everyone Can Take",
+            key: "three_steps_everyone_can_take",
+          },
+          {
+            link: "/reviving-the-gop",
+            title: "Reviving the GOP",
+            key: "reviving-the-gop",
+          },
+        ],
       },
       {
-        link: "about-us/index",
-        key: "about",
-        title: "About Us",
+        link: "/legislation",
+        key: "legislation",
+        title: "State Legislation",
+        submenu: [
+          {
+            link: "/legislation",
+            title: "Overview of Our Legislation",
+            key: "legislation",
+          },
+          {
+            link: "/model-legislation",
+            title: "Model Legislation",
+            key: "model-legislation",
+          },
+          {
+            link: "/state-legislation",
+            title: "Introduced Legislation",
+            key: "state-legislation",
+          },
+          {
+            link: "/states",
+            title: "The Legislative Schedule for the 50 State Legislatures",
+            key: "states",
+          },
+        ],
       },
       {
-        link: "suggestions/index",
-        key: "suggestions",
-        title: "Suggestions",
+        link: "/illegal-immigration",
+        key: "illegal-immigration",
+        title: "Illegal Immigration",
+        submenu: [
+          {
+            link: "/10th-amendment",
+            title: "10th Amendment Response",
+            key: "10th-amendment",
+          },
+          {
+            link: "/enforce-state-law",
+            title: "Enforce State Law",
+            key: "enforce-state-law",
+          },
+          {
+            link: "/litigation",
+            title: "Litigation",
+            key: "litigation",
+          },
+        ],
+      },
+      {
+        link: "/patriots",
+        key: "patriots",
+        title: "Patriots, Partners, and Allies",
+      },
+      {
+        link: "/tactics",
+        key: "tactics",
+        title: "Tactics",
       },
     ];
     return (

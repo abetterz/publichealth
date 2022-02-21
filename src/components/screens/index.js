@@ -215,8 +215,8 @@ const Index = (props) => {
                 <Link to="/">
                   <img
                     src={logo}
-                    className="public_health_logo"
-                    alt="public health logo"
+                    className="logo"
+                    alt="Alliance For Free Citizens logo"
                   />
                 </Link>
               </Col>
