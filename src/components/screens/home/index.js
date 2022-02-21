@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { createRef, useEffect, useRef } from "react";
 import { Row, Col, Divider, Tag, Input } from "antd";
 import Hero from "./carousel";
 import { FA } from "../../../utils/images";
@@ -50,17 +50,7 @@ function Title(props) {
 
 export const StoryBody = (props) => {
   const { link_to, data = [], handleClick } = props;
-  const [container, setContainer] = useState({});
   const ref = useRef({});
-  const initialSetup = async () => {
-    setTimeout(() => {
-      let cont = ref.current();
-      setContainer(cont);
-    }, 4);
-  };
-  useEffect(() => {
-    initialSetup();
-  }, []);
   return (
     <Title handleClick={handleClick} link_to={link_to} {...props}>
       <Row gutter={36}>
@@ -94,13 +84,7 @@ export const StoryBody = (props) => {
           let gotDate = item.created_at;
           let date = moment(gotDate).format("MMMM Do YYYY");
           let width = ref.current[index] && ref.current[index].clientWidth;
-
           let height = width * 0.5;
-
-          if (isNaN(height)) {
-            height = 150;
-            console.log(container, "getting_height");
-          }
 
           let categories = [];
           item.categories &&
