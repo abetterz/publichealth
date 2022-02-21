@@ -200,15 +200,8 @@ export default function RightSide(props) {
         />
         <SideBarItems
           assigned="react dev 4 9pm"
-          title="Scientifics "
-          title_blue=" Studies"
-          data={science_substack}
-          link_to="/archives/scientific_studies"
-        />
-        <SideBarItems
-          assigned="react dev 4 9pm"
           title="Dr. Paul Alexander "
-          title_blue=" Substack"
+          title_blue=" Links"
           hide_see_more={true}
           data={alexander_substack}
           link_to="https://substack.com/profile/58916651-dr-paul-alexander"
@@ -220,6 +213,13 @@ export default function RightSide(props) {
           data={alexander_covid_overview}
           link_to="/archives/covid_19_overview/"
         /> */}
+        <SideBarItems
+          assigned="react dev 4 9pm"
+          title="Scientifics "
+          title_blue=" Studies"
+          data={science_substack}
+          link_to="/archives/scientific_studies"
+        />
       </Col>
     </Row>
   );

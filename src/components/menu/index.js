@@ -25,107 +25,61 @@ class MainMenu extends React.Component {
         key: "home",
       },
       {
-        link: "/about",
-        key: "about",
-        title: "About Us",
-        submenu: [
-          {
-            link: "/about",
-            key: "about",
-            title: "About Us",
-          },
-          {
-            link: "/kris-kobach",
-            title: "Kris W. Kobach, General Counsel",
-            key: "kris-kobach",
-          },
-          {
-            link: "/contact",
-            title: "Contact Us",
-            key: "contact",
-          },
-        ],
-      },
-      {
-        link: "/news",
-        title: "In The News",
+        link: "news/index",
+        title: "News",
         key: "news",
       },
       {
-        link: "/local-participation",
-        key: "local-participation",
-        title: "Local Participation",
+        link: "archives/index",
+        key: "archives",
+        title: "Archives",
         submenu: [
+          // {
+          //   link: "archives/reports",
+          //   title: "Reports",
+          //   key: "reports",
+          // },
           {
-            link: "/three-steps-everyone-can-take-to-restore-freedom-to-america",
-            title: "Three Steps Everyone Can Take",
-            key: "three_steps_everyone_can_take",
+            link: "archives/video_archives",
+            title: "Video Archives",
+            key: "video_archives",
           },
+          // {
+          //   link: "archives/covid_boot_camp",
+          //   title: "COVID Boot Camp",
+          //   key: "covid_boot_camp",
+          // },
+          // {
+          //   link: "archives/bootcamp_for_parents",
+          //   title: "Boot Camp for Parents",
+          //   key: "bootcamp_for_parents",
+          // },
           {
-            link: "/reviving-the-gop",
-            title: "Reviving the GOP",
-            key: "reviving-the-gop",
+            link: "archives/scientific_studies",
+            title: "Scientific Studies",
+            key: "scientific_studies",
           },
         ],
       },
       {
-        link: "/legislation",
-        key: "legislation",
-        title: "State Legislation",
-        submenu: [
-          {
-            link: "/legislation",
-            title: "Overview of Our Legislation",
-            key: "legislation",
-          },
-          {
-            link: "/model-legislation",
-            title: "Model Legislation",
-            key: "model-legislation",
-          },
-          {
-            link: "/state-legislation",
-            title: "Introduced Legislation",
-            key: "state-legislation",
-          },
-          {
-            link: "/states",
-            title: "The Legislative Schedule for the 50 State Legislatures",
-            key: "states",
-          },
-        ],
+        link: "websites/index",
+        key: "websites",
+        title: "Websites",
       },
       {
-        link: "/illegal-immigration",
-        key: "illegal-immigration",
-        title: "Illegal Immigration",
-        submenu: [
-          {
-            link: "/10th-amendment",
-            title: "10th Amendment Response",
-            key: "10th-amendment",
-          },
-          {
-            link: "/enforce-state-law",
-            title: "Enforce State Law",
-            key: "enforce-state-law",
-          },
-          {
-            link: "/litigation",
-            title: "Litigation",
-            key: "litigation",
-          },
-        ],
+        link: "scientists-doctors/index",
+        key: "scientist",
+        title: "Scientists & Doctors",
       },
       {
-        link: "/patriots",
-        key: "patriots",
-        title: "Patriots, Partners, and Allies",
+        link: "about-us/index",
+        key: "about",
+        title: "About Us",
       },
       {
-        link: "/tactics",
-        key: "tactics",
-        title: "Tactics",
+        link: "suggestions/index",
+        key: "suggestions",
+        title: "Suggestions",
       },
     ];
     return (

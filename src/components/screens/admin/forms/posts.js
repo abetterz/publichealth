@@ -87,8 +87,8 @@ const PostForm = (props) => {
 
   const categories = [
     {
-      label: "Featured",
-      value: "featured",
+      label: "Top Stories",
+      value: "top_stories",
     },
     {
       label: "Must Read",

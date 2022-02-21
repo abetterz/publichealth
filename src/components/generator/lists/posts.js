@@ -6,7 +6,7 @@ import moment from "moment";
 const { Column } = Table;
 
 const title = {
-  featured: ["Featured"],
+  top_stories: ["Top Stories"],
   exclusive_stories: "Exclusive",
   must_read: "Must Read",
   updated_daily: "Updated Daily",
@@ -85,7 +85,7 @@ const GenerateTable = (props) => {
         replace: true,
       });
       setLoading(false);
-    } catch (error) { }
+    } catch (error) {}
   };
 
   useEffect(() => {

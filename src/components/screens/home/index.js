@@ -1,4 +1,4 @@
-import React, { createRef, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Row, Col, Divider, Tag, Input } from "antd";
 import Hero from "./carousel";
 import { FA } from "../../../utils/images";
@@ -36,7 +36,7 @@ function Title(props) {
           {full_title}
         </Divider>
       </Col>
-      <Col span={24}>{props.featured}</Col>
+      <Col span={24}>{props.children}</Col>
       {!hide_see_more && (
         <Col onClick={onClick} span={24}>
           <a href={link_to}>
@@ -50,7 +50,17 @@ function Title(props) {
 
 export const StoryBody = (props) => {
   const { link_to, data = [], handleClick } = props;
+  const [container, setContainer] = useState({});
   const ref = useRef({});
+  const initialSetup = async () => {
+    setTimeout(() => {
+      let cont = ref.current();
+      setContainer(cont);
+    }, 4);
+  };
+  useEffect(() => {
+    initialSetup();
+  }, []);
   return (
     <Title handleClick={handleClick} link_to={link_to} {...props}>
       <Row gutter={36}>
@@ -84,7 +94,13 @@ export const StoryBody = (props) => {
           let gotDate = item.created_at;
           let date = moment(gotDate).format("MMMM Do YYYY");
           let width = ref.current[index] && ref.current[index].clientWidth;
+
           let height = width * 0.5;
+
+          if (isNaN(height)) {
+            height = 150;
+            console.log(container, "getting_height");
+          }
 
           let categories = [];
           item.categories &&
@@ -105,8 +121,9 @@ export const StoryBody = (props) => {
                   <Col
                     ref={(element) => (ref.current[index] = element)}
                     style={{
-                      backgroundImage: `url("${item.image || item.screenshot
-                        }")`,
+                      backgroundImage: `url("${
+                        item.image || item.screenshot
+                      }")`,
                       height,
                     }}
                     span={span.image}
@@ -147,9 +164,10 @@ function Brands(props) {
 const HomePage = (props) => {
   let fetchInitial = async () => {
     await props.read({
-      key: "featured",
-      query: "?category=featured",
-      dispatch_key: "featured",
+      key: "news",
+      query: "?category=top_stories",
+      dispatch_key: "top_stories",
+
       replace: true,
     });
     await props.read({
@@ -163,6 +181,7 @@ const HomePage = (props) => {
       key: "news",
       query: "?category=exclusive",
       dispatch_key: "exclusive_stories",
+
       replace: true,
     });
     await props.read({
@@ -222,15 +241,14 @@ const HomePage = (props) => {
           showFullscreenButton={false}
           items={images}
         /> */}
-
         <StoryBody
-          data={props.featured}
+          data={props.top_stories}
           assigned="react dev 2 9pm"
-          title="FEATURED"
-          title_blue=""
-          link_to={"/news/featured"}
+          title="Top "
+          title_blue="Stories"
+          link_to={"/news/top_stories"}
           handleClick={handleClick}
-          section="featured"
+          section="top_stories"
         />
         <StoryBody
           data={props.must_read}
@@ -273,7 +291,7 @@ const mapStateToProps = (state) => ({
   updated_daily: state.master.updated_daily || [],
   main_page: state.master.main_page || [],
   featured_story: state.master.featured_story || [],
-  featured: state.master.featured || [],
+  top_stories: state.master.top_stories || [],
 });
 
 const mapDispatchToProps = { read };
