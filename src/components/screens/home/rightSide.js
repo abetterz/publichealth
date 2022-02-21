@@ -208,7 +208,7 @@ export default function RightSide(props) {
         <SideBarItems
           assigned="react dev 4 9pm"
           title="Dr. Paul Alexander "
-          title_blue=" Links"
+          title_blue=" Substack"
           hide_see_more={true}
           data={alexander_substack}
           link_to="https://substack.com/profile/58916651-dr-paul-alexander"
