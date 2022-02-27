@@ -53,7 +53,7 @@ export default function RightSide(props) {
     }, []);
     return (
       <Title handleClick={handleClick} link_to={link_to} {...props}>
-        <Row gutter={36}>
+        <Row gutter={36} className="ppp">
           {data.map((item, index) => {
             let default_span = {
               container: {
