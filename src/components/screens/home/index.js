@@ -121,9 +121,8 @@ export const StoryBody = (props) => {
                   <Col
                     ref={(element) => (ref.current[index] = element)}
                     style={{
-                      backgroundImage: `url("${
-                        item.image || item.screenshot
-                      }")`,
+                      backgroundImage: `url("${item.image || item.screenshot
+                        }")`,
                       height,
                     }}
                     span={span.image}

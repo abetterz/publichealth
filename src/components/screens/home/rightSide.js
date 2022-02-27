@@ -1,5 +1,7 @@
-import { Col, Row, Card, Avatar, Divider } from "antd";
-import React from "react";
+import { Col, Row, Card, Avatar, Divider, Tag } from "antd";
+import React, { useState, useEffect, useRef } from "react";
+import moment from "moment";
+import { FA } from "../../../utils/images";
 import NewsletterForm from "./newsletter";
 const { Meta } = Card;
 
@@ -36,6 +38,106 @@ export default function RightSide(props) {
       </Row>
     );
   }
+  const StoryBody = (props) => {
+    const { link_to, data = [], handleClick } = props;
+    const [container, setContainer] = useState({});
+    const ref = useRef({});
+    const initialSetup = async () => {
+      setTimeout(() => {
+        let cont = ref.current();
+        setContainer(cont);
+      }, 4);
+    };
+    useEffect(() => {
+      initialSetup();
+    }, []);
+    return (
+      <Title handleClick={handleClick} link_to={link_to} {...props}>
+        <Row gutter={36}>
+          {data.map((item, index) => {
+            let default_span = {
+              container: {
+                xs: 24,
+                sm: 24,
+                md: index > 1 ? 12 : 24,
+                lg: index > 1 ? 12 : 24,
+                xl: index > 1 ? 8 : 12,
+                xxl: index > 1 ? 8 : 12,
+              },
+              image: 24,
+            };
+
+            let span = item.span || default_span;
+            let author = item.author;
+            if (!author) {
+              let domain = item.link;
+              if (domain) {
+                domain = domain.split(".");
+                author = domain[0] + ".";
+                author = author.split("//");
+                author = author[1];
+                let prefix = (domain[1] && domain[1].split("/")) || [];
+                author += prefix[0];
+              }
+            }
+
+            let gotDate = item.created_at;
+            let date = moment(gotDate).format("MMMM Do YYYY");
+            let width = ref.current[index] && ref.current[index].clientWidth;
+
+            let height = width * 0.5;
+
+            if (isNaN(height)) {
+              height = 150;
+              console.log(container, "getting_height");
+            }
+
+            let categories = [];
+            item.categories &&
+              item.categories.forEach((category, key) => {
+                let output = category.split("_").join(" ");
+                categories.push(
+                  <Tag color={"blue"} key={key}>
+                    {output}
+                  </Tag>
+                );
+              });
+
+            console.log(item, "testing_item_categories");
+            return (
+              <Col key={index} {...span.container} className="article_container">
+                <a target={"_blank"} href={item.link} without rel="noreferrer">
+                  <Row>
+                    <Col
+                      ref={(element) => (ref.current[index] = element)}
+                      style={{
+                        backgroundImage: `url("${item.image || item.screenshot
+                          }")`,
+                        height,
+                      }}
+                      span={span.image}
+                      className="article_image_container"
+                    >
+                      <Row>
+                        <Col className="story_tags_container">{categories}</Col>
+                      </Row>
+                    </Col>
+                    <Col span={span.title} className="article_info_container">
+                      <p className="article_title"> {item.title}</p>
+                      <div className="article_credit_container">
+                        <span> by {author} </span>
+                        <FA icon="far fa-clock" title={date} />
+                      </div>
+                    </Col>
+                  </Row>
+                </a>
+              </Col>
+            );
+          })}
+        </Row>
+      </Title>
+    );
+  };
   const doctors = [
     {
       name: "Paul Elias Alexander, PhD",
@@ -174,6 +276,16 @@ export default function RightSide(props) {
       </Title>
     );
   }
+  const handleClick = async (section) => {
+    console.log(section, "getting_clicks_here");
+
+    await props.read({
+      key: section,
+      dispatch_key: section,
+      query: `?category=${section}&&type=1`,
+      replace: true,
+    });
+  };
 
   return (
     <Row>
@@ -182,6 +294,15 @@ export default function RightSide(props) {
           title="PHN "
           title_blue=" Newsletter"
           hide_loadmore={true}
+        />
+        <StoryBody
+          data={props.top_stories}
+          assigned="react dev 2 9pm"
+          title="Top "
+          title_blue="Stories"
+          link_to={"/news/top_stories"}
+          handleClick={handleClick}
+          section="top_stories"
         />
         <SideBarItems
           assigned="react dev 4 9pm"
