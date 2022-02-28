@@ -296,7 +296,7 @@ export default function RightSide(props) {
           hide_loadmore={true}
         />
         <StoryBody
-          data={props.featured_stories}
+          data={props.top_stories}
           assigned="react dev 2 9pm"
           title="Top "
           title_blue="Stories"
