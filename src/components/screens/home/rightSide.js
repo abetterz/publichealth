@@ -52,9 +52,9 @@ export default function RightSide(props) {
       initialSetup();
     }, []);
     return (
-      <Title handleClick={handleClick} link_to={link_to} {...props}>
+      <Title handleClick={handleClick} link_to={link_to} {...props} className="kkk">
         <Row gutter={36} className="ppp">
-          {data.map((item, index) => {
+          {data.filter((_, index) => index === 0).map((item, index) => {
             let default_span = {
               container: {
                 xs: 24,
