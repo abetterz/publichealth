@@ -296,7 +296,7 @@ export default function RightSide(props) {
           hide_loadmore={true}
         />
         <StoryBody
-          data={props.top_stories}
+          data={props.featured_stories}
           assigned="react dev 2 9pm"
           title="Top "
           title_blue="Stories"
@@ -321,6 +321,13 @@ export default function RightSide(props) {
         />
         <SideBarItems
           assigned="react dev 4 9pm"
+          title="Scientifics "
+          title_blue=" Studies"
+          data={science_substack}
+          link_to="/archives/scientific_studies"
+        />
+        <SideBarItems
+          assigned="react dev 4 9pm"
           title="Dr. Paul Alexander "
           title_blue=" Links"
           hide_see_more={true}
@@ -334,13 +341,6 @@ export default function RightSide(props) {
           data={alexander_covid_overview}
           link_to="/archives/covid_19_overview/"
         /> */}
-        <SideBarItems
-          assigned="react dev 4 9pm"
-          title="Scientifics "
-          title_blue=" Studies"
-          data={science_substack}
-          link_to="/archives/scientific_studies"
-        />
       </Col>
     </Row>
   );
