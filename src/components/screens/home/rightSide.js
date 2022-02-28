@@ -59,10 +59,10 @@ export default function RightSide(props) {
               container: {
                 xs: 24,
                 sm: 24,
-                md: index > 1 ? 12 : 24,
-                lg: index > 1 ? 12 : 24,
-                xl: index > 1 ? 8 : 12,
-                xxl: index > 1 ? 8 : 12,
+                md: index > 1 ? 24 : 24,
+                lg: index > 1 ? 24 : 24,
+                xl: index > 1 ? 24 : 24,
+                xxl: index > 1 ? 24 : 24,
               },
               image: 24,
             };
