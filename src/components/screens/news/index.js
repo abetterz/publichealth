@@ -200,8 +200,8 @@ function Brands(props) {
 const News = (props) => {
   let fetchInitial = async () => {
     await props.read({
-      key: "top_stories",
-      query: `?category=top_stories&&type=1&&limit=48`,
+      key: "news",
+      query: `?category=top_stories`,
 
       replace: true,
     });
@@ -261,7 +261,7 @@ const News = (props) => {
 
   const title = {
     default: {
-      title: "Mosts",
+      title: "Most",
       sub: "Recent News",
     },
     exclusive_stories: {
