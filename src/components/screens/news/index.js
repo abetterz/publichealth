@@ -202,7 +202,6 @@ const News = (props) => {
     await props.read({
       key: "news",
       query: `?category=top_stories`,
-      dispatch_key: "top_stories",
 
       replace: true,
     });
@@ -263,7 +262,7 @@ const News = (props) => {
   const title = {
     default: {
       title: "Most",
-      sub: "Recent NewsA",
+      sub: "Recent News",
     },
     exclusive_stories: {
       title: "PublicHealth.News",
