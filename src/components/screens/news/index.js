@@ -399,6 +399,7 @@ const News = (props) => {
 
 const mapStateToProps = (state) => ({
   recent_news: state.master.news || [],
+  featured_story: state.master.featured_story || [],
   top_stories: state.master.top_stories || [],
 });
 
