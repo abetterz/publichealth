@@ -205,6 +205,32 @@ const News = (props) => {
 
       replace: true,
     });
+    await props.read({
+      key: "news",
+      query: "?category=featured_story",
+      dispatch_key: "featured_story",
+
+      replace: true,
+    });
+    await props.read({
+      key: "news",
+      query: "?category=exclusive",
+      dispatch_key: "exclusive_stories",
+
+      replace: true,
+    });
+    await props.read({
+      key: "news",
+      query: "?category=must_read",
+      dispatch_key: "must_read",
+      replace: true,
+    });
+    await props.read({
+      key: "news",
+      query: "?category=updated_daily",
+      dispatch_key: "updated_daily",
+      replace: true,
+    });
   };
   useEffect(() => {
     fetchInitial();
