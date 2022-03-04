@@ -202,6 +202,7 @@ const News = (props) => {
     await props.read({
       key: "news",
       query: `?category=top_stories`,
+      dispatch_key: "top_stories",
 
       replace: true,
     });
