@@ -201,7 +201,7 @@ const News = (props) => {
   let fetchInitial = async () => {
     await props.read({
       key: "news",
-      query: "?category=top_stories",
+      query: "?category=${section}&&type=1&&limit=48",
       dispatch_key: "top_stories",
 
       replace: true,
@@ -210,6 +210,7 @@ const News = (props) => {
   useEffect(() => {
     fetchInitial();
   }, []);
+
   let { section } = useParams();
 
   console.log(props.recent_news[0], "checking_for_exclusive");
