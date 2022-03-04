@@ -204,9 +204,9 @@ const HomePage = (props) => {
     console.log(section, "getting_clicks_here");
 
     await props.read({
-      key: section,
-      dispatch_key: section,
-      query: `?category=${section}&&type=1`,
+      key: news,
+      dispatch_key: "top_stories",
+      query: `?category=top_stories&&type=1`,
       replace: true,
     });
   };
