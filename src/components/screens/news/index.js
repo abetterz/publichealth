@@ -392,7 +392,7 @@ const News = (props) => {
         />
       </Col>
       <Col {...span.right}>
-        <RightSide {props.recent_news} />
+        <RightSide {...props} />
       </Col>
     </Row>
   );
