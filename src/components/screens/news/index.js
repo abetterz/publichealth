@@ -263,7 +263,7 @@ const News = (props) => {
   const title = {
     default: {
       title: "Most",
-      sub: "Recent News",
+      sub: "Recent NewsA",
     },
     exclusive_stories: {
       title: "PublicHealth.News",
@@ -400,6 +400,7 @@ const News = (props) => {
 
 const mapStateToProps = (state) => ({
   recent_news: state.master.news || [],
+  top_stories: state.master.top_stories || [],
 });
 
 const mapDispatchToProps = { read };
