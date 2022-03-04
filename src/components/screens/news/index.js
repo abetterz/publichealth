@@ -198,14 +198,17 @@ function Brands(props) {
   );
 }
 const News = (props) => {
-  useEffect(() => {
-    props.read({
+  let fetchInitial = async () => {
+    await props.read({
       key: "news",
-      query: "?category=top_stories&&type=1&&limit=48",
+      query: "?category=top_stories",
       dispatch_key: "top_stories",
 
       replace: true,
     });
+  };
+  useEffect(() => {
+    fetchInitial();
   }, []);
   let { section } = useParams();
 
