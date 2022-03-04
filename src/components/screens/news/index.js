@@ -201,7 +201,9 @@ const News = (props) => {
   useEffect(() => {
     props.read({
       key: "news",
-      query: `?category=${section}&&type=1&&limit=48`,
+      query: "?category=top_stories&&type=1&&limit=48",
+      dispatch_key: "top_stories",
+
       replace: true,
     });
   }, []);
