@@ -163,7 +163,7 @@ function Brands(props) {
 const HomePage = (props) => {
   let fetchInitial = async () => {
     await props.read({
-      key: "news",
+      key: "top_stories",
       query: "?category=top_stories",
       dispatch_key: "top_stories",
 
