@@ -298,7 +298,7 @@ export default function RightSide(props) {
         <StoryBody
           data={props.featured_story}
           assigned="react dev 2 9pm"
-          title="Top "
+          title="Featured "
           title_blue="Stories"
           link_to={"/news/top_stories"}
           handleClick={handleClick}
