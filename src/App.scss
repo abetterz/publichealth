@@ -385,3 +385,9 @@ li.alice-carousel__dots-item.__custom {
 .staff_list_container {
   margin-top: 20px;
 }
+.d-none {
+  display: none !important;
+}
+#archives_scientific_studies .article_full_credit_container, #archives_scientific_studies .article_button {
+  display: none;
+}
