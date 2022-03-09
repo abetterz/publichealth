@@ -385,7 +385,7 @@ const News = (props) => {
       <Col {...span.left}>
         {/* <NewsFlash /> */}
         <StoryBody
-          data={props.news}
+          data={props.recent_news}
           title={getTitle.title}
           title_blue={getTitle.sub}
         />
