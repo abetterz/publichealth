@@ -34,26 +34,31 @@ class MainMenu extends React.Component {
         key: "archives",
         title: "Archives",
         submenu: [
-          // {
-          //   link: "archives/reports",
-          //   title: "Reports",
-          //   key: "reports",
-          // },
+          {
+            link: "archives/reports",
+            title: "Reports",
+            key: "reports",
+          },
           {
             link: "archives/video_archives",
             title: "Video Archives",
             key: "video_archives",
           },
-          // {
-          //   link: "archives/covid_boot_camp",
-          //   title: "COVID Boot Camp",
-          //   key: "covid_boot_camp",
-          // },
-          // {
-          //   link: "archives/bootcamp_for_parents",
-          //   title: "Boot Camp for Parents",
-          //   key: "bootcamp_for_parents",
-          // },
+          {
+            link: "archives/printed_archives",
+            title: "Printed Archives",
+            key: "printed_archives",
+          },
+          {
+            link: "archives/covid_boot_camp",
+            title: "COVID Boot Camp",
+            key: "covid_boot_camp",
+          },
+          {
+            link: "archives/bootcamp_for_parents",
+            title: "Boot Camp for Parents",
+            key: "bootcamp_for_parents",
+          },
           {
             link: "archives/scientific_studies",
             title: "Scientific Studies",
