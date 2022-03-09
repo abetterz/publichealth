@@ -83,12 +83,21 @@ export const Report = (props) => {
   return (
     <Row id="archives_scientific_studies">
       <Col {...span.left}>
-        {/* <NewsFlash /> */}
-        <StoryBody
+        <div className="et_pb_text_inner">
+          <h2 className="entry-title">
+            <a href="/report/covid-19-status-update/">
+              COVID-19 Status Update
+            </a>
+          </h2>
+          <p className="post-meta">
+            by Paul E. Alexander, PhD&nbsp;| <span className="published">Jul 1, 2021</span>
+          </p>
+        </div>
+        {/* <StoryBody
           data={reports}
           title={getTitle.title}
           title_blue={getTitle.sub}
-        />
+        /> */}
       </Col>
       <Col {...span.right}>
         <RightSide {...props} />
