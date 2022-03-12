@@ -16,8 +16,41 @@ const Index = (props) => {
   const initialFetch = async () => {
     await props.read({
       key: "news",
-      query: "?limit=2",
-      dispatch_key: "most_recent",
+      dispatch_key: "recent_news",
+      query: "?limit=80000000",
+      replace: true,
+    });
+    await props.read({
+      key: "news",
+      query: "?category=top_stories",
+      dispatch_key: "top_stories",
+
+      replace: true,
+    });
+    await props.read({
+      key: "news",
+      query: "?category=featured_story",
+      dispatch_key: "featured_story",
+
+      replace: true,
+    });
+    await props.read({
+      key: "news",
+      query: "?category=exclusive",
+      dispatch_key: "exclusive_stories",
+
+      replace: true,
+    });
+    await props.read({
+      key: "news",
+      query: "?category=must_read",
+      dispatch_key: "must_read",
+      replace: true,
+    });
+    await props.read({
+      key: "news",
+      query: "?category=updated_daily",
+      dispatch_key: "updated_daily",
       replace: true,
     });
     await props.loadUser();

@@ -121,8 +121,9 @@ export const StoryBody = (props) => {
                   <Col
                     ref={(element) => (ref.current[index] = element)}
                     style={{
-                      backgroundImage: `url("${item.image || item.screenshot
-                        }")`,
+                      backgroundImage: `url("${
+                        item.image || item.screenshot
+                      }")`,
                       height,
                     }}
                     span={span.image}
@@ -149,64 +150,14 @@ export const StoryBody = (props) => {
   );
 };
 
-function Brands(props) {
-  const { assigned } = props;
-  return (
-    <Title {...props}>
-      <Row>
-        <Col>{assigned}</Col>
-      </Row>
-    </Title>
-  );
-}
-
 const HomePage = (props) => {
-  let fetchInitial = async () => {
-    await props.read({
-      key: "news",
-      query: "?category=top_stories",
-      dispatch_key: "top_stories",
-
-      replace: true,
-    });
-    await props.read({
-      key: "news",
-      query: "?category=featured_story",
-      dispatch_key: "featured_story",
-
-      replace: true,
-    });
-    await props.read({
-      key: "news",
-      query: "?category=exclusive",
-      dispatch_key: "exclusive_stories",
-
-      replace: true,
-    });
-    await props.read({
-      key: "news",
-      query: "?category=must_read",
-      dispatch_key: "must_read",
-      replace: true,
-    });
-    await props.read({
-      key: "news",
-      query: "?category=updated_daily",
-      dispatch_key: "updated_daily",
-      replace: true,
-    });
-  };
-  useEffect(() => {
-    fetchInitial();
-  }, []);
-
   const handleClick = async (section) => {
     console.log(section, "getting_clicks_here");
 
     await props.read({
       key: "news",
-      dispatch_key: "top_stories",
-      query: `?category=top_stories&&type=1`,
+      dispatch_key: "recent_news",
+      query: `?category=${section}&&type=1&&limit=100000`,
       replace: true,
     });
   };

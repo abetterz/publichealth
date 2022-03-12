@@ -187,58 +187,11 @@ function SideBarItems(props) {
     </Title>
   );
 }
-function Brands(props) {
-  const { assigned } = props;
-  return (
-    <Title {...props}>
-      <Row>
-        <Col>{assigned}</Col>
-      </Row>
-    </Title>
-  );
-}
+
 const News = (props) => {
-  let fetchInitial = async () => {
-    await props.read({
-      key: "news",
-      query: `?category=top_stories`,
-
-      replace: true,
-    });
-    await props.read({
-      key: "news",
-      query: "?category=featured_story",
-      dispatch_key: "featured_story",
-
-      replace: true,
-    });
-    await props.read({
-      key: "news",
-      query: "?category=exclusive",
-      dispatch_key: "exclusive_stories",
-
-      replace: true,
-    });
-    await props.read({
-      key: "news",
-      query: "?category=must_read",
-      dispatch_key: "must_read",
-      replace: true,
-    });
-    await props.read({
-      key: "news",
-      query: "?category=updated_daily",
-      dispatch_key: "updated_daily",
-      replace: true,
-    });
-  };
-  useEffect(() => {
-    fetchInitial();
-  }, []);
+  useEffect(() => {}, []);
 
   let { section } = useParams();
-
-  console.log(props.recent_news, "checking_for_exclusive");
 
   let span = {
     left: {
@@ -303,9 +256,7 @@ const News = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  recent_news: state.master.news || [],
-  featured_story: state.master.featured_story || [],
-  top_stories: state.master.top_stories || [],
+  recent_news: state.master.recent_news || [],
 });
 
 const mapDispatchToProps = { read };

@@ -18,6 +18,9 @@ let dict = {
     subscribe: {
       api: "/api/members/subscribe",
     },
+    subscribe_sagebrush: {
+      api: "/api/members/subscribe_sagebrush",
+    },
   },
 
   read: {

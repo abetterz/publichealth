@@ -10,7 +10,6 @@ import {
   Row,
 } from "antd";
 import GetOption from "../options";
-import ReactQuill from "react-quill"; // ES6
 import international_phone_number from "../options/phone_numbers";
 import Checkbox from "antd/lib/checkbox/Checkbox";
 
@@ -221,67 +220,67 @@ export const SimpleTextArea = (props) => {
   );
 };
 
-export class SimpleQuill extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { editorHtml: "", theme: "snow" };
-    this.handleChange = this.handleChange.bind(this);
-  }
+// export class SimpleQuill extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = { editorHtml: "", theme: "snow" };
+//     this.handleChange = this.handleChange.bind(this);
+//   }
 
-  handleChange(html) {
-    this.setState({ editorHtml: html });
-    this.props.onChangeFieldQuill({ [this.props.config.name]: html });
-  }
+//   handleChange(html) {
+//     this.setState({ editorHtml: html });
+//     this.props.onChangeFieldQuill({ [this.props.config.name]: html });
+//   }
 
-  render() {
-    let formats = [
-      "header",
-      "font",
-      "size",
-      "bold",
-      "italic",
-      "underline",
-      "strike",
-      "blockquote",
-      "list",
-      "bullet",
-      "indent",
-    ];
+//   render() {
+//     let formats = [
+//       "header",
+//       "font",
+//       "size",
+//       "bold",
+//       "italic",
+//       "underline",
+//       "strike",
+//       "blockquote",
+//       "list",
+//       "bullet",
+//       "indent",
+//     ];
 
-    let modules = {
-      toolbar: [
-        [{ size: [] }],
-        ["bold", "italic", "underline", "strike", "blockquote"],
-        [
-          { list: "ordered" },
-          { list: "bullet" },
-          { indent: "-1" },
-          { indent: "+1" },
-        ],
-        // ["link", "image", "video"],
-        ["clean"],
-      ],
-      clipboard: {
-        // toggle to add extra line breaks when pasting HTML:
-        matchVisual: false,
-      },
-    };
+//     let modules = {
+//       toolbar: [
+//         [{ size: [] }],
+//         ["bold", "italic", "underline", "strike", "blockquote"],
+//         [
+//           { list: "ordered" },
+//           { list: "bullet" },
+//           { indent: "-1" },
+//           { indent: "+1" },
+//         ],
+//         // ["link", "image", "video"],
+//         ["clean"],
+//       ],
+//       clipboard: {
+//         // toggle to add extra line breaks when pasting HTML:
+//         matchVisual: false,
+//       },
+//     };
 
-    return (
-      <div>
-        <ReactQuill
-          theme={this.state.theme}
-          onChange={this.handleChange}
-          value={this.state.editorHtml}
-          modules={modules}
-          formats={formats}
-          bounds={".app"}
-          placeholder={this.props.placeholder}
-        />
-      </div>
-    );
-  }
-}
+//     return (
+//       <div>
+//         <ReactQuill
+//           theme={this.state.theme}
+//           onChange={this.handleChange}
+//           value={this.state.editorHtml}
+//           modules={modules}
+//           formats={formats}
+//           bounds={".app"}
+//           placeholder={this.props.placeholder}
+//         />
+//       </div>
+//     );
+//   }
+// }
 
 export const SimpleBoolean = (props) => {
   let { field_props, config, onClick } = props;
