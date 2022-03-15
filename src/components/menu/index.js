@@ -50,19 +50,14 @@ class MainMenu extends React.Component {
             key: "printed_archives",
           },
           {
-            link: "archives/covid_boot_camp",
-            title: "COVID Boot Camp",
-            key: "covid_boot_camp",
-          },
-          {
-            link: "archives/bootcamp_for_parents",
-            title: "Boot Camp for Parents",
-            key: "bootcamp_for_parents",
-          },
-          {
             link: "archives/scientific_studies",
             title: "Scientific Studies",
             key: "scientific_studies",
+          },
+          {
+            link: "https://gbdeclaration.org/",
+            title: "The Great Barrington Declaration",
+            key: "the_great_barrington_declaration",
           },
         ],
       },
@@ -101,11 +96,22 @@ class MainMenu extends React.Component {
                 key={item.key}
                 title={item.title}
               >
-                {item.submenu.map((sub) => (
-                  <Menu.Item className="main_menu_item" key={sub.key}>
-                    <Link to={sub.link}>{sub.title}</Link>
-                  </Menu.Item>
-                ))}
+                {item.submenu.map((sub) => {
+                  if (sub.link.startsWith("https")) {
+                    return(
+                    <Menu.Item className="main_menu_item" key={sub.key}>
+                      <a href={sub.link}>{sub.title}</a>
+                    </Menu.Item> )
+                  } else {
+                    return (
+                      <Menu.Item className="main_menu_item" key={sub.key}>
+                        <Link to={sub.link}>{sub.title}</Link>
+                      </Menu.Item>
+                    )
+                  }
+                }
+                )
+                }
               </SubMenu>
             );
           } else {

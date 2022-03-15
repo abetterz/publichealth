@@ -5,6 +5,7 @@ import covid_boot_camp from "./covid_boot_camp";
 import scientific_studies from "./scientific_studies";
 import printed_archives from "./printed_archives";
 import covid_19_overview from "./covid_19_overview";
+
 const dict = {
   bootcamp_for_parents,
   reports,
@@ -20,3 +21,6 @@ const GetPage = (dict_key) => {
 };
 
 export default GetPage;
+
+
+
