@@ -201,6 +201,21 @@ export default function RightSide(props) {
     },
   ];
 
+
+
+
+  const alexander_tiktok = [
+    {
+      subtitle:
+        " I am COVID-19 Consultant Researcher in EBM, Research Methodology, and Clinical Epidemiology and I informally provide support to some members of the US Congress.",
+      image:
+        "https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/2b69936a-c043-4317-b71a-b84867777535_2800x2800.png",
+    },
+  ];
+
+
+
+
   const science_substack = [
     {
       link: "https://www.sciencedirect.com/science/article/pii/S2772613421000068",
@@ -299,7 +314,7 @@ export default function RightSide(props) {
           data={props.featured_story}
           assigned="react dev 2 9pm"
           title="Featured "
-          title_blue="Stories"
+          title_blue="Story"
           link_to={"/news/top_stories"}
           handleClick={handleClick}
           section="top_stories"
@@ -334,6 +349,14 @@ export default function RightSide(props) {
           data={alexander_substack}
           link_to="https://substack.com/profile/58916651-dr-paul-alexander"
         />
+        {/* <SideBarItems
+          assigned="react dev 4 9pm"
+          // title="Dr. Paul Alexander "
+          // title_blue=" Links"
+          hide_see_more={true}
+          data={alexander_tiktok}
+          link_to="https://substack.com/profile/58916651-dr-paul-alexander"
+        /> */}
         {/* <SideBarItems
           assigned="react dev 4 9pm"
           title="Covid-19 "
