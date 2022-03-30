@@ -34,11 +34,11 @@ class MainMenu extends React.Component {
         key: "archives",
         title: "Archives",
         submenu: [
-          {
-            link: "archives/reports",
-            title: "Reports",
-            key: "reports",
-          },
+          // {
+          //   link: "archives/reports",
+          //   title: "Reports",
+          //   key: "reports",
+          // },
           {
             link: "archives/video_archives",
             title: "Video Archives",
@@ -98,10 +98,10 @@ class MainMenu extends React.Component {
               >
                 {item.submenu.map((sub) => {
                   if (sub.link.startsWith("https")) {
-                    return(
-                    <Menu.Item className="main_menu_item" key={sub.key}>
-                      <a href={sub.link}>{sub.title}</a>
-                    </Menu.Item> )
+                    return (
+                      <Menu.Item className="main_menu_item" key={sub.key}>
+                        <a href={sub.link}>{sub.title}</a>
+                      </Menu.Item>)
                   } else {
                     return (
                       <Menu.Item className="main_menu_item" key={sub.key}>
