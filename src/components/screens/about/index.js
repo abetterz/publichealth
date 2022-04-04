@@ -75,7 +75,7 @@ export const About = (props) => {
           <Col className="about_us_container" {...credit}>
             <StaffCard />
           </Col>
-          <Col className="about_us_container" {...left_span}>
+          {/* <Col className="about_us_container" {...left_span}>
             <h2>Science Advisor: Dr. Paul Elias Alexander</h2>
             <p>
               Dr. Paul E. Alexander holds a PhD (graduate education from
@@ -109,7 +109,7 @@ export const About = (props) => {
               COVID-19 injection adverse effects/deaths; strong advocate against
               the COVID-19 vaccination of children
             </p>
-          </Col>
+          </Col> */}
 
           <Col className="about_us_em" {...right_span}>
             <Row>
