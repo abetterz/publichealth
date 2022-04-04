@@ -53,10 +53,6 @@ export const About = (props) => {
           />
         }
       >
-        <Meta
-          description="Paul Elias Alexander is a Canadian health researcher and a former Trump administration official at the U.S. Department of Health and Human Services during the COVID-19 pandemic. 
-                "
-        />
       </Card>
     );
   };
