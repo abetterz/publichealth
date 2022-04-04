@@ -1,25 +1,26 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Row, Col, Card } from "antd";
+import logo from '../../../assets/logo.png';
 
 const { Meta } = Card;
 
 export const About = (props) => {
   let credit = {
-    xs: 0,
-    sm: 0,
-    md: 0,
-    lg: 0,
-    xl: 6,
-    xxl: 4,
+    xs: 10,
+    sm: 10,
+    md: 10,
+    lg: 10,
+    xl: 10,
+    xxl: 10,
   };
   let credit_small = {
     xs: 24,
     sm: 24,
     md: 24,
     lg: 24,
-    xl: 0,
-    xxl: 0,
+    xl: 24,
+    xxl: 24,
   };
   let left_span = {
     xs: 24,
@@ -31,12 +32,12 @@ export const About = (props) => {
   };
 
   let right_span = {
-    xs: 24,
-    sm: 24,
-    md: 10,
-    lg: 10,
-    xl: 8,
-    xxl: 8,
+    xs: 30,
+    sm: 30,
+    md: 30,
+    lg: 30,
+    xl: 12,
+    xxl: 12,
   };
 
   const StaffCard = (props) => {
@@ -48,7 +49,7 @@ export const About = (props) => {
         cover={
           <img
             alt="example"
-            src="https://trialsitenews.com/wp-content/uploads/avatars/6335/60a53897bd9e3-bpfull.jpg"
+            src={logo}
           />
         }
       >
@@ -61,7 +62,7 @@ export const About = (props) => {
   };
   return (
     <Row>
-      <Col span={24}>
+      <Col span={30}>
         <Row
           className="page_header_container"
           justify="space-around"
@@ -72,7 +73,7 @@ export const About = (props) => {
           </Col>
         </Row>
         <Row gutter={60}>
-          <Col className="about_us_container" {...credit}>
+          <Col className="" {...credit}>
             <StaffCard />
           </Col>
           {/* <Col className="about_us_container" {...left_span}>
@@ -112,11 +113,7 @@ export const About = (props) => {
           </Col> */}
 
           <Col className="about_us_em" {...right_span}>
-            <Row>
-              <Col className="about_us_container" {...credit_small}>
-                <StaffCard />
-              </Col>
-            </Row>
+            
             <p>
               PublicHealth.news aggregates as much publicly available
               information as we can find to help people make a judgment about
