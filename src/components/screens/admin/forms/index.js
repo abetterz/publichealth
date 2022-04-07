@@ -12,7 +12,7 @@ import {
 } from "antd";
 import ImageUpload from "../../../../utils/imageUpload";
 import GetLists from "../../../generator/lists";
-import { FA } from "../../../../utils/product";
+//import { FA } from "../../../../utils/product";
 import moment from "moment";
 import GetForm from "../../../admin/forms";
 
