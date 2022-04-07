@@ -140,6 +140,14 @@ export default function RightSide(props) {
   };
   const doctors = [
     {
+      name: "Paul Elias Alexander, PhD",
+      link: "https://substack.com/profile/58916651-dr-paul-alexander",
+      image:
+        "https://childrenshealthdefense.org/wp-content/uploads/PaulAlexander.jpg",
+      subtitle:
+        "Paul Elias Alexander is a Canadian health researcher and a former Trump administration official ",
+    },
+    {
       name: "Ryan N. Cole MD",
       link: "https://independentdocsid.com/RyanColeMD",
       image:
@@ -300,6 +308,7 @@ export default function RightSide(props) {
           assigned="react dev 2 9pm"
           title="Featured "
           title_blue="Story"
+          hide_see_more={true}
           link_to={"/news/top_stories"}
           handleClick={handleClick}
           section="top_stories"
@@ -308,6 +317,7 @@ export default function RightSide(props) {
           assigned="react dev 4 9pm"
           title="Scientists "
           title_blue=" and Doctors"
+          hide_see_more={true}
           data={doctors}
           link_to={"/scientists-doctors/index"}
         />
@@ -315,6 +325,7 @@ export default function RightSide(props) {
           assigned="react dev 5 9pm"
           title="Websites "
           title_blue="Links"
+          hide_see_more={true}
           data={domains}
           cardProps={{ avatar: { shape: "square" } }}
           link_to={"/websites/index"}
@@ -323,9 +334,11 @@ export default function RightSide(props) {
           assigned="react dev 4 9pm"
           title="Scientifics "
           title_blue=" Studies"
+          hide_see_more={true}
           data={science_substack}
           link_to="/archives/scientific_studies"
         />
+       
         {/* <SideBarItems
           assigned="react dev 4 9pm"
           // title="Dr. Paul Alexander "
