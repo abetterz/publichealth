@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Row, Col, Card, Avatar } from "antd";
 import { read } from "../../../redux/actions/master";
-import { MakeList } from "../../../utils/list";
+//import { MakeList } from "../../../utils/list";
 
 const { Meta } = Card;
 
