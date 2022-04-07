@@ -28,13 +28,7 @@ export default function RightSide(props) {
           </Divider>
         </Col>
         <Col span={24}>{props.children}</Col>
-        {/*!hide_see_more && (
-          <Col onClick={onClick} span={24}>
-            <a href={link_to}>
-              <div className="load_more">See More</div>
-            </a>
-          </Col>
-        )*/}
+        
       </Row>
     );
   }
