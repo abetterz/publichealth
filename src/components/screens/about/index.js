@@ -113,11 +113,7 @@ export const About = (props) => {
             <p>
               PublicHealth.news aggregates as much publicly available
               information as we can find to help people make a judgment about
-              their health needs during this pandemic. Dr. Paul E. Alexander
-              holds a PhD (graduate education from University of Toronto in
-              epidemiology, Oxford in evidence based medicine, and McMaster in
-              evidence based medicine and research methods, expertise in
-              bioterrorism/biowarfare).
+              their health needs during this pandemic.
             </p>
           </Col>
         </Row>
