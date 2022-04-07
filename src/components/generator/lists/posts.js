@@ -1,4 +1,4 @@
-import { Table, Space, Avatar, Image, Popconfirm, Button } from "antd";
+import { Table, Avatar, Image, Popconfirm, Button } from "antd";
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { read } from "../../../redux/actions/master";
