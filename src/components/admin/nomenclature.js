@@ -17,9 +17,6 @@ const dict = {
   posts: {
     title: "Manage Posts",
   },
-  analytics: {
-    title: "Analytics",
-  },
   scientists: {
     title: "Manage Scientists",
   },

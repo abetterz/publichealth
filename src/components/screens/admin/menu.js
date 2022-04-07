@@ -36,11 +36,6 @@ class AdminMenu extends React.Component {
         title: "Users",
         link: "/admin/users",
       },
-      {
-        key: "analytics",
-        title: "Analytics",
-        link: "/admin/analytics",
-      },
     ];
 
     return (

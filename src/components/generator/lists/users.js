@@ -63,27 +63,6 @@ const columns = {
       filterSearch: true,
     },
   ],
-  analytics: [
-    {
-        title: "Email",
-        dataIndex: "email",
-        sorter: true,
-        // sorter: (a, b) => a.title - b.title,
-        filterSearch: true,
-    },
-    {
-        title: "Login Count",
-        dataIndex: "logincount",
-    },
-    {
-        title: "Changes Made",
-        dataIndex: "changesMade",
-    },
-    {
-        title: "Last Login",
-        dataIndex: "lastLogin",
-    }
-],
   users: [
     {
       title: "Image",

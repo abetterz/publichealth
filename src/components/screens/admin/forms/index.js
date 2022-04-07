@@ -12,7 +12,7 @@ import {
 } from "antd";
 import ImageUpload from "../../../../utils/imageUpload";
 import GetLists from "../../../generator/lists";
-//import { FA } from "../../../../utils/product";
+import { FA } from "../../../../utils/product";
 import moment from "moment";
 import GetForm from "../../../admin/forms";
 
@@ -153,41 +153,34 @@ const PostForm = (props) => {
   let buttonTitle = props.isEdit ? "Update" : "Add New";
 
   return (
-    <Row>     {props.section === 'analytics' ? <></> : <Col {...span_left}>
-    <Form
-      name="basic"
-      initialValues={initialValues || {}}
-      onFinish={handleOnSubmit}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-      layout="vertical"
-      form={form}
-    >
-      <GotForm
-      loading={props.loading}
-      onClickClearFields={onClickClearFields}
-      isEdit={isEdit}
-      SetFieldsValue={SetFieldsValue}
-    />
-    </Form>
-  </Col>}
-  {props.section === 'analytics' ? 
-    <GotList
-      SetFieldsValue={props.SetFieldsValue}
-      onArchieved={onArchieved}
-      handleOnEdit={handleOnEdit}
-      onDrop={props.onDrop}
-      section={props.section}
-    />
-    : <Col {...span_right}>
-    <GotList
-      SetFieldsValue={props.SetFieldsValue}
-      onArchieved={onArchieved}
-      handleOnEdit={handleOnEdit}
-      onDrop={props.onDrop}
-      section={props.section}
-    />
-  </Col>}
+    <Row>
+      <Col {...span_left}>
+        <Form
+          name="basic"
+          initialValues={initialValues || {}}
+          onFinish={handleOnSubmit}
+          onFinishFailed={onFinishFailed}
+          autoComplete="off"
+          layout="vertical"
+          form={form}
+        >
+          <GotForm
+            loading={props.loading}
+            onClickClearFields={onClickClearFields}
+            isEdit={isEdit}
+            SetFieldsValue={SetFieldsValue}
+          />
+        </Form>
+      </Col>
+      <Col {...span_right}>
+        <GotList
+          SetFieldsValue={props.SetFieldsValue}
+          onArchieved={onArchieved}
+          handleOnEdit={handleOnEdit}
+          onDrop={props.onDrop}
+          section={props.section}
+        />
+      </Col>
     </Row>
   );
 };
