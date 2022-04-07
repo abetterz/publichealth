@@ -7,12 +7,16 @@ import { MakeList } from "../../../utils/list";
 const { Meta } = Card;
 
 export const SicentistDoctors = (props) => {
+  console.log('props', props)
   const fetchInitialData = async () => {
-    await props.read({
+    const initialData = await props.read({
       key: "scientists",
       query: "?limit=1000",
       replace: true,
     });
+    if(initialData)
+      console.log('initialData', initialData)
+    //console.log('initialData', initialData)
   };
   useEffect(() => {
     fetchInitialData();
@@ -47,10 +51,10 @@ export const SicentistDoctors = (props) => {
       <a target={"_blank"} rel="noreferrer" href={link}>
         <Card
           hoverable
-          style={{ width: "100%" }}
+          style={{ width: "100%", height: 'auto' }}
           cover={
             <Avatar
-              style={{ width: "100%", height: 250 }}
+              style={{ width: "100%", height: 'auto' }}
               shape="square"
               src={props.image}
             />
