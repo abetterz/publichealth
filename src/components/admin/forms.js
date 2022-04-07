@@ -4,10 +4,9 @@ import websites from "../screens/admin/forms/websites";
 import posts from "../screens/admin/forms/posts";
 import scientists from "../screens/admin/forms/scientists";
 import users from "../screens/admin/forms/users";
-import analytics from "../screens/admin/forms/users";
 
 
-const dict = { login, register, users, websites, posts, scientists, analytics };
+const dict = { login, register, users, websites, posts, scientists };
 
 const GetForm = (dict_key) => {
   let output = dict[dict_key] || dict.login;

@@ -283,6 +283,7 @@ const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
   posts: state.master.posts || [],
   scientists: state.master.scientists || [],
+  analytics: state.master.analytics || [],
   websites: state.master.websites || [],
   users: state.master.users || [],
 });
