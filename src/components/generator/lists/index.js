@@ -2,8 +2,8 @@ import websites from "./websites";
 import posts from "./posts";
 import scientists from "./scientists";
 import users from "./users";
-
-const dict = { users, websites, posts, scientists };
+import analytics from "./analytics";
+const dict = { users, websites, posts, scientists, analytics };
 
 const GetLists = (dict_key) => {
   let output = dict[dict_key] || dict.posts;

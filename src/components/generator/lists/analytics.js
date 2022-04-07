@@ -239,7 +239,7 @@ const GenerateTable = (props) => {
           />
         );
       })}
-      <Column
+      {/*<Column
         title="Action"
         key="action"
         render={(text, record) => (
@@ -274,7 +274,7 @@ const GenerateTable = (props) => {
             </Popconfirm>
           </div>
         )}
-      />
+        />*/}
     </Table>
   );
 };
