@@ -16,6 +16,12 @@ const Index = (props) => {
   const initialFetch = async () => {
     await props.read({
       key: "news",
+      dispatch_key: "most_recent",
+      query: "?limit=2",
+      replace: true,
+    });
+    await props.read({
+      key: "news",
       dispatch_key: "recent_news",
       query: "?limit=80000000",
       replace: true,
@@ -38,7 +44,6 @@ const Index = (props) => {
       key: "news",
       query: "?category=exclusive",
       dispatch_key: "exclusive_stories",
-
       replace: true,
     });
     await props.read({
