@@ -315,6 +315,7 @@ export default function RightSide(props) {
           assigned="react dev 2 9pm"
           title="Featured "
           title_blue="Story"
+          hide_see_more={true}
           link_to={"/news/top_stories"}
           handleClick={handleClick}
           section="top_stories"
@@ -323,6 +324,7 @@ export default function RightSide(props) {
           assigned="react dev 4 9pm"
           title="Scientists "
           title_blue=" and Doctors"
+          hide_see_more={true}
           data={doctors}
           link_to={"/scientists-doctors/index"}
         />
@@ -330,6 +332,7 @@ export default function RightSide(props) {
           assigned="react dev 5 9pm"
           title="Websites "
           title_blue="Links"
+          hide_see_more={true}
           data={domains}
           cardProps={{ avatar: { shape: "square" } }}
           link_to={"/websites/index"}
@@ -338,6 +341,7 @@ export default function RightSide(props) {
           assigned="react dev 4 9pm"
           title="Scientifics "
           title_blue=" Studies"
+          hide_see_more={true}
           data={science_substack}
           link_to="/archives/scientific_studies"
         />
