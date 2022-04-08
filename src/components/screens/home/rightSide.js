@@ -175,6 +175,13 @@ export default function RightSide(props) {
         "Formed by leading critical care specialists in March 2020, at the beginning of the Coronavirus pandemic",
     },
     {
+      name: "America’s Frontline Doctors",
+      link: "https://americasfrontlinedoctors.org/news/",
+      image:
+        "https://upload.wikimedia.org/wikipedia/en/c/c1/America%27s_Frontline_Doctors_official_logo.png",
+      subtitle: "Fighting for Your Medical Freedom.",
+    },
+    {
       image:
         "https://storage.googleapis.com/publichealthnews/covid_19_early.png",
       name: "C19 Early",
@@ -308,7 +315,6 @@ export default function RightSide(props) {
           assigned="react dev 2 9pm"
           title="Featured "
           title_blue="Story"
-          hide_see_more={true}
           link_to={"/news/top_stories"}
           handleClick={handleClick}
           section="top_stories"
@@ -317,7 +323,6 @@ export default function RightSide(props) {
           assigned="react dev 4 9pm"
           title="Scientists "
           title_blue=" and Doctors"
-          hide_see_more={true}
           data={doctors}
           link_to={"/scientists-doctors/index"}
         />
@@ -325,7 +330,6 @@ export default function RightSide(props) {
           assigned="react dev 5 9pm"
           title="Websites "
           title_blue="Links"
-          hide_see_more={true}
           data={domains}
           cardProps={{ avatar: { shape: "square" } }}
           link_to={"/websites/index"}
@@ -334,11 +338,17 @@ export default function RightSide(props) {
           assigned="react dev 4 9pm"
           title="Scientifics "
           title_blue=" Studies"
-          hide_see_more={true}
           data={science_substack}
           link_to="/archives/scientific_studies"
         />
-       
+        <SideBarItems
+          assigned="react dev 4 9pm"
+          title="Dr. Paul Alexander "
+          title_blue=" Links"
+          hide_see_more={true}
+          data={alexander_substack}
+          link_to="https://substack.com/profile/58916651-dr-paul-alexander"
+        />
         {/* <SideBarItems
           assigned="react dev 4 9pm"
           // title="Dr. Paul Alexander "
