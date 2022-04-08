@@ -24,17 +24,17 @@ export default function RightSide(props) {
       <Row>
         <Col className="item_title" span={24}>
           <Divider orientationMargin={0} orientation="left">
-            {full_title}
+          <a href={link_to} style={{textDecoration: "none", color: 'black'}}>{full_title}</a>
           </Divider>
         </Col>
         <Col span={24}>{props.children}</Col>
-        {!hide_see_more && (
+        {/*!hide_see_more && (
           <Col onClick={onClick} span={24}>
             <a href={link_to}>
               <div className="load_more">See More</div>
             </a>
           </Col>
-        )}
+        )*/}
       </Row>
     );
   }
@@ -140,14 +140,6 @@ export default function RightSide(props) {
   };
   const doctors = [
     {
-      name: "Paul Elias Alexander, PhD",
-      link: "https://substack.com/profile/58916651-dr-paul-alexander",
-      image:
-        "https://childrenshealthdefense.org/wp-content/uploads/PaulAlexander.jpg",
-      subtitle:
-        "Paul Elias Alexander is a Canadian health researcher and a former Trump administration official ",
-    },
-    {
       name: "Ryan N. Cole MD",
       link: "https://independentdocsid.com/RyanColeMD",
       image:
@@ -173,13 +165,6 @@ export default function RightSide(props) {
         "https://covid19criticalcare.com/wp-content/uploads/2020/06/FLCCC_Alliance_footer.svg",
       subtitle:
         "Formed by leading critical care specialists in March 2020, at the beginning of the Coronavirus pandemic",
-    },
-    {
-      name: "America’s Frontline Doctors",
-      link: "https://americasfrontlinedoctors.org/news/",
-      image:
-        "https://upload.wikimedia.org/wikipedia/en/c/c1/America%27s_Frontline_Doctors_official_logo.png",
-      subtitle: "Fighting for Your Medical Freedom.",
     },
     {
       image:
@@ -345,14 +330,7 @@ export default function RightSide(props) {
           data={science_substack}
           link_to="/archives/scientific_studies"
         />
-        <SideBarItems
-          assigned="react dev 4 9pm"
-          title="Dr. Paul Alexander "
-          title_blue=" Links"
-          hide_see_more={true}
-          data={alexander_substack}
-          link_to="https://substack.com/profile/58916651-dr-paul-alexander"
-        />
+       
         {/* <SideBarItems
           assigned="react dev 4 9pm"
           // title="Dr. Paul Alexander "
