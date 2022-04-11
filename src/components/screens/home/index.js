@@ -91,7 +91,7 @@ export const StoryBody = (props) => {
             }
           }
 
-          let gotDate = item.created_at;
+          let gotDate = item.published_on;
           let date = moment(gotDate).format("MMMM Do YYYY");
           let width = ref.current[index] && ref.current[index].clientWidth;
 
