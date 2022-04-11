@@ -288,7 +288,7 @@ export default function RightSide(props) {
   };
 
   return (
-    <Row style={{ paddingLeft: "36px" }}>
+    <Row>
       <Col span={24}>
         <NewsLetter
           title="PHN "
