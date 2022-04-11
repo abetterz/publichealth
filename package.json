@@ -23,6 +23,7 @@
     "react-alice-carousel": "^2.5.1",
     "react-analytics-charts": "^1.2.12",
     "react-dom": "^17.0.2",
+    "react-ga": "^3.3.0",
     "react-image-gallery": "^1.2.7",
     "react-places-autocomplete": "^7.3.0",
     "react-redux": "^7.2.6",
