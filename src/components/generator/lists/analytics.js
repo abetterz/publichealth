@@ -1,8 +1,27 @@
-import { Table, Space, Avatar, Image, Popconfirm, Button } from "antd";
-import { useEffect, useState } from "react";
+import {  Table, Space, Avatar, Image, Popconfirm, Button, Row, Col} from "antd";
+import { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { read } from "../../../redux/actions/master";
 import moment from "moment";
+import GAnalytics from "./g-analytics";
+import Title from "antd/lib/typography/Title";
+import ReactGA from 'react-ga';
+import { renderButton, checkSignedIn } from "../../../utils/utils";
+
+import { AnalyticsDashboard } from 'react-analytics-charts';
+// Over ten different commonly used charts are available
+import { SessionsByDateChart, SessionsGeoChart } from 'react-analytics-charts';
+import {
+    useAnalyticsApi,
+    useAuthorize,
+    useDataChart,
+    useSignOut,
+    useViewSelector,
+  } from "react-use-analytics-api";
+
+
+const TRACKING_ID = "UA-224382236-1";
+
 const { Column } = Table;
 
 const title = {
@@ -118,6 +137,78 @@ const columns = {
 
 const GenerateTable = (props) => {
   const [loading, setLoading] = useState();
+    const [isSignedIn, setIsSignedIn] = useState(false);
+    const { ready, gapi, authorized, error } = useAnalyticsApi();
+    const [viewId, setViewId] = useState();
+    const viewSelectorContainerId = "view-selector-container";
+    useViewSelector(
+      authorized ? gapi : undefined,
+      viewSelectorContainerId,
+      (viewId) => setViewId(viewId)
+    );
+    const query = {
+      ids: viewId,
+      "start-date": "28daysAgo",
+      "end-date": "today",
+      metrics: "ga:sessions",
+      dimensions: "ga:date",
+    };
+    const chart = {
+      container: "data-chart-container",
+      type: "LINE",
+      options: {
+        title: "Sessions (28 Days)",
+      },
+    };
+    useDataChart(authorized ? gapi : undefined, query, chart);
+  
+    // Workaround for API limitation - see useAuthorize docs
+    const authDiv = useRef(null);
+    const [authorizeCalled, setAuthorizeCalled] = useState(false);
+    const hasAuthElements =
+      authDiv.current && authDiv?.current?.children?.length > 0;
+  
+    const authorize = useAuthorize(gapi, {
+      clientId: "660582169032-b1t02fpjkuenuip1v0i0q5p6m7uovtgu.apps.googleusercontent.com",
+      container: "container-id",
+    });
+    const signOut = useSignOut(gapi);
+  
+    useEffect(() => {
+      if (ready && !error && !authorizeCalled) {
+        authorize();
+        setAuthorizeCalled(true);
+      }
+    }, [ready, error, authorizeCalled, authorize]);
+
+    useEffect(() => {
+        fetchData();
+        window.gapi.load("auth2", init); //(1)
+    }, []);
+
+    ReactGA.initialize(TRACKING_ID);
+    ReactGA.set({
+        username: localStorage.getItem('userName')
+    });
+
+
+    const updateSignin = (signedIn) => { //(3)
+        setIsSignedIn(signedIn);
+        if (!signedIn) {
+            renderButton();
+        }
+    };
+
+    const init = () => { //(2)
+        checkSignedIn()
+            .then((signedIn) => {
+                updateSignin(signedIn);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    };
+
   const fetchData = async () => {
     try {
       setLoading(true);
@@ -218,6 +309,7 @@ const GenerateTable = (props) => {
   console.log(props.section, "testinging_initialvalues");
 
   return (
+      <>
     <Table style={{ width: "100%" }} dataSource={data}>
       {columns[props.section].map((column) => {
         return (
@@ -276,6 +368,45 @@ const GenerateTable = (props) => {
         )}
         />*/}
     </Table>
+    <Col span={24}>
+                <Row>
+                    <Title level={4}>Google Analytics</Title>
+                </Row>
+                <Row>
+                    <Col span={24}></Col>
+                    <>
+                    {authorized && (
+                        <GAnalytics />
+                    )}
+                        {<div>
+                        {!ready && <div>Loading...</div>}
+                        {ready && (
+                          <div>
+                            {authorized && (
+                              <div>
+                                <div style={{ marginTop: "30px" }}>
+                                  <div className="data-chart" id="data-chart-container" />
+                                </div>
+                                <div id={viewSelectorContainerId} style={{width: '100%'}} />
+                                <div>
+                                  <button onClick={() => signOut()}>Sign Out</button>
+                                </div>
+                              </div> 
+                            )}
+                            {!authorized && (
+                              <div>
+                                <div ref={authDiv} id="container-id"></div>
+                                {!hasAuthElements && <div>🔄 Refresh the page to sign in.</div>}
+                              </div>
+                            )}
+                          </div>
+                        )}
+                        {error && <div>{error.toString()}</div>}
+                      </div>
+                           }</>
+                </Row>
+            </Col>
+    </>
   );
 };
 
