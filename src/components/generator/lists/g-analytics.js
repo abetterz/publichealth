@@ -17,7 +17,7 @@ const GAnalytics = (props) => {
                         reportRequests: [
                             
                             {
-                                viewId: "225455752", //enter your view ID here
+                                viewId: "264717733", //enter your view ID here
                                 dateRanges: [
                                     {
                                         startDate: "10daysAgo",

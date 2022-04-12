@@ -7,7 +7,8 @@ import Title from "antd/lib/typography/Title";
 import ReactGA from 'react-ga';
 import { renderButton, checkSignedIn } from "../../../utils/utils";
 import GAnalytics from "./g-analytics";
-import { AnalyticsDashboard } from 'react-analytics-charts';
+import { AnalyticsDashboard,
+    PageViewsPerPathChart, } from 'react-analytics-charts';
 // Over ten different commonly used charts are available
 import { SessionsByDateChart, SessionsGeoChart } from 'react-analytics-charts';
 import {
@@ -18,7 +19,7 @@ import {
     useViewSelector,
   } from "react-use-analytics-api";
 
-const TRACKING_ID = "UA-310500240-1";
+const TRACKING_ID = "UA-225455752-1";
 const { Column } = Table;
 
 const title = {
@@ -156,7 +157,7 @@ const GenerateTable = (props) => {
 
     useEffect(() => {
         fetchData();
-        window.gapi.load("auth2", init); //(1)
+        //window.gapi.load("auth2", init); //(1)
     }, []);
     let data = props[props.section];
 
@@ -333,39 +334,20 @@ const GenerateTable = (props) => {
                 <Row>
                     <Title level={4}>Google Analytics</Title>
                 </Row>
-                <Row>
-                    <Col span={24}></Col>
-                    <>
-                    {authorized && (
-                        <GAnalytics />
-                    )}
-                        {<div>
-                        {!ready && <div>Loading...</div>}
-                        {ready && (
-                          <div>
-                            {authorized && (
-                              <div>
-                                <div style={{ marginTop: "30px" }}>
-                                  <div className="data-chart" id="data-chart-container" />
-                                </div>
-                                <div id={viewSelectorContainerId} style={{width: '100%'}} />
-                                <div>
-                                  <button onClick={() => signOut()}>Sign Out</button>
-                                </div>
-                              </div> 
-                            )}
-                            {!authorized && (
-                              <div>
-                                <div ref={authDiv} id="container-id"></div>
-                                {!hasAuthElements && <div>🔄 Refresh the page to sign in.</div>}
-                              </div>
-                            )}
-                          </div>
-                        )}
-                        {error && <div>{error.toString()}</div>}
-                      </div>
-                           }</>
-                </Row>
+             
+                    <AnalyticsDashboard style={{ width: "100%" }}
+  authOptions={{ clientId: "660582169032-b1t02fpjkuenuip1v0i0q5p6m7uovtgu.apps.googleusercontent.com" }}
+  renderCharts={(gapi, viewId) => {
+    return <><PageViewsPerPathChart gapi={gapi} viewId={viewId} days={28} />  <SessionsByDateChart
+    gapi={gapi}
+    viewId={viewId}
+    days={28}
+    showPageViews
+    showUsers
+  /></>;
+  }}
+/>
+                    
             </Col>
         </Row>
     );
