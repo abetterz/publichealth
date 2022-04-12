@@ -54,7 +54,8 @@ export const StoryBody = (props) => {
   const ref = useRef({});
   const initialSetup = async () => {
     setTimeout(() => {
-      let cont = ref.current();
+      let cont = ref.current;
+      //console.log(ref);
       setContainer(cont);
     }, 4);
   };

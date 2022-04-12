@@ -44,7 +44,7 @@ export default function RightSide(props) {
     const ref = useRef({});
     const initialSetup = async () => {
       setTimeout(() => {
-        let cont = ref.current();
+        let cont = ref.current;
         setContainer(cont);
       }, 4);
     };

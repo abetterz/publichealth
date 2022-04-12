@@ -15,6 +15,7 @@ const GAnalytics = (props) => {
                     method: "POST",
                     body: {
                         reportRequests: [
+                            
                             {
                                 viewId: "225455752", //enter your view ID here
                                 dateRanges: [
