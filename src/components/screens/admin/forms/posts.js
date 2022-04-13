@@ -277,7 +277,8 @@ const PostForm = (props) => {
             }
             name="image"
           >
-            <ImageUpload SetFieldsValue={props.SetFieldsValue} {...upload} />
+            <ImageUpload name="image"
+ SetFieldsValue={props.SetFieldsValue} {...upload} />
           </Form.Item>
         )}
 

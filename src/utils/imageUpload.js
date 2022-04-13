@@ -21,6 +21,7 @@ const ImageUpload = (props) => {
 
   let handlePhotoUpload = async (value) => {
     let payload = value;
+    console.log("Submit: ",value)
 
     if (field_props.max === 1) {
       payload = value[0];
