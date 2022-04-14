@@ -210,7 +210,7 @@ const PostForm = (props) => {
           Overide Content
         </Button>
 
-        <Form.Item label="Get Image By" name="get_image">
+        <Form.Item label="Get Image/Video By" name="get_image">
           <Radio.Group
             onChange={handleSetImageType}
             style={{ marginBottom: 20 }}
@@ -218,7 +218,7 @@ const PostForm = (props) => {
             size="large"
           >
             <Radio.Button value="external_link">External</Radio.Button>
-
+            <Radio.Button value="video">Video Embed</Radio.Button>
             <Radio.Button value="upload_image">Upload</Radio.Button>
             <Radio.Button value="screenshot">Screenshot</Radio.Button>
             <Radio.Button value="none">None</Radio.Button>
@@ -229,6 +229,40 @@ const PostForm = (props) => {
           <div>We will screenshot the link (default)</div>
         )}
         {imageType === "none" && <div>We will not include an image</div>}
+        {imageType === "external_link" && (
+          <Form.Item
+            label={
+              <FA
+                popover_title="External Link"
+                icon={"fas fa-info-circle"}
+                title="Reference External Link"
+                popover={
+                  "Will not download the image and uploaded to the site. If this image change on the location it is referencing, the image on the site will also change. "
+                }
+              />
+            }
+            name="external_link"
+          >
+            <Input allowClear placeholder="Enter External Link" />
+          </Form.Item>
+        )}
+        {imageType === "video" && (
+          <Form.Item
+            label={
+              <FA
+                popover_title="Video"
+                icon={"fas fa-info-circle"}
+                title="Video must be a Youtube video"
+                popover={
+                  "Video must be a Youtube video"
+                }
+              />
+            }
+            name="video"
+          >
+            <Input allowClear placeholder="Enter Video Link" />
+          </Form.Item>
+        )}
         {imageType === "external_link" && (
           <Form.Item
             label={

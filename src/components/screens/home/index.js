@@ -15,6 +15,8 @@ function NewsFlash() {
   return <div>news flash </div>;
 }
 
+
+
 function Title(props) {
   const { title, title_blue, link_to, handleClick, section, hide_see_more } =
     props;
@@ -55,7 +57,7 @@ export const StoryBody = (props) => {
   const initialSetup = async () => {
     setTimeout(() => {
       let cont = ref.current;
-      //console.log(ref);
+      console.log(ref);
       setContainer(cont);
     }, 4);
   };
@@ -77,6 +79,17 @@ export const StoryBody = (props) => {
             },
             image: 24,
           };
+          var video_id = "";
+
+          if(item.video !== undefined && item.video.includes("youtube")){
+            video_id = item.video.split('v=')[1];
+            var ampersandPosition = video_id.indexOf('&');
+            if(ampersandPosition != -1) {
+              video_id = video_id.substring(0, ampersandPosition);
+            }
+          }
+          
+
 
           let span = item.span || default_span;
           let author = item.author;
@@ -113,27 +126,37 @@ export const StoryBody = (props) => {
                 </Tag>
               );
             });
-
+          console.log(item.link.includes("youtube") ?? 'Working Video: '+item.video);
           console.log(item, "testing_item_categories");
           return (
             <Col key={index} {...span.container} className="article_container">
               <a target={"_blank"} href={item.link} without rel="noreferrer">
                 <Row>
-                  <Col
-                    ref={(element) => (ref.current[index] = element)}
-                    style={{
-                      backgroundImage: `url("${
-                        item.image || item.screenshot
-                      }")`,
-                      height,
-                    }}
-                    span={span.image}
-                    className="article_image_container"
-                  >
-                    <Row>
-                      <Col className="story_tags_container">{categories}</Col>
-                    </Row>
-                  </Col>
+                  <>
+                  {item.video !== undefined && item.video.includes("youtube") ? <iframe ref={(element) => (ref.current[index] = element)} class="article_image_container"
+      width="100%"
+      style={{height:height}}
+      src={`https://www.youtube.com/embed/${video_id}`}
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+      title="Embedded youtube"
+    /> : <Col
+                  ref={(element) => (ref.current[index] = element)}
+                  style={{
+                    backgroundImage: `url("${
+                      item.image || item.screenshot
+                    }")`,
+                    height,
+                  }}
+                  span={span.image}
+                  className="article_image_container"
+                >
+                <Row>
+                <Col className="story_tags_container">{categories}</Col>
+              </Row>
+            </Col>}
+                  </>
                   <Col span={span.title} className="article_info_container">
                     <p className="article_title"> {item.title}</p>
                     <div className="article_credit_container">

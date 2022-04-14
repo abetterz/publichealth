@@ -40,6 +40,17 @@ export const NewCard = (item, index) => {
     },
   };
 
+  var video_id = "";
+
+  if(item.video !== undefined && item.video.includes("youtube")){
+    video_id = item.video.split('v=')[1];
+    var ampersandPosition = video_id.indexOf('&');
+    if(ampersandPosition != -1) {
+      video_id = video_id.substring(0, ampersandPosition);
+    }
+  }
+  
+
   let span = item.span || default_span;
 
   let author = item.author;
@@ -79,19 +90,30 @@ export const NewCard = (item, index) => {
     <Col {...span.container} className="article_container">
       <a target={"_blank"} href={item.link} without rel="noreferrer">
         <Row gutter={24}>
-          <Col
-            ref={(element) => (ref.current[index] = element)}
-            style={{
-              backgroundImage: `url("${image}")`,
-              height,
-            }}
-            {...span.image}
-            className="article_image_container"
-          >
-            <Row>
-              <Col className="story_tags_container">{categories}</Col>
-            </Row>
-          </Col>
+        <>
+                  {item.video !== undefined && item.video.includes("youtube") ? <Col class="ant-col article_image_container ant-col-xs-24 ant-col-sm-24 ant-col-md-24 ant-col-lg-12 ant-col-xl-12 ant-col-xxl-12" style={{padding: '0px',width: '100%'}}><iframe
+      height="185"
+      width="100%"
+      src={`https://www.youtube.com/embed/${video_id}`}
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+      title="Embedded youtube"
+    /></Col> :  <Col
+    ref={(element) => (ref.current[index] = element)}
+    style={{
+      backgroundImage: `url("${image}")`,
+      height,
+    }}
+    {...span.image}
+    className="article_image_container"
+  >
+    <Row>
+      <Col className="story_tags_container">{categories}</Col>
+    </Row>
+  </Col>}
+                  </>
+         
 
           <Col {...span.content} className="article_info_container">
             <p className="article_title"> {item.title}</p>
