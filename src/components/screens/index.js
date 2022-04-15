@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { Row, Col, Input } from "antd";
 import logo from "../../assets/logo.png";
@@ -13,6 +14,16 @@ import { Menu } from "antd";
 import moment from "moment";
 
 const Index = (props) => {
+  var navigate = useNavigate();
+
+  const searched = useRef();
+
+  const searchNews = async () => {
+    console.log(searched.current.input.value);
+    navigate("/in-the-news/search/"+searched.current.input.value);
+    window.scrollTo(0,0);
+  }
+
   const initialFetch = async () => {
     await props.read({
       key: "news",
@@ -264,7 +275,7 @@ const Index = (props) => {
                     <MainMenu />
                   </Col>
                   <Col span={6} className="text_right">
-                    <Input.Search />
+                    <Input.Search ref={searched} placeholder="Search for News" onSearch={()=>searchNews()} />
                   </Col>
                 </Row>
               </Col>

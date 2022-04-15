@@ -5,6 +5,7 @@ import { loadUser } from "../redux/actions/auth";
 import { connect } from "react-redux";
 
 import Home from "../components/screens/home";
+import Search from "../components/screens/news/search";
 import News from "../components/screens/news";
 import Archives from "../components/screens/archives";
 import Websites from "../components/screens/sites";
@@ -21,6 +22,7 @@ function AppRoute(props) {
         <Route path="/news/:section" element={<News />} />
         <Route path="/archives/:section" element={<Archives />} />
         <Route path="/websites/:section" element={<Websites />} />
+        <Route path="/in-the-news/search/:section" element={<Search />} />
         <Route path="/scientists-doctors/:section" element={<Doctors />} />
         <Route path="/about-us/:section" element={<About />} />
         <Route path="/suggestions/:section" element={<Suggestions />} />
