@@ -219,6 +219,13 @@ li.alice-carousel__dots-item.__custom {
   padding-bottom: 10px;
 }
 
+.article_container.solid {
+  margin-bottom: 30px;
+  margin-top: 10px;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
+
 .article_image_container {
   margin-bottom: 12px;
 }
@@ -380,6 +387,11 @@ li.alice-carousel__dots-item.__custom {
   text-transform: uppercase;
   margin-top: 10px;
   margin-left: 10px;
+}
+.story_tags_container.nomargin {
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-left: 0px;
 }
 
 .staff_list_container {
