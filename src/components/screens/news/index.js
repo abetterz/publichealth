@@ -1,4 +1,4 @@
-import React, { createRef, useEffect, useRef } from "react";
+import React, { createRef, useEffect, useRef, useState} from "react";
 import { Row, Col, Divider, Tag } from "antd";
 import Hero from "./carousel";
 import { FA } from "../../../utils/images";
@@ -11,6 +11,8 @@ import moment from "moment";
 import RightSide from "../home/rightSide";
 
 const { Meta } = Card;
+
+
 
 export const NewCard = (item, index) => {
   let default_span = {
@@ -202,8 +204,77 @@ function SideBarItems(props) {
   );
 }
 
+function useOnScreen(ref) {
+  const [isIntersecting, setIntersecting] = useState(false)
+
+  
+  const observer = new IntersectionObserver(
+    ([entry]) => {setIntersecting(entry.isIntersecting);}
+  )
+
+  useEffect(() => {
+    observer.observe(ref.current)
+    // Remove the observer as soon as the component is unmounted
+    return () => { observer.disconnect() }
+  }, [])
+
+  return isIntersecting
+}
+
 const News = (props) => {
-  useEffect(() => {}, []);
+  const [news,setNews] = useState([]);
+  const [limit,setLimit] = useState(12);
+  const listInnerRef = useRef();
+
+
+ 
+
+  const ref = useRef()
+
+  var fetchData = async ()=> {
+  
+    var res = await props.read({
+        key: "news",
+        query: `?limit=${limit}`,
+        replace: true,
+      });
+      setNews(res.data);
+};
+
+const isVisible = useOnScreen(ref);
+
+
+const onScroll = () => {
+  if (listInnerRef.current) {
+    const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
+    if (scrollTop + clientHeight === scrollHeight) {
+      // TO SOMETHING HERE
+      console.log('Reached bottom')
+    }
+  }
+};
+
+  const handleScroll = (e) => {
+    const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
+    if (bottom) {
+      //setLimit
+    }
+  }
+
+
+  useEffect(() => {fetchData()}, []);
+  useEffect(() => {
+    if(news.length > 11){
+      var newInc = limit + 12;
+      console.log(newInc);
+      setLimit(newInc);
+      fetchData()
+    }
+    if (limit === props.recent_news.length){
+
+    }
+  }, [isVisible]);
+
 
   let { section } = useParams();
 
@@ -253,14 +324,15 @@ const News = (props) => {
 
   console.log(props.recent_news);
   return (
-    <Row gutter={24}>
+    <Row gutter={24} onScroll={onScroll}  ref={listInnerRef}>
       <Col {...span.left}>
         {/* <NewsFlash /> */}
         <StoryBody
-          data={props.recent_news}
+          data={news}
           title={getTitle.title}
           title_blue={getTitle.sub}
         />
+        <div ref={ref}>{isVisible && `Loading...`}</div>
       </Col>
       <Col {...span.right}>
         <RightSide {...props} />
