@@ -168,7 +168,7 @@ export default function RightSide(props) {
     },
     {
       image:
-        "https://storage.googleapis.com/publichealthnews/covid_19_early.png",
+        "https://i.postimg.cc/gjkpkv41/covid.jpg",
       name: "C19 Early",
       link: "https://c19early.com/",
 
