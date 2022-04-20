@@ -226,6 +226,8 @@ const News = (props) => {
   const [limit,setLimit] = useState(12);
   const listInnerRef = useRef();
 
+  let { section } = useParams();
+
 
  
 
@@ -235,7 +237,7 @@ const News = (props) => {
   
     var res = await props.read({
         key: "news",
-        query: `?limit=${limit}`,
+        query: section == 'index' ? `?limit=${limit}` : `?limit=${limit}&&category=${section}` ,
         replace: true,
       });
       setNews(res.data);
@@ -276,7 +278,6 @@ const onScroll = () => {
   }, [isVisible]);
 
 
-  let { section } = useParams();
 
   let span = {
     left: {
