@@ -21,6 +21,9 @@ let dict = {
     subscribe_sagebrush: {
       api: "/api/members/subscribe_sagebrush",
     },
+    memberslist: {
+      api: "/api/members/allmembers",
+    },
   },
 
   read: {

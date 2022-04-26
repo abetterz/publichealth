@@ -100,7 +100,7 @@ const GenerateTable = (props) => {
     const [isSignedIn, setIsSignedIn] = useState(false);
     const { ready, gapi, authorized, error } = useAnalyticsApi();
     const [viewId, setViewId] = useState();
-    const viewSelectorContainerId = "view-selector-container";
+    /*const viewSelectorContainerId = "view-selector-container";
     useViewSelector(
       authorized ? gapi : undefined,
       viewSelectorContainerId,
@@ -139,7 +139,7 @@ const GenerateTable = (props) => {
         authorize();
         setAuthorizeCalled(true);
       }
-    }, [ready, error, authorizeCalled, authorize]);
+    }, [ready, error, authorizeCalled, authorize]);*/
 
     const fetchData = async () => {
         try {
@@ -241,10 +241,10 @@ const GenerateTable = (props) => {
     };
     console.log(props.section, "testinging_initialvalues");
 
-    ReactGA.initialize(TRACKING_ID);
-    ReactGA.set({
+    //ReactGA.initialize(TRACKING_ID);
+    /*ReactGA.set({
         username: localStorage.getItem('userName')
-    });
+    });*/
 
     const updateSignin = (signedIn) => { //(3)
         setIsSignedIn(signedIn);

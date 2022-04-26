@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Row, Col, Input } from "antd";
+import { Row, Col, Input, Button } from "antd";
 import AdminMenu from "./menu";
 import GetNomenclature from "../../admin/nomenclature";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
@@ -184,6 +184,15 @@ export const AdminPanel = (props) => {
           </Col>
           <Col {...span_right}>
             <SearchSystem value={searchEntry} />
+          </Col>
+          <Col>
+          <Button
+                                        type="primary"
+                                        block
+                                        onClick={() => window.location.replace("https://public-health-backend.herokuapp.com/api/members/allmembers")}
+                                        size="small"
+                                        className="action_btn"
+                                    >Get Members List via Email</Button>
           </Col>
         </Row>
       </Col>
