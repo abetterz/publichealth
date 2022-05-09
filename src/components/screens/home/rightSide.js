@@ -184,7 +184,7 @@ export default function RightSide(props) {
     },
     {
       name: "Freedom of Pain",
-      link: "https://freedomfrompain.com"
+      link: "https://freedomfrompain.co"
     }
   ];
 
