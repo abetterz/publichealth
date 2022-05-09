@@ -183,7 +183,7 @@ export default function RightSide(props) {
         "Treatments do not replace vaccines and other measures. All practical, effective, and safe means should be used. Elimination is a race against viral evolution.",
     },
     {
-      name: "Freedom of Pain",
+      name: "Freedom From Pain",
       image: 'https://i.postimg.cc/Znn48xpj/F.png',
       link: "https://freedomfrompain.co",
       subtitle: "Freedom From Pain is a website devoted to discovering more healthy alternative lifestyle choices to improve one's general health and well-being."
