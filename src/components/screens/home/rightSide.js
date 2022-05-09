@@ -184,7 +184,9 @@ export default function RightSide(props) {
     },
     {
       name: "Freedom of Pain",
-      link: "https://freedomfrompain.co"
+      image: 'https://i.postimg.cc/Znn48xpj/F.png',
+      link: "https://freedomfrompain.co",
+      subtitle: "Freedom From Pain is a website devoted to discovering more healthy alternative lifestyle choices to improve one's general health and well-being."
     }
   ];
 
