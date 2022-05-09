@@ -81,10 +81,6 @@ class MainMenu extends React.Component {
         key: "suggestions",
         title: "Suggestions",
       },
-      {
-        link: "https://freedomfrompain.co",
-        title: "Freedom From Pain",
-      },
     ];
     return (
       <Menu onClick={handleClick} mode="horizontal">
