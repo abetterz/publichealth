@@ -23,7 +23,7 @@ class MainMenu extends React.Component {
         link: "/",
         title: "Home",
         key: "home",
-      },
+      },  
       {
         link: "news/index",
         title: "News",
@@ -81,6 +81,10 @@ class MainMenu extends React.Component {
         key: "suggestions",
         title: "Suggestions",
       },
+      {
+        link: "https://freedomfrompain.co",
+        title: "Freedom From Pain",
+      },
     ];
     return (
       <Menu onClick={handleClick} mode="horizontal">
@@ -101,7 +105,9 @@ class MainMenu extends React.Component {
                     return (
                       <Menu.Item className="main_menu_item" key={sub.key}>
                         <a href={sub.link}>{sub.title}</a>
-                      </Menu.Item>)
+                      </Menu.Item>
+                    
+              )
                   } else {
                     return (
                       <Menu.Item className="main_menu_item" key={sub.key}>
@@ -112,6 +118,7 @@ class MainMenu extends React.Component {
                 }
                 )
                 }
+               
               </SubMenu>
             );
           } else {

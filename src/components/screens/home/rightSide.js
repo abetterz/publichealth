@@ -157,6 +157,13 @@ export default function RightSide(props) {
     },
   ];
 
+  const freedom = [
+    {
+      name: "Freedom of Pain",
+      link: "https://freedomfrompain.co",
+    },
+  ];
+
   const domains = [
     {
       name: "Front Line COVID-19 Critical Care Alliance",
@@ -175,6 +182,10 @@ export default function RightSide(props) {
       subtitle:
         "Treatments do not replace vaccines and other measures. All practical, effective, and safe means should be used. Elimination is a race against viral evolution.",
     },
+    {
+      name: "Freedom of Pain",
+      link: "https://freedomfrompain.com"
+    }
   ];
 
   const alexander_substack = [
@@ -330,7 +341,6 @@ export default function RightSide(props) {
           data={science_substack}
           link_to="/archives/scientific_studies"
         />
-       
         {/* <SideBarItems
           assigned="react dev 4 9pm"
           // title="Dr. Paul Alexander "
